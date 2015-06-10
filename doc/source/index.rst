@@ -3,20 +3,30 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to OpenStack Project Team Guide's documentation!
-========================================================
+==============================
+ OpenStack Project Team Guide
+==============================
 
 Contents:
 
 .. toctree::
    :maxdepth: 2
 
+   introduction
+   open-source
+   open-community
+   open-design
+   open-development
+   release-management
+   stable-branches
+   vulnerability-management
+   testing
+   oslo
+   documentation
 
-
-Indices and tables
-==================
+====================
+ Indices and tables
+====================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
-
