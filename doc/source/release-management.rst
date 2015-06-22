@@ -92,8 +92,8 @@ in the last month of the cycle). A stable branch is cut from that proposed
 version, and the master branch will from then on produce releases of the
 new development cycle. If a critical issue is found in the "final release",
 backports can be pushed to the stable branch and a new "final release" be
-tagged there. That is why it is important to switch the Y component of the
-X.Y.Z version when we switch to the next development cycle, so that the Z
+tagged there. That is why it is important to increment at least the Y component
+of the X.Y.Z version when we switch to the next development cycle, so that the Z
 component can be used in future tags on the stable branch.
 
 While the release management team will not enforce a formal feature-frozen
@@ -106,7 +106,47 @@ given development cycle is as usable and bug-free as it can be.
 Libraries release model
 =======================
 
-...
+OpenStack library projects follow the independent release model
+described above, including the use of stable branches. They use a
+variation of `semantic versioning`_ (or SemVer) rules to choose
+version numbers. Library releases may be managed by the Release
+Management team, or by the liaison from the project team.
+
+Releases occur as often as weekly (or more), and are typically
+scheduled for early in the day and early in the week, based on the
+time zone of the library maintainers. This scheduling gives the
+maintainers plenty of time to handle issues that arise after a new
+release is made to minimize the duration of any outage, without
+requiring extra effort outside of a normal work week by overlapping
+with the weekend.
+
+Releases are created by pushing a *signed* tag to the gerrit
+repository where the library is managed. The CI system recognizes the
+new signed tag, and triggers the jobs that build the packages and
+upload them to the distribution servers (our tarball site and the
+Python Package Index).
+
+The release scripts also manage milestones within the Launchpad page
+for the project, recording the release date and completed work.
+Project that track the work that will land in an upcoming release can
+use the special milestone name "``next-$SERIES``", which will be
+renamed as a release is created. If no ``next-$SERIES`` milestone
+exists, a new empty milestone is created and then the fixed bugs and
+closed blueprints not already associated with a milestone are moved
+into the new milestone.
+
+Announcing each library release is an important part of the process,
+because new versions may introduce instability into the test
+systems. The release notes for each library version are generated
+automatically and sent to the openstack-announce mailing list as part
+of the release process.
+
+For more details about setting up a repository to support automated
+releases, see the `Repository Creator's Guide`_ from the
+*Infrastructure User Manual*.
+
+.. _Repository Creator's Guide: http://docs.openstack.org/infra/manual/creators.html
+.. _semantic versioning: http://docs.openstack.org/developer/pbr/semver.html
 
 Feature branches
 ================
