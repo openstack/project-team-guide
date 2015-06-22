@@ -8,13 +8,16 @@ enable an open development environment, and are a key component of a successful
 open source project. An OpenStack project should follow this model to ensure
 its success and growth in the OpenStack ecosystem.
 
+.. _irc-meetings:
+
 Public Meetings on IRC
 ======================
 
-OpenStack projects are required to have team meetings on Freenode in one of the
-publicly logged team meeting channels managed by the OpenStack infrastructure
-team. As part of working in an open community, the logging of meetings allows
-those who cannot participate at the meeting's designated time to read the logs
+OpenStack projects are required to have team meetings on the Freenode
+:term:`IRC` network in one of the publicly logged team meeting
+channels managed by the OpenStack infrastructure team. As part of
+working in an open community, the logging of meetings allows those who
+cannot participate at the meeting's designated time to read the logs
 and participate asynchronously.
 
 Worth noting is the fact the OpenStack infrastructure team maintains four
@@ -27,6 +30,8 @@ most meetings took similar timeslots.
 To schedule a team meeting, please go to the eavesdrop_ site and follow the
 instructions there. All meeting reservations are managed through gerrit
 in the `IRC meetings`_ repository.
+
+.. _irc-channels:
 
 Project IRC Channels
 ====================
@@ -93,6 +98,8 @@ the cycle.
 
 To list your blog in the Planet OpenStack aggregator, follow the steps outlined
 on the wiki for `adding your blog`_.
+
+.. _ptl-duties:
 
 Technical Committee and PTL Elections
 =====================================

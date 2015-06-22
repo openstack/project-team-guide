@@ -23,6 +23,7 @@ Contents:
    testing
    oslo
    documentation
+   glossary
 
 ====================
  Indices and tables

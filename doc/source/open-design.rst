@@ -14,6 +14,8 @@ OpenStack development cycles are named alphabetically (Austin, Bexar, Cactus,
 Diablo...) and may result in one or more releases. Stable branches (see the
 chapter on :doc:`Stable Branches </stable-branches>`) are only cut once though, from the last release of a given deliverable for that development cycle.
 
+.. _design-summit:
+
 Design Summit
 =============
 
@@ -131,6 +133,7 @@ your session on time, so that they can easily jump to another room. Vacate the
 room at the end of the session, and continue the discussion in the hallway if
 necessary.
 
+.. _midcycles:
 
 Midcycle sprints
 ================
