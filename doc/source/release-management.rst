@@ -8,30 +8,35 @@ by those services. Some are supporting cast and tools. Most of those
 are formally "released" at given points. We call those "deliverables", and
 use git tags to define the release points.
 
-OpenStack deliverables can be released under various models. They all follow
-the common 6-month development cycle, but may release more than once during
-those cycles. The release management team manages the release process for
-a selection of project teams repositories (indicated by the release:managed
+OpenStack deliverables can be released under three different models. Most
+follow a common 6-month development cycle, with some releasing intermediary
+releases within that. The release management team manages the release process
+for a selection of project teams repositories (indicated by the release:managed
 tag) and provide tools for other teams and repositories to do self-service
 releases.
 
-Common time-based release model
-===============================
 
-By default, most OpenStack services opt to follow the common, time-based
-release model. It is recommended at the earlier stages of development, when
+Release models
+==============
+
+Common cycle with development milestones
+----------------------------------------
+
+By default, most OpenStack services opt to follow a common, time-based
+release model. It results in a single release at the end of the development
+cycle. It is recommended at the earlier stages of development, when
 it is difficult to commit to multiple upgrade paths and large features or
 architectural refactors are still common.
 
 Projects following that model use a pre-version numbering scheme. If the
 final release will be called 5.0.0, intermediary milestones will be called
-5.0.0b1, 5.0.0rc2 etc.
+5.0.0.0b1, 5.0.0.0rc2 etc.
 
-The common 6-month time-based release cycle includes 3 development milestones,
-called $series-1, $series-2 and $series-3. Those make useful reference points
-in time to organize the development cycle. Project teams may, for example,
-set specific deadlines that match those dates. b1, b2 and b3 tags are pushed
-to the repositories to clearly mark those reference points in the git
+This time-based release model includes 3 development milestones, called
+``$SERIES-1``, ``$SERIES-2`` and ``$SERIES-3``. Those make useful reference
+points in time to organize the development cycle. Project teams may, for
+example, set specific deadlines that match those dates. b1, b2 and b3 tags are
+pushed to the repositories to clearly mark those reference points in the git
 history.
 
 The dates for the milestones and final release in a given development cycle
@@ -73,28 +78,30 @@ candidate and the final version, apart from the version number. The stable
 branch passes under stable maintenance team management, and is open for
 backports following the stable branch rules.
 
+Common cycle with intermediary releases
+---------------------------------------
 
-Independent release model
-=========================
-
-Projects which want to do a formal release more often may opt for an
-independent model. This is especially suitable to more stable projects
-which add a limited set of new features and don't plan to go through large
-architectural changes. Getting the latest and greatest out as often as
+Projects which want to do a formal release more often, but still want to
+coordinate a release at the end of the cycle from which to maintain a stable
+branch may opt for this model. This is especially suitable to more stable
+projects which add a limited set of new features and don't plan to go through
+large architectural changes. Getting the latest and greatest out as often as
 possible, while ensuring stability and upgradeability.
 
 Projects following this model do not use intermediary development milestones.
 They may tag new versions at any point in time during the development cycle.
-They do not use Feature Freeze, they do not go through a RC cycle.
+They do not use Feature Freeze, they do not go through a RC cycle. They use
+a post-version semver-based numbering scheme, where every tag is a X.Y.Z
+version.
 
 Those projects must tag a final version for a development cycle (generally
 in the last month of the cycle). A stable branch is cut from that proposed
 version, and the master branch will from then on produce releases of the
-new development cycle. If a critical issue is found in the "final release",
-backports can be pushed to the stable branch and a new "final release" be
+next development cycle. If a critical issue is found in the "final release",
+backports can be pushed to the stable branch and a new release be
 tagged there. That is why it is important to increment at least the Y component
-of the X.Y.Z version when we switch to the next development cycle, so that the Z
-component can be used in future tags on the stable branch.
+of the X.Y.Z version when we switch to the next development cycle, so that the
+Z component can be used in future tags on the release (or stable) branch.
 
 While the release management team will not enforce a formal feature-frozen
 period for projects in an independent release model, it is recommended to
@@ -102,12 +109,22 @@ focus on bugfixes and hold on major disruptive features as you get closer
 to the end of a development cycle, to ensure that the final release of any
 given development cycle is as usable and bug-free as it can be.
 
+Independent release model
+-------------------------
 
-Libraries release model
-=======================
+Deliverables that do not benefit from a coordinated release or from stable
+branches may opt to follow a completely independent release model.
 
-OpenStack library projects follow the independent release model
-described above, including the use of stable branches. They use a
+Versions are tagged from the master branch without any specific constraint,
+although the usage of a post-version numbering scheme based on
+`semantic versioning`_ is strongly recommended.
+
+
+Libraries release process
+=========================
+
+OpenStack library projects follow the "common cycle with intermediary releases"
+model described above, including the use of stable branches. They use a
 variation of `semantic versioning`_ (or SemVer) rules to choose
 version numbers. Library releases may be managed by the Release
 Management team, or by the liaison from the project team.
@@ -147,8 +164,3 @@ releases, see the `Repository Creator's Guide`_ from the
 
 .. _Repository Creator's Guide: http://docs.openstack.org/infra/manual/creators.html
 .. _semantic versioning: http://docs.openstack.org/developer/pbr/semver.html
-
-Feature branches
-================
-
-...
