@@ -35,6 +35,8 @@ OpenStack Design Summits have several goals:
 * For features that are being implemented, get it through the final
   implementation stages and engage with potential contributors and testers
 * Get alignment on project team priorities for the upcoming development cycle
+* Make quick progress on issues that are difficult to solve otherwise, by
+  getting the right set of people working on it together at the same time
 * Meet in person with fellow contributors, socialize in the hallway track or
   evening events, reset relationships after heated online discussions
 
