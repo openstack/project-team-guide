@@ -19,6 +19,7 @@ Contents:
    open-development
    release-management
    stable-branches
+   other-branches
    vulnerability-management
    testing
    oslo
