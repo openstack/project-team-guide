@@ -8,12 +8,14 @@ The origin
 OpenStack was created during the first months of 2010. Rackspace wanted to
 rewrite the infrastructure code running its Cloud servers offering, and
 considered open sourcing the existing Cloud files code. At the same time,
-Anso Labs (contracting for NASA) had published Nova.cc, a Python-based
-compute infrastructure-as-a-service proof-of-concept.
+Anso Labs (contracting for NASA) had published beta code for `Nova`_, a
+Python-based "cloud computing fabric controller".
 
 Both efforts converged and formed the base for OpenStack. The first Design
-Summit was held in Austin, TX mid-July 2010, and the project was officially
-announced at OSCON July 21st, 2010.
+Summit was held in Austin, TX on July 13-14, 2010, and the project was
+officially announced at OSCON in Portland, OR, on July 21st, 2010.
+
+.. _Nova: https://web.archive.org/web/20100620230941/http://novacc.org/
 
 
 The mission
@@ -105,17 +107,17 @@ to their project for the first time.
 The OpenStack Foundation
 ------------------------
 
-In September 2012, the OpenStack Foundation was launched as an independent
+In September 2012, the `OpenStack Foundation`_ was launched as an independent
 body providing shared resources to protect, empower, and promote OpenStack
 software and the community around it.
 
 The reponsibilities of the Project Policy Board were split between two bodies:
 
-* The Foundation board of directors, which defines the objectives of the
+* The Foundation `Board of Directors`_, which defines the objectives of the
   OpenStack Foundation, controls how the Foundation budget is spent, and
   has authority on the OpenStack trademark
 
-* The Technical Committee, which manages the technical matters and has
+* The `Technical Committee`_, which manages the technical matters and has
   authority over the open source upstream OpenStack Project
 
 The Technical Committee was originally formed by all the PTLs + five members
@@ -124,3 +126,6 @@ growth in the number of project teams and PTLs, the Technical Committee
 decided to switch to 13 directly-elected members instead. Half of those are
 renewed every 6 months.
 
+.. _OpenStack Foundation: http://www.openstack.org/foundation/
+.. _Board of Directors: http://www.openstack.org/foundation/board-of-directors/
+.. _Technical Committee: http://governance.openstack.org/
