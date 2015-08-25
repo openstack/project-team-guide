@@ -117,4 +117,4 @@ same.
 
 Just like OpenStack's documentation, the merged specs are rendered and
 published on-line. The url where they can be found is
-`http://specs.openstack.org`.
+http://specs.openstack.org .
