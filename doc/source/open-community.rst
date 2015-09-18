@@ -144,6 +144,13 @@ The PTL for each project team is elected on a 6-month term. Thus, the project
 will have an election every 6 months to determine the leader of the project
 for the upcoming 6-month cycle.
 
+The electorate for elections (both PTL and TC) are the active contributors
+to a project or projects. If your project is a git repository and all active
+contributors submit patches to gerrit, their work will be automatically
+acknowledged for elections. Should you have any contributors who support
+your project in a way not reflected in gerrit, edit the extra-atcs file
+in the openstack/governance repo.
+
 OpenStack uses a Condorcet_ voting system for all Technical elections. This
 includes both the TC as well as PTL positions. The elections are run by a
 trusted team of election officials from the community who make election
