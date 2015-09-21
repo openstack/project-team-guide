@@ -3,14 +3,14 @@
 ===============
 
 The OpenStack documentation team supports developers and authors in
-writing documentation for a number of audiences.  As is the case with
+writing documentation for a number of audiences. As is the case with
 most horizontal teams, the documentation team is not there to write
 documentation on behalf of projects, but will assist them and help
 coordinate standards across all of the projects.
 
 OpenStack documentation serves a number of audiences: contributors to
 OpenStack, developers building applications on top of OpenStack, and
-operators of OpenStack clouds.  Each project has a role in providing
+operators of OpenStack clouds. Each project has a role in providing
 documentation to all of those audiences, though the nature of that
 role varies.
 
@@ -22,8 +22,8 @@ Documentation for Contributors
 ==============================
 
 OpenStack projects maintain their own documentation for their
-contributors.  This includes code comments as well as narrative and
-reference documentation.  Contributor documentation is maintained
+contributors. This includes code comments as well as narrative and
+reference documentation. Contributor documentation is maintained
 within the project's own git repository and is written in
 reStructuredText.
 
@@ -31,20 +31,23 @@ Documentation for Developers
 ============================
 
 OpenStack APIs are documented for the use of developers writing
-applications that interact with OpenStack components.  These are
-typically managed in separate repositories of reStructuredText with
-close coordination between the docs team and project teams.
+applications that interact with OpenStack components. These docs are
+typically written in an REST API reference format such as WADL or Swagger
+and published to `developer.openstack.org <http://developer.openstack.org>`_. The API working group has published
+`guidelines for OpenStack APIs <http://specs.openstack.org/openstack/api-wg/#guidelines>`_.
 
 Documentation for Operators
 ===========================
 
 Full length operating manuals for OpenStack are managed in their own
-repositories and are written using DocBook XML.  Often these manuals
-are authored by operators themselves, with help from project teams.
+repositories and are written using RST except for the Operations Guide,
+which is authored in DocBook XML. Often these manuals are authored by operators
+themselves, with help from project teams.
 
 How to Contribute Documentation
 ===============================
 
 The documentation team maintains a wiki page with instructions on `how
 to contribute documentation
-<https://wiki.openstack.org/wiki/Documentation/HowTo>`_.
+<https://wiki.openstack.org/wiki/Documentation/HowTo>`_. To look up the source
+for a particular document, refer to the `content specification page <https://wiki.openstack.org/wiki/Documentation/ContentSpecs>`_.
