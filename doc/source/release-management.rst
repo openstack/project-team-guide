@@ -51,6 +51,13 @@ Feature Freeze Exceptions ("FFE") may be requested by PTLs to the Release
 managers. As we get closer to the release date, those are less likely to get
 accepted.
 
+At the same time as Feature Freeze, is Soft String Freeze. Translators start
+to translate the strings after ``$SERIES-3``. To aid their work, it is
+important to avoid changing existing strings, as this will invalidate some of
+their translation work. New strings are allowed for things like new log
+messages, as in many cases leaving those strings untranslated is better than
+not having any message at all.
+
 After the $series-3 milestone, a list of release-critical bugs is built, and
 when all those are fixed (or considered not-release-critical after all), a
 first release candidate is tagged (rc1). This RC1 will be used as-is as the
@@ -61,6 +68,12 @@ After RC1 is tagged, a stable/$series branch is cut from that same commit.
 That is where further release candidates (and the final release) will be
 tagged. The master branch starts on the new development cycle and is no
 longer feature-frozen.
+
+After RC1 is tagged, that project hits a Hard String Freeze. At this point the
+translation team tries to complete the translation before the final release.
+Any string changes after RC1 should be discussed with the translation
+team. It is expected that at least 10 working days after RC1 there will be
+another milestone tagged that includes the latest translations.
 
 Potential new release critical issues have first to get fixed on the master
 branch. Once merged in master, based on their severity and the risk of
