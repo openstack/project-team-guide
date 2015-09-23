@@ -132,6 +132,8 @@ Versions are tagged from the master branch without any specific constraint,
 although the usage of a post-version numbering scheme based on
 `semantic versioning`_ is strongly recommended.
 
+.. _library-release-process-managed:
+
 Libraries release process, managed projects
 ===========================================
 
@@ -185,3 +187,61 @@ releases, see the `Repository Creator's Guide`_ from the
 
 .. _Repository Creator's Guide: http://docs.openstack.org/infra/manual/creators.html
 .. _semantic versioning: http://docs.openstack.org/developer/pbr/semver.html
+
+
+Release Liaisons
+================
+
+As with other cross-project teams, the release management team relies
+on a liaison from each participating project to help with coordination
+and release-related tasks. The liaison is usually the PTL, but the PTL
+can also delegate the responsibilities to someone else on the team by
+updating the liaison list on the CrossProjectLiaisons_ wiki page.
+
+.. _CrossProjectLiaisons: https://wiki.openstack.org/wiki/CrossProjectLiaisons
+
+Liaison Responsibilities
+------------------------
+
+The liaison does not have to personally do all of these things, but
+must ensure they are done by someone on the project team.
+
+#. Periodically review blueprint status and ensure that Launchpad
+   milestone pages are kept up to date
+
+   Liaisons for projects using periodic development milestones should
+   update those milestones by the scheduled deadline to ensure that
+   they accurately reflect the work done. Any incomplete blueprints or
+   bugs should be moved to the next milestone, or have their target
+   cleared completely.
+
+   Liaisons for projects with intermediate releases should clean up
+   the milestone page in launchpad before requesting a
+   release. Completed blueprints should be targeted by hand. Bugs are
+   automatically targeted by the release script for releases coming
+   off of the master branch. Releases for stable branches must be
+   handled manually. The release script looks for a milestone named
+   ``next-$SERIES`` and renames it, so completed blueprints and bugs
+   can be targeted to ``next-$SERIES``, or a milestone named for the
+   anticipated version number. Since it is not always possible to
+   determine the version number in advance, using ``next-$SERIES`` is
+   much simpler.
+
+#. Coordinate feature freeze exceptions (FFEs) at the end of a
+   release, and track blocking bug fixes and feature work that must be
+   completed before a release
+
+   The period between feature freeze and release should be used to
+   stabilize new features and fix bugs. However, for every release
+   there are a few "must have" features that do not quite make the
+   deadline for a variety of reasons. It is up to the project team to
+   decide which features they will allow after the deadline, and which
+   will be delayed until the next release. The liaison is responsible
+   for tracking any open exceptions to the feature freeze, and helping
+   the project team to focus their energy on completing the work in a
+   timely fashion.
+
+#. Submit release requests (if the request is not submitted by the
+   liaison or PTL, one of them must indicate their approval)
+
+   See :ref:`library-release-process-managed` above.
