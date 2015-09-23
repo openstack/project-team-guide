@@ -132,9 +132,17 @@ Versions are tagged from the master branch without any specific constraint,
 although the usage of a post-version numbering scheme based on
 `semantic versioning`_ is strongly recommended.
 
+Libraries release process, managed projects
+===========================================
 
-Libraries release process
-=========================
+Releases for managed projects are handled by the release team at the
+request of the release liaison for the project. Requests should be
+submitted in the form of a patch to the appropriate "deliverables"
+file in the ``openstack/releases`` git repository. See the README file
+in that repository for more details.
+
+Libraries release process, unmanaged projects
+=============================================
 
 OpenStack library projects follow the "common cycle with intermediary releases"
 model described above, including the use of stable branches. They use a
