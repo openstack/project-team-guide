@@ -24,6 +24,7 @@ Contents:
    testing
    oslo
    documentation
+   i18n
    glossary
 
 ====================

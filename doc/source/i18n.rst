@@ -1,0 +1,104 @@
+====================================
+Internationalization and Translation
+====================================
+
+The OpenStack I18n team is responsible to make OpenStack
+ubiquitously accessible to people of all language backgrounds,
+by providing high quality translations. It is composed of
+a core team which manages the translation platform and process,
+and various translation teams who translate OpenStack
+documents, OpenStack Dashboard and messages into different
+languages.
+
+Translation Platform
+=====================
+
+We use an Open Source development approach to translate OpenStack.
+There is a `translation server`_ built on top of OpenStack
+infrastructure supporting OpenStack translation.
+People who are interested in translation can log on the
+`translation server`_ and find English strings in small pieces
+that need to be translated.
+
+Those English strings are extracted from OpenStack projects and
+documents, and organised by projects and versions. Translated strings
+in various of languages will finally be merged as a whole and saved in
+OpenStack repositories. A number of automatic jobs support the
+extraction of English strings, upload to the translation server, and
+download the translated strings. More details can be found here:
+`Translation infrastructure`_.
+
+Note that the OpenStack source language, the language used inside
+OpenStack projects, is always US English.
+
+Translation of Documents
+========================
+
+Translation of OpenStack documents are treated the same
+as translation of Python projects. The whole English documents
+are sliced into small pieces for translation and stored
+in PO templates and send to the translation server. When
+translation is done, HTML documents are built. More details can be
+found here: `Documentation I18n tools`_.
+
+All the document projects in `translation server`_ can be found here:
+`Documentation translation projects`_.
+
+Translation of Repositories
+===========================
+
+To enable translation of repositories, the translation infrastructure
+needs to be setup as documented in `translation server setup`_.
+
+The process for translation is basically the following:
+
+1. After each merge of a repository, all strings that should be
+   translated, will be sent to the translation server.
+
+2. Translators translate strings using the `translation server`_.
+
+3. Every morning after 6:00 UTC, the CI infrastructure checks for
+   files that are translated and creates a change and submits it to
+   review for the repository. Files are considered translated if at
+   least 75 per cent of the messages are translated.
+
+4. The change gets reviewed and merges into the repository.
+
+Here is a list of all open `proposed translations`_.
+
+Translation start by default on the master branch. The i18n team
+creates stable branches for certain projects once a stable branch is
+created in git, and then translations are done on the stable branch on
+the translation server as well and synced with the stable git branch.
+
+Translation priorities
+======================
+
+Generally, translation plans will be published in the homepage of
+`translation server`_, where you can get the current translation
+priorities.
+
+Since there are many server projects, client projects, and manuals to
+translate, the OpenStack I18n team will discuss which files to focus
+on. Any project team can enable translations for their project but
+this will not result automatically in translators working on the
+files. Project teams can discuss with the OpenStack I18n team how
+their project fits into the overall focus.
+
+
+
+.. seealso::
+
+   * `i18n Team page in the OpenStack wiki`_
+   * `Translation infrastructure`_
+   * `Translation server`_
+   * List of open `proposed translations`_
+   * `Translation server setup`_
+
+.. _translation server: https://translate.openstack.org
+.. _i18n Team page in the OpenStack wiki: https://wiki.openstack.org/wiki/I18nTeam
+.. _Translation infrastructure: https://wiki.openstack.org/wiki/Translations/Infrastructure
+.. _proposed translations: https://review.openstack.org/#/q/status:open+topic:zanata/translations,n,z
+.. _Translation server setup: http://docs.openstack.org/infra/system-config/translate.html
+.. _Documentation translation projects: https://translate.openstack.org/version-group/view/doc-resources
+.. _Documentation I18n tools: https://wiki.openstack.org/wiki/I18n/Tools
