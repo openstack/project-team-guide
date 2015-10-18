@@ -2,7 +2,7 @@
  Open Development
 ==================
 
-Open Development is also part of the four tenants that help OpenStack to move
+Open Development is also part of the four tenets that help OpenStack to move
 forward. Just like Open Community and Open Source, an Open Development allows
 for engaging with larger communities and it welcomes a broader group of
 members. Open Development is the key behind the large developers community and

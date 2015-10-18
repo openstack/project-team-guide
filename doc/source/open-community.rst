@@ -2,7 +2,7 @@
  Open Community
 ================
 
-As one of four core tenants of OpenStack's open mantra, an "Open Community"
+As one of four core tenets of OpenStack's open mantra, an "Open Community"
 is a critical and required component of an OpenStack project. Open communities
 enable an open development environment, and are a key component of a successful
 open source project. An OpenStack project should follow this model to ensure
