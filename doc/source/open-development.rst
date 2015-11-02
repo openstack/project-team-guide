@@ -64,7 +64,7 @@ guides them in the interaction with the contributor.
       Sometimes the patches are partially fixes for a bigger problem and
       it's extremely important to have all that explicitly stated in the
       commit message.
-   #. Make sure the commit message is correctly flagged. If there API changes
+   #. Make sure the commit message is correctly flagged. If there are API changes
       then the `APIImpact` flag should be used. If there are security
       implications then the `SecurityImpact` flag should be used. If there are
       documentation changes then the `DocImpact` flag should be used.
@@ -105,10 +105,10 @@ proposed change and the problems this change tries to solve.
 
 Specs may change in form depending on the project and target
 change. However, the workflow to propose these specs is the same for
-every project. Specs ought to be committed ato the project's spec
-repository and they follow the contribution workflow as every other
+every project. Specs ought to be committed to the project's spec
+repository and they follow the same contribution workflow as every other
 patch. This guarantees that the discussion and proposal remains open
-and stands behind our open development tenent.
+and stands behind our open development tenet.
 
 Projects may or may not have deadlines for spec proposals and
 approvals. These projects may also have a slightly different process
