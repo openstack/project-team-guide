@@ -166,6 +166,42 @@ results in a seed in a random generator to determine the tie winners. This way
 anyone may verify the fairness of the tie break. For more details, see the
 wiki page on `tie breaking`_.
 
+Election Schedule
+-----------------
+
+The election schedule is based on the release cycle and summit dates,
+so the following timeline is expressed as the number of weeks leading
+up to the summit.
+
+Summit -6
+~~~~~~~~~
+
+Nominations open for PTL elections for the next cycle begin the week
+before the election.
+
+Summit -5
+~~~~~~~~~
+
+PTL elections for the next cycle are held 5 weeks before the design
+summit. Refer to `the TC charter
+<http://governance.openstack.org/reference/charter.html#election-for-ptl-seats>`__
+for more details about PTL elections.
+
+Summit -4
+~~~~~~~~~
+
+Nominations for the Technical Committee election begin the week before
+the election.
+
+Summit -3
+~~~~~~~~~
+
+The Technical Committee election is held 3 weeks before the design
+summit. Refer to `the TC charter
+<http://governance.openstack.org/reference/charter.html#election-for-tc-seats>`__
+for more details about TC elections.
+
+
 .. _should be logged: http://governance.openstack.org/reference/irc.html
 .. _etiquette rules: https://wiki.openstack.org/wiki/MailingListEtiquette
 .. _Launchpad: https://launchpad.net/openstack

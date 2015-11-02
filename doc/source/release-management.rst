@@ -245,3 +245,121 @@ must ensure they are done by someone on the project team.
    liaison or PTL, one of them must indicate their approval)
 
    See :ref:`library-release-process-managed` above.
+
+Typical Development Cycle Schedule
+==================================
+
+The development cycles follow a repeating pattern, which is described
+in general terms here. The length of time between milestones may
+change from cycle to cycle because of holidays, summit scheduling, and
+other factors, so consult the wiki for the actual schedule for the
+current cycle.  The cycles follow a repeating pattern, which is
+described more generally here.
+
+Weeks with negative numbers are counting down leading to the event
+("Summit -2" is 2 weeks before the summit). Weeks with positive
+numbers are counting up following an event ("Feature Freeze +1" is the
+week following the feature freeze).
+
+.. note::
+
+  Dates for elections are specified in the Technical Committee charter
+  relative to the design summits, while most other dates are based on
+  community consensus and expressed in terms of the release date.
+  Because the summit may move around in the cycle, the two scheduling
+  systems may overlap differently in different cycles.
+
+Weeks Leading to Milestone 1
+----------------------------
+
+*Usually 4-6 weeks*
+
+- Finishing work left over from previous cycle
+- Completing blueprint and spec discussions
+- Foundational work for the rest of the cycle
+
+Weeks Leading to Milestone 2
+----------------------------
+
+*Usually 5-6 weeks*
+
+Normal development work
+
+Weeks Leading to Milestone 3
+----------------------------
+
+*Usually 4-6 weeks*
+
+- Feature development completion
+- Bug fixes
+- Stabilization work
+
+Feature Freeze -1
+-----------------
+
+The week before the full feature freeze we prepare the final releases
+for Oslo and other non-client libraries to give consuming projects
+time to stablize and for the owners to prepare bug fixes if needed.
+
+Milestone 3 / Feature Freeze
+----------------------------
+
+- Feature development stops ("feature freeze")
+- Message strings stop changing ("string freeze") to give the
+  translation team time to finish their work
+- Dependency specifications stop changing ("requirements freeze") to
+  give packagers time to prepare packages
+- Final releases for client libraries for all projects. Note that new
+  features that block other projects need to be released earlier in
+  the cycle than this, since the projects will not be able to adopt
+  them while the feature freeze and requirements freeze are in effect.
+
+Feature Freeze +1
+-----------------
+
+- Final Feature Freeze Exceptions merged
+- Create stable branches for all libraries
+
+Release -3
+----------
+
+The release candidate period spans several weeks, and usually starts
+the week after the feature freeze.
+
+- All projects issue their first release candidates
+- Create branches for all services to use for release candidates, and
+  eventually stable maintenance work
+
+Release -2
+----------
+
+- Create the stable branch for the global requirements list and
+  testing tools like devstack and grenade
+- Remove the freeze for the global requirements list on the master
+  branch
+
+Release -1
+----------
+
+Final release candidates, with translations
+
+Release 0
+---------
+
+- Emergency last-minute release candidates (unlikely)
+- Tag the final release candidates as the official release early on
+  Thursday of this week
+
+Summit -2
+---------
+
+Final summit planning and design session preparation.
+
+Summit
+------
+
+The semi-annual Design Summit and Conference where contributors,
+operators, and users meet in person to discuss the state of the
+project and future work.
+
+.. _Mitaka Release Schedule: https://wiki.openstack.org/wiki/Mitaka_Release_Schedule
