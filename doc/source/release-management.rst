@@ -538,4 +538,38 @@ then build the release notes documentation.
 Then look at the generated release notes files in
 ``releasenotes/build/html`` in a web browser.
 
+When to Add Release Notes
+-------------------------
+
+The release notes for a patch should be included in the patch. If not, the
+release notes should be in a follow-on review.
+
+If the patch meets any of the following criteria, a release note is
+recommended.
+
+* Upgrades
+
+  * The deployer needs to take an action when upgrading
+  * A new configuration option is added that the deployer should
+    consider changing from the default
+  * A configuration option is deprecated
+  * A configuration option is removed
+
+* Features
+
+  * A new feature is implemented
+  * A feature is marked for deprecation
+  * A feature is removed
+  * Default behavior is changed
+
+* Bugs
+
+  * A security bug is fixed
+  * A long-standing or important bug is fixed
+
+* APIs
+
+  * A driver interface or other plugin API changes
+  * A REST API changes
+
 .. _reno: http://docs.openstack.org/developer/reno/
