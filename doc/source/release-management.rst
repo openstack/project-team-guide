@@ -301,6 +301,8 @@ The week before the full feature freeze we prepare the final releases
 for Oslo and other non-client libraries to give consuming projects
 time to stablize and for the owners to prepare bug fixes if needed.
 
+- Final Oslo and non-client library release
+
 Milestone 3 / Feature Freeze
 ----------------------------
 
@@ -337,6 +339,7 @@ Release -2
   testing tools like devstack and grenade
 - Remove the freeze for the global requirements list on the master
   branch
+- All library releases freeze
 
 Release -1
 ----------
@@ -349,6 +352,7 @@ Release 0
 - Emergency last-minute release candidates (unlikely)
 - Tag the final release candidates as the official release early on
   Thursday of this week
+- All library releases freeze on master ends
 
 Summit -2
 ---------
