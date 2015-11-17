@@ -47,7 +47,7 @@ themselves, with help from project teams.
 How to Contribute Documentation
 ===============================
 
-The documentation team maintains a wiki page with instructions on `how
-to contribute documentation
-<https://wiki.openstack.org/wiki/Documentation/HowTo>`_. To look up the source
-for a particular document, refer to the `content specification page <https://wiki.openstack.org/wiki/Documentation/ContentSpecs>`_.
+The documentation team maintains a `guide with instructions on how
+to contribute documentation <http://docs.openstack.org/contributor-guide/index.html>`_.
+To look up the source for a particular document, refer to the
+`content specification page <http://docs.openstack.org/contributor-guide/content-specs.html>`_.
