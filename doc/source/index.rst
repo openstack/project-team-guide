@@ -21,6 +21,7 @@ Contents:
    stable-branches
    other-branches
    vulnerability-management
+   project-setup
    testing
    oslo
    documentation
