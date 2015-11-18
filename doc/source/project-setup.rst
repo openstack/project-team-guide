@@ -58,6 +58,7 @@ below.
 .. toctree::
    :maxdepth: 1
 
+   Python<project-setup/python>
    JavaScript<project-setup/javascript>
 
 .. _Consistent Testing Interface: http://governance.openstack.org/reference/project-testing-interface.html
