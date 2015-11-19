@@ -21,6 +21,14 @@ to reach that stability, we define several support phases:
   acceptable
 * Phase III (more than 12 months): Only security patches are acceptable
 
+.. note::
+   It's nevertheless allowed to backport fixes for other bugs if their safety
+   can be easily proved. For example, documentation fixes, debug log message
+   typo corrections, test only changes, patches that enhance test coverage,
+   configuration file content fixes can apply to all supported branches. For
+   those types of backports, stable maintainers will decide on case by case
+   basis.
+
 Given that stable branches are created every 6 months, that means that at any
 given time, only one branch is in Phase I support and only one branch is in
 Phase II support. Depending on how long each branch is supported, there may be
