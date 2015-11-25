@@ -367,3 +367,179 @@ operators, and users meet in person to discuss the state of the
 project and future work.
 
 .. _Mitaka Release Schedule: https://wiki.openstack.org/wiki/Mitaka_Release_Schedule
+
+Managing Release Notes
+======================
+
+Release notes for OpenStack deliverables are managed in the source
+repository for the project using reno_. The reno documentation
+explains how the tool works in general, and the instructions below
+explain how to set it up for use in your project.
+
+Directory Structure
+-------------------
+
+Most projects have a ``doc/source`` directory with Sphinx configured
+to build developer-focused documentation that is eventually published
+under ``https://docs.openstack.org/developer/$PROJECT``. Release notes
+are not developer-focused, so they need to be published separately,
+and that means a separate Sphinx project in the source tree. The jobs
+that run the release note builds expect to find that project in
+``releasenotes/source``.
+
+The release note files read by reno should be kept in
+``releasenotes/notes``. *Only* release notes YAML files should be
+placed in this directory.
+
+Setting up the Release Note Tool Within Your Project
+----------------------------------------------------
+
+The release notes are built from the configuration in the master
+branch, and pull notes from all of the stable branches for which notes
+should be published. Start by following these steps to configure the
+master branch build, and then backporting necessary changes to the
+stable branches where you wish to use reno.
+
+#. Set up a new Sphinx project using ``sphinx-quickstart``. The
+   interactive prompts will ask where to put the new files. If you run
+   the tool from the root of your git repository, answering
+   ``releasenotes/source`` will produce the correct results.
+
+#. Edit ``releasenotes/source/conf.py`` to change the ``extensions``
+   list to include ``'reno.sphinxext'``.
+
+#. Edit ``test-requirements.txt`` to add ``reno``. Make sure to use
+   the current entry from the global requirements list to avoid
+   version conflicts.
+
+#. Create a directory ``releasenotes/notes`` and add an empty
+   ``.placeholder`` file to ensure git tracks the directory.
+
+#. Create a file to hold the release notes from the "current" branch
+   by using a ``release-notes`` directive without specifying an
+   explicit branch. This file is used by the test jobs to ensure that
+   patches on a stable branch cannot introduce release notes that
+   break the real release notes build job on the master branch. For
+   example, Glance uses ``releasenotes/source/unreleased.rst``
+   containing:
+
+   ::
+
+      ==============================
+       Current Series Release Notes
+      ==============================
+
+      .. release-notes::
+
+#. Create a separate file for each stable branch for which you plan to
+   use reno to manage release notes. Use the ``release-notes``
+   directive to generate the correct release notes for each
+   series. For example, the liberty release is represented in a file
+   called ``releasenotes/source/liberty.rst`` containing:
+
+   ::
+
+      ==============================
+       Liberty Series Release Notes
+      ==============================
+
+      .. release-notes::
+         :branch: origin/stable/liberty
+
+#. Edit ``releasenotes/source/index.rst`` to remove most of the
+   automatically-generated content and replace it with a title and
+   ``toctree`` referring to the branch files you created in the
+   previous two steps.
+
+#. Update ``tox.ini`` to add a ``releasenotes`` test environment by
+   adding:
+
+   ::
+
+      [testenv:releasenotes]
+      commands = sphinx-build -a -E -d releasenotes/build/doctrees -b html releasenotes/source releasenotes/build/html
+
+#. Submit all of the above changes together as one patch. For example,
+   see https://review.openstack.org/241323 and
+   https://review.openstack.org/243302 (Glance was set up using 2
+   separate patches).
+
+.. note::
+
+   Repeat this process for any existing stable branches for which reno
+   is being used for release notes, back through
+   stable/liberty. Although we do not run reno in the branches to
+   publish the notes, we *do* run it in test jobs to ensure that
+   release note changes in stable branches do not break the release
+   note build in master.
+
+Adding the Release Notes Jobs to Your CI
+----------------------------------------
+
+After your project has the necessary change to enable reno to build
+the release notes, the next step is to modify the CI system to add the
+necessary jobs. All of these changes are made to the
+``openstack-infra/project-config`` repository.
+
+#. Modify the section of ``jenkins/jobs/projects.yaml`` related to
+   your repository to add the ``openstack-releasenotes-jobs`` job
+   group to the list of jobs for your project.
+
+#. Modify the section of ``zuul/layout.yaml`` related to your
+   repository to add ``release-notes-jobs`` to the list of job
+   templates for your project.
+
+#. Submit all of the changes as one patch. You may want to set the
+   ``Depends-On`` tag in the commit message to point to the Change-Id
+   of the commit from the previous section, to avoid adding jobs that
+   will fail until that patch lands. For example, see
+   https://review.openstack.org/241344.
+
+How to Add New Release Notes
+----------------------------
+
+reno scans the git history to find release notes files and tags to
+determine which notes are part of each release. That means you need to
+put the notes for a release into the branch where the release will be
+generated *before* the release is tagged. The note files can be edited
+later, but they will always appear under the first release in the
+series where they were introduced.
+
+In general, release notes should be added with fixes that go into the
+master branch, and then included in the backport for the fix as it
+goes into older stable branches. Because the release notes for each
+series are generated separately, the same note may appear in the
+output for multiple versions.
+
+If a note does not apply to the master branch for some reason, it can
+be added directly to the stable branch.
+
+Use ``reno new`` to generate a new release note file with a unique
+suffix value. The unique filename created by reno ensures that there
+will be no merge conflicts as the fix is backported. For example:
+
+.. code-block:: bash
+
+  $ tox -e venv -- reno new bug-XXX
+
+After the new file is created, edit it to remove any sections that are
+not relevant and to add notes under the appropriate sections. Refer to
+the `Editing a Release Note
+<http://docs.openstack.org/developer/reno/usage.html#creating-new-release-notes>`__
+section of the reno documentation for details about what should go in
+each section of the YAML file and for tips on formatting notes.
+
+To see the rendered version of the new release note, you need to
+commit the change so reno can find the note file in the git log, and
+then build the release notes documentation.
+
+.. code-block:: bash
+
+  $ git commit  # Commit the change because reno scans git log.
+
+  $ tox -e releasenotes
+
+Then look at the generated release notes files in
+``releasenotes/build/html`` in a web browser.
+
+.. _reno: http://docs.openstack.org/developer/reno/
