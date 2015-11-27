@@ -457,7 +457,7 @@ stable branches where you wish to use reno.
    ::
 
       [testenv:releasenotes]
-      commands = sphinx-build -a -E -d releasenotes/build/doctrees -b html releasenotes/source releasenotes/build/html
+      commands = sphinx-build -a -W -E -d releasenotes/build/doctrees -b html releasenotes/source releasenotes/build/html
 
 #. Submit all of the above changes together as one patch. For example,
    see https://review.openstack.org/241323 and
