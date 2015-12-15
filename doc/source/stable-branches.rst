@@ -68,6 +68,7 @@ branch. A number of factors must be weighed when considering a change:
    In those cases, stable patches may be pushed into gate without waiting
    for all consequent branches to be fixed.
 
+.. _stable-modifications:
 .. warning::
    In case review process reveals issues in the master patch which require
    rework after stable patches are merged, it's expected that additional
@@ -148,3 +149,123 @@ for the stable branch and approving them.
 
 Fixes for embargoed security issues receive special treatment. See the chapter
 on vulnerability management for more information.
+
+Processes
+=========
+
+OpenStack development typically has 3 branches active at any point of time,
+*master* (the current development release), *stable* (the most recent release)
+and *oldstable* (previous release).  There can from time to time exist older
+branches but a discussion around that is beyond the scope of this guide.
+
+In order to accept a change into :code:`$release` it must first be accepted
+into all releases back to master.
+
+* A change for *stable* must exist in master
+* A change for *oldstable* must exist in *stable* and *master*
+
+For the sake of discussion assume a hypothetical development milestones:
+
+* The current development branch (:code:`master`) will be the Uniform release.
+* The current *stable* branch (:code:`stable/tango`) was Tango and is now in
+  **Phase I** support.
+* The current *oldstable* branch :code:`stable/sierra` was Sierra and is now in
+  **Phase II** support.
+
+Proposing Fixes
+---------------
+Anyone can propose a cherry-pick to the stable-maint team.
+
+One way is that if a bug in launchpad looks like a good candidate for
+backporting - e.g. if it's a significant bug with the previous release - then
+just nominating the bug for a stable series (either *stable* or *oldstable*)
+will bring it to the attention of the maintainers e.g. `Nova Kilo nominations`_
+
+If you don't have the appropriate permissions to nominate the bug, then tagging
+it with e.g. *$release-backport-potential* is also sufficient e.g.
+`Nova Liberty potential`_
+
+The best way to get the patch merged in a timely manner is to send it backported
+by yourself. To do so, you may try to use the "Cherry Pick To" button in the
+Gerrit UI for the original patch in master. Gerrit will take care of creating a
+new review, modifying the commit message to include 'cherry-picked from ...'
+line etc.
+
+.. note::
+   The backport must match the master commit, unless there is a serious need to
+   differ e.g gate failure, test framework changed in master, code refactoring
+   or some other reason. If you get a suggestion to *enhance* your backport in
+   some way that would be contrary to this intent, the reviewer should be
+   referred to :ref:`the warning above <stable-modifications>`.
+
+.. note::
+   For code that touches code from oslo-incubator, special backporting rules
+   apply. More details in `Oslo policies`_
+
+If the patch you're proposing will not cherry-pick cleanly, you can help by
+resolving the conflicts yourself and proposing the resulting patch. Please keep
+Conflicts lines in the commit message to help reviewers! You can use
+`git-review`_ to propose a change to the hypothetical stable branch with:
+
+.. code-block:: bash
+
+    $ git checkout stable/tango
+    $ git cherry-pick -x $master_commit_id
+    $ git review stable/tango
+
+.. note::
+   cherry-pick -x option includes 'cherry-picked from ...' line in the commit
+   message which is required to avoid `Gerrit bug`_
+
+Failing all that, just ping one of the team and mention that you think the
+bug/commit is a good candidate.
+
+Change-Ids
+----------
+When cherry-picking a commit, keep the original :code:`Change-Id` and gerrit
+will show a separate review for the stable branch while still allowing you to
+use the Change-Id to see all the reviews associated with it. See this change as
+an example.
+
+.. warning::
+   :code:`Change-Id` line must be in the last paragraph. Conflicts in the
+   backport add a new paragraph, creating a new :code:`Change-Id` but you can
+   avoid that by moving conflicts above the paragraph with :code:`Change-Id`
+   line or removing empty lines to make a single paragraph.
+
+Email Notifications
+-------------------
+If you want to be notified of new stable patches you can create a watch on the
+gerrit `watched projects`_ screen with the following settings.
+
+.. code-block:: none
+
+ Project Name: All-Projects
+      Only If: branch:stable/liberty
+
+Then check the "Email Notifications - New Changes" checkbox. That will cause
+gerrit to send an email whenever a matching change is proposed, and better yet,
+the change shows up in your 'watched changes' list in gerrit.
+
+See the docs for `gerrit notify`_ configuration and the `gerrit search`_
+syntax.
+
+Bug Tags
+--------
+
+Bugs tagged with *$release-backport-potential* are bugs which apply to a
+stable release and may be suitable for backporting once fixed. Once the
+backport has been proposed, the tag should be removed.
+
+Gerrit tags bugs with *in-stable-$release* when they are merged into the stable
+branch. The release manager later removes the tag when the bug is targeted to
+the appropriate series.
+
+.. _Nova Kilo nominations: https://bugs.launchpad.net/nova/kilo/+nominations
+.. _Nova Liberty potential: https://bugs.launchpad.net/nova/+bugs?field.tag=liberty-backport-potential
+.. _Oslo policies: http://specs.openstack.org/openstack/oslo-specs/specs/policy/incubator.html#stable-branches
+.. _git-review: https://github.com/openstack-infra/git-review
+.. _Gerrit bug: https://code.google.com/p/gerrit/issues/detail?id=1107
+.. _watched projects: https://review.openstack.org/#/settings/projects
+.. _gerrit notify: https://gerrit-review.googlesource.com/Documentation/user-notify.html#user
+.. _gerrit search: https://review.openstack.org/#/settings/projects
