@@ -209,7 +209,7 @@ Conflicts lines in the commit message to help reviewers! You can use
 
 .. code-block:: bash
 
-    $ git checkout stable/tango
+    $ git checkout -t origin/stable/tango
     $ git cherry-pick -x $master_commit_id
     $ git review stable/tango
 
