@@ -4,10 +4,60 @@
 Python Project Guide
 ####################
 
-The goal of this document is to explain OpenStack wide standard
-practices around the use of Python.
+The goal of this document is to explain OpenStack wide standard practices
+around the use of Python.
 
-.. _python_unit_tests:
+It describes the use of a Python virtual environment, the install of both
+system and project-specific dependencies and, finally, running the tests.
+
+Virtual Environment
+===================
+
+It is recommended that you use `virtualenv`_ to create an isolated Python
+environment, with no reliance on system packages other than truly global
+things like Python itself.
+
+`virtualenv`_  bundles three other important Python tools – pip, wheel and
+setuptools. All combined, this will get you a fully up to date development
+environment going without root access – and without confusing your package
+manager.
+
+Installing
+^^^^^^^^^^
+
+#. Pick a place to make the virtual enviroment, e.g `~/workspace`;
+#. Get a copy of `virtualenv`_ to run locally from source, according to the
+   `virtualenv installation`_ guide. Note that you need to invoke the
+   `virtualenv.py` script against `~/workspace`;
+#. `Activate your virtualenv`_.
+
+.. _`virtualenv`: https://virtualenv.pypa.io/en/latest/
+.. _`virtualenv installation`: https://virtualenv.pypa.io/en/latest/installation.html
+.. _`Activate your virtualenv`: https://virtualenv.pypa.io/en/latest/userguide.html#activate-script
+
+Installing System Dependencies
+==============================
+
+Prior to installing the Python packages and running the tests, there are system
+packages that will need installing in order to allow various Python packages
+to compile.
+
+`bindep`_ project exists to address this need. It is a tool for checking the
+presence of binary packages needed by an application or library::
+
+  pip install bindep
+
+If the project you are working on has a `other-requirements.txt`, bindep will
+read system requirements from there. Just call it along with your package
+manager::
+
+  sudo [apt-get | yum] install $(bindep -b)
+
+If there is no such file, in order to learn what system dependencies need to be
+installed, you should look at the documentation of the specific project you are
+interested in.
+
+.. _`bindep`: https://git.openstack.org/cgit/openstack-infra/bindep
 
 Running Python Unit Tests
 =========================
@@ -19,22 +69,13 @@ several categories of tests:
 * Unit Tests --  Self contained in each repository
 * Integration Tests -- Require a running OpenStack environment
 
-This section covers how to run the style check and unit tests. Both are run
-through `Tox`_.
+This section assumes you have all system dependencies needed by the project
+installed. It covers how to run the style check and unit tests. Both are run
+through `tox`_, so you need to install it::
 
-.. _`Tox`: https://tox.readthedocs.org/en/latest/
+  pip install tox
 
-
-Install `pip`_::
-
-  [apt-get | yum] install python-pip
-
-Use pip to install tox::
-
-  pip install --upgrade tox
-
-
-.. _`pip`: <http://pip.readthedocs.org/en/latest/installing.html>`
+.. _`tox`: https://tox.readthedocs.org/en/latest/
 
 Run The Tests
 ^^^^^^^^^^^^^
@@ -43,8 +84,8 @@ Navigate to the repository's root directory and execute::
 
   tox
 
-Note: completing this command may take a long time (depends on system resources),
-also you might not see any output until tox is complete.
+Note: Completing this command may take a long time (depends on system
+resources), also you might not see any output until tox is complete.
 
 
 Run One Set of Tests
