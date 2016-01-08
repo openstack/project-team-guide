@@ -206,26 +206,22 @@ Liaison Responsibilities
 The liaison does not have to personally do all of these things, but
 must ensure they are done by someone on the project team.
 
-#. Periodically review blueprint status and ensure that Launchpad
-   milestone pages are kept up to date
+#. Monitor the release schedule and remind team members of deadlines.
 
-   Liaisons for projects using periodic development milestones should
-   update those milestones by the scheduled deadline to ensure that
-   they accurately reflect the work done. Any incomplete blueprints or
-   bugs should be moved to the next milestone, or have their target
-   cleared completely.
+#. Ensure that release-related patches in the project are reviewed in
+   a timely manner.
 
-   Liaisons for projects with intermediate releases should clean up
-   the milestone page in launchpad before requesting a
-   release. Completed blueprints should be targeted by hand. Bugs are
-   automatically targeted by the release script for releases coming
-   off of the master branch. Releases for stable branches must be
-   handled manually. The release script looks for a milestone named
-   ``next-$SERIES`` and renames it, so completed blueprints and bugs
-   can be targeted to ``next-$SERIES``, or a milestone named for the
-   anticipated version number. Since it is not always possible to
-   determine the version number in advance, using ``next-$SERIES`` is
-   much simpler.
+   From time to time, teams need to merge changes to their projects to
+   stay current with release team practices. The release team relies
+   on liaisons to help make and review such changes quickly to avoid
+   blocking future releases. For example, keeping the requirements
+   lists up to date, adding tools, and updating packaging files.
+
+#. Submit release requests and milestone tags. If the request is not
+   submitted by the liaison or PTL, one of them must indicate their
+   approval.
+
+   See :ref:`library-release-process-managed` above.
 
 #. Coordinate feature freeze exceptions (FFEs) at the end of a
    release, and track blocking bug fixes and feature work that must be
@@ -241,10 +237,29 @@ must ensure they are done by someone on the project team.
    the project team to focus their energy on completing the work in a
    timely fashion.
 
-#. Submit release requests (if the request is not submitted by the
-   liaison or PTL, one of them must indicate their approval)
+#. Be available in the ``#openstack-release`` IRC channel on freenode
+   to answer questions and address issues.
 
-   See :ref:`library-release-process-managed` above.
+   There are too many projects for the release team to join all of
+   their channels. Please join the central release channel when you
+   are on IRC.
+
+#. Monitor and participate in mailing list discussions about release
+   topics.
+
+   The primary means of communication between the release management
+   team and other project teams is the openstack-dev mailing
+   list. Liaisons must be subscribed and ensure that they pay
+   attention to threads with the topic "[release]". Watch for
+   instructions related to deadlines, release changes that need to be
+   made, etc.
+
+#. Manage the release-related tags on project deliverables in the
+   project list in the ``openstack/governance`` repository.
+
+   Ensure that as new repositories are added to the list managed by
+   each project team, the release model and project type tags are
+   accurate.
 
 Typical Development Cycle Schedule
 ==================================
