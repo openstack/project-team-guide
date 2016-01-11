@@ -17,6 +17,7 @@ Contents:
    open-community
    open-design
    open-development
+   cross-project
    release-management
    stable-branches
    other-branches
