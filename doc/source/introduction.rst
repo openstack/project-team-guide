@@ -32,59 +32,14 @@ of the OpenStack community.
 The Four Opens
 ==============
 
-The best short definition of "the OpenStack Way" is the four opens. The
-original version of these appeared June 28th, 2010 on the wiki.
+The best short definition of "the OpenStack Way" is the four opens as
+defined in the governance document approved by the Technical
+Committee.
+
+http://governance.openstack.org/reference/opens.html
 
 In the following chapters, we'll further elaborate on those basic principles
 and explain more precisely what they mean for OpenStack project teams.
-
-Open source
------------
-
-We do not produce "open core" software.
-
-We are committed to creating truly open source software that is usable and
-scalable. Truly open source software is not feature or performance limited
-and is not crippled. There will be no "Enterprise Edition".
-
-We use the Apache License, 2.0.
-
-* OSI approved,
-* GPLv3 compatible
-* DFSG compatible
-
-Open design
------------
-
-We are committed to an open design process. Every six months the development
-community holds a design summit to gather requirements and write specifications
-for upcoming release. The design summits, which are open to the public, include
-users, developers, and upstream projects. We gather requirements and produce
-an approved roadmap used to guide development for the next six months.
-
-The community controls the design process. You can help make this software
-meet your needs.
-
-Open development
-----------------
-
-We maintain a publicly available source code repository through the entire
-development process. We do public code reviews. We have public roadmaps.
-This makes participation simpler, allows users to follow the development
-process and participate in QA at an early stage.
-
-Open community
---------------
-
-One of our core goals is to maintain a healthy, vibrant developer and user
-community. Most decisions are made using a lazy consensus model. All processes
-are documented, open and transparent.
-
-The technical governance of the project is a community meritocracy with
-contributors electing technical leads and members of the Technical Committee.
-
-All project meetings are held in public IRC channels and recorded.
-
 
 A quick history of OpenStack governance
 =======================================
