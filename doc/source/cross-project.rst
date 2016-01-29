@@ -5,28 +5,27 @@ Cross-Project
 Cross-Project Specifications
 ============================
 
-In order to provide a consistent and desiriable experience for OpenStack
-end-users, it's necessary to have some concepts to be agreed across all the
-projects within the big tent. In addition, it helps future projects that want
-to be part of the big tent to have these guidelines for certain concepts (e.g.
-quotas, backwards compatibility).
+In order to provide OpenStack end-users with a consistent and desirable
+experience, it can be necessary for some concepts (e.g. quotas, backwards
+compatibility) and new feature requests  to be agreed across all projects in
+the big tent.
 
 Cross-Project Specification Liaisons
 ====================================
 
-The OpenStack project relies on the cross-project spec liaisons from each
-participating project to help with coordination and cross-project
-spec related tasks. The liaison defaults to the PTL, but the PTL can also
-delegate the responsibilites to someone else on the team by updating the
-liaison list on the CrossProjectLiaisons_ wiki page.
+OpenStack relies on the cross-project spec liaisons from each participating
+project to help with coordination and cross-project spec related tasks. The
+liaison defaults to the PTL, but the PTL can also delegate the responsibilities
+to someone else on the team by updating the liaison list on the
+CrossProjectLiaisons_ wiki page.
 
-Liaisons Responsibilities
--------------------------
+Liaison Responsibilities
+------------------------
 
 The liaison does not have to personally do all of these things, but must ensure
 they are done by someone on the project team.
 
-* Watching the `cross-project spec repo`_.
+* Watch the `cross-project spec repo`_.
 
   * Comment on specs that involve your project. +1 to carry forward for TC
     approval.
