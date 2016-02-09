@@ -86,7 +86,7 @@ If `testr`_ is in tox.ini, for example::
 
 Run individual tests with the following syntax::
 
-  tox -e <env> -- path.to.module:Class.test
+  tox -e <env> -- path.to.module.Class.test
 
 So for example, run the test_memory_unlimited test in openstack/nova::
 
