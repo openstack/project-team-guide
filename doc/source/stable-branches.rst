@@ -82,7 +82,8 @@ information on how to do that.
 Stable maintenance teams
 ========================
 
-Each project team should designate a stable branch cross-project liaison as
+Each project team should designate a `stable branch cross-project liaison
+<https://wiki.openstack.org/wiki/CrossProjectLiaisons#Stable_Branch>`_ as
 the main point of contact for all stable branch support issues in the team.
 If nobody is specifically designated, the PTL will be assumed to cover that
 duty.
