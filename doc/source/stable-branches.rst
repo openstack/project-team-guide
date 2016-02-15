@@ -100,7 +100,7 @@ added after the suggestion of the Stable Branch cross-project liaison.
 Stable Maintenance Core team
 ----------------------------
 
-The stable maintenance core team is responsible for the definition and
+The `stable maintenance core team`_ is responsible for the definition and
 enforcement of the Stable Branch policy. It will be granting exceptions for
 all questionable backports raised by project-specific stable maintenance
 groups, providing backports reviews help everywhere, maintaining the stable
@@ -320,3 +320,4 @@ piling up. Please subscribe if you're interested in helping out.
 .. _gerrit search: https://review.openstack.org/#/settings/projects
 .. _stable tracker etherpad: https://etherpad.openstack.org/p/stable-tracker
 .. _openstack-stable-maint mailing list: http://lists.openstack.org/cgi-bin/mailman/listinfo/openstack-stable-maint
+.. _stable maintenance core team: https://review.openstack.org/#/admin/groups/530,members
