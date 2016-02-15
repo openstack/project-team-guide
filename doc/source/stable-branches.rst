@@ -75,7 +75,7 @@ branch. A number of factors must be weighed when considering a change:
    changes are merged into stable branches to avoid unneeded difference
    between branches. So use the exception with due care.
 
-Anyone can propose stable branch backports. See the Infra manual for more
+Anyone can propose stable branch backports. See `Proposing Fixes`_ for more
 information on how to do that.
 
 
