@@ -261,6 +261,19 @@ Gerrit tags bugs with *in-stable-$release* when they are merged into the stable
 branch. The release manager later removes the tag when the bug is targeted to
 the appropriate series.
 
+Gate Status
+-----------
+
+Keeping the stable branches in good health in an ongoing effort. To see what
+bugs are currently causing gate failures and preventing code from merging into
+stable branches, please see the `stable tracker etherpad`_, where we will track
+current bugs and in-flight fixes.
+
+Scheduled test runs occur daily for each project's stable branch. If failures
+crop up, the bot will email the `openstack-stable-maint mailing list`_. It is
+best to react quickly to these and get them resolved ASAP to prevent them from
+piling up. Please subscribe if you're interested in helping out.
+
 .. _Nova Kilo nominations: https://bugs.launchpad.net/nova/kilo/+nominations
 .. _Nova Liberty potential: https://bugs.launchpad.net/nova/+bugs?field.tag=liberty-backport-potential
 .. _Oslo policies: http://specs.openstack.org/openstack/oslo-specs/specs/policy/incubator.html#stable-branches
@@ -269,3 +282,5 @@ the appropriate series.
 .. _watched projects: https://review.openstack.org/#/settings/projects
 .. _gerrit notify: https://gerrit-review.googlesource.com/Documentation/user-notify.html#user
 .. _gerrit search: https://review.openstack.org/#/settings/projects
+.. _stable tracker etherpad: https://etherpad.openstack.org/p/stable-tracker
+.. _openstack-stable-maint mailing list: http://lists.openstack.org/cgi-bin/mailman/listinfo/openstack-stable-maint
