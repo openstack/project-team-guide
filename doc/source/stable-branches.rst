@@ -225,8 +225,8 @@ Change-Ids
 ----------
 When cherry-picking a commit, keep the original :code:`Change-Id` and gerrit
 will show a separate review for the stable branch while still allowing you to
-use the Change-Id to see all the reviews associated with it. See this change as
-an example.
+use the Change-Id to see all the reviews associated with it. `See this change
+as an example. <https://review.openstack.org/#/q/Ic5082b74a362ded8b35cbc75cf178fe6e0db62d0,n,z>`_
 
 .. warning::
    :code:`Change-Id` line must be in the last paragraph. Conflicts in the
