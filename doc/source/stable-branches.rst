@@ -109,6 +109,42 @@ branch policy (and make sure its rules are respected), educating proposed
 project-specific team members on those rules and adding them to those
 project-specific teams.
 
+Active Maintenance
+------------------
+
+Project-specific teams are expected to be actively maintaining their stable
+branches which generally includes:
+
+#. Following the `Review guidelines`_. Specifically, not allowing backports of
+   new features, new dependencies, or backward incompatible changes.
+#. Proactively identifying and backporting significant bug fixes from master to
+   stable branches. This means the team is trying to get high impact bugs fixed
+   on stable before anyone hits them and has to report a bug or propose a
+   backport after the fact (after they already hit the issue in their
+   production cloud). There is no rule about how often or how many bugs found
+   and fixed in master should be backported to stable branches. The main idea
+   is to get regressions and other high-impact issues resolved on all
+   appropriate branches quickly.
+#. Monitoring the backlog of open backport reviews and actually reviewing them
+   in a timely manner.
+#. Releasing frequently enough to get fixes out without overwhelming the release
+   team or consumers. In general, security fixes and other critical bug fixes
+   should be released quickly. Otherwise when there are a reasonable amount of
+   unreleased fixes committed, teams should be looking at doing a release.
+   Milestone boundaries during the master release schedule are also good times
+   to be inspecting the list of unreleased changes to see if a stable point
+   release should happen.
+#. Monitoring and resolving issues in the continuous integration 'gate' system.
+   This basically means making sure there aren't things blocking proposed
+   backports from passing tests. These could be project-specific or global in
+   nature and are usually tracked in the `stable tracker etherpad`_. From time
+   to time the Stable Maintenance Core team may also ask for help from
+   individual projects in IRC or the openstack-dev mailing list and expect a
+   reasonably prompt response.
+#. Stable branch cross-project liaisons should be available in the
+   #openstack-stable channel on freenode IRC to answer questions or be made
+   aware of issues.
+
 
 Review guidelines
 =================
