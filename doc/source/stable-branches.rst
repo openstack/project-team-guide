@@ -117,6 +117,12 @@ branches which generally includes:
 
 #. Following the `Review guidelines`_. Specifically, not allowing backports of
    new features, new dependencies, or backward incompatible changes.
+
+   * Hint: if a project version has a cap in stable branch global-requirements
+     in stable/liberty or later, it means there was a backward incompatible
+     change which broke that stable branch. This generally applies to libraries
+     and client projects.
+
 #. Proactively identifying and backporting significant bug fixes from master to
    stable branches. This means the team is trying to get high impact bugs fixed
    on stable before anyone hits them and has to report a bug or propose a
