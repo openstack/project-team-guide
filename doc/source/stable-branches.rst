@@ -141,6 +141,13 @@ branches which generally includes:
    to time the Stable Maintenance Core team may also ask for help from
    individual projects in IRC or the openstack-dev mailing list and expect a
    reasonably prompt response.
+
+   .. note::
+      Projects with the ``stable:follows-policy`` tag should be running the
+      ``periodic-<release>`` jobs as defined in the
+      `openstack-infra/project-config repo`_. Here is an example of running
+      periodic-kilo and periodic-liberty jobs `on Designate`_.
+
 #. Stable branch cross-project liaisons should be available in the
    #openstack-stable channel on freenode IRC to answer questions or be made
    aware of issues.
@@ -322,3 +329,5 @@ piling up. Please subscribe if you're interested in helping out.
 .. _stable tracker etherpad: https://etherpad.openstack.org/p/stable-tracker
 .. _openstack-stable-maint mailing list: http://lists.openstack.org/cgi-bin/mailman/listinfo/openstack-stable-maint
 .. _stable maintenance core team: https://review.openstack.org/#/admin/groups/530,members
+.. _openstack-infra/project-config repo: http://git.openstack.org/cgit/openstack-infra/project-config/
+.. _on Designate: https://review.openstack.org/#/c/292617/
