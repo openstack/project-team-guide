@@ -135,10 +135,15 @@ the project. Responsibilities of the PTL include the following tasks:
 * Organizing the content of the project team track in our Design Summits
 * Interacting with the release team in the #openstack-relmgr-office IRC channel
 * Participating in the weekly `Cross Project meeting`_
-* Maintaining cycle and development milestone plans
+* Maintaining cycle and development milestone plans. The dates for milestones
+  and releases are `posted`_ well in advance, make sure you have sufficient
+  free time on those special weeks.
 * Targeting and maintaining targeted bugs
 * Working with the release team on milestone delivery week, feature freeze,
   release candidate weeks, and final release week
+* If an unexpected event occurs that doesn't give you sufficient time to
+  dedicate to the items above, it is your responsibility to step down and allow
+  someone with more time to take over.
 
 The PTL for each project team is elected on a 6-month term. Thus, the project
 will have an election every 6 months to determine the leader of the project
@@ -215,4 +220,5 @@ for more details about TC elections.
 .. _mailing lists: http://lists.openstack.org/cgi-bin/mailman/listinfo
 .. _Planet OpenStack: http://planet.openstack.org/
 .. _Cross Project Meeting: https://wiki.openstack.org/wiki/Meetings/CrossProjectMeeting
+.. _posted: http://releases.openstack.org
 .. _adding your blog: https://wiki.openstack.org/wiki/AddingYourBlog
