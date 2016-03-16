@@ -134,7 +134,9 @@ the project. Responsibilities of the PTL include the following tasks:
 
 * Organizing the content of the project team track in our Design Summits
 * Interacting with the release team in the #openstack-release IRC channel
-* Participating in the weekly `Cross Project meeting`_
+* By default participating in the weekly `Cross Project meeting`_ and watching
+  the `cross project repository`_, unless a `Cross Project Specification
+  Liaison`_ is assigned.
 * Maintaining cycle and development milestone plans. The dates for milestones
   and releases are `posted`_ well in advance, make sure you have sufficient
   free time on those special weeks.
@@ -225,4 +227,6 @@ for more details about TC elections.
 .. _Cross Project Meeting: https://wiki.openstack.org/wiki/Meetings/CrossProjectMeeting
 .. _posted: http://releases.openstack.org
 .. _decision: http://governance.openstack.org/resolutions/20141128-elections-process-for-leaderless-programs.html
+.. _cross project repository: https://review.openstack.org/#/q/project:openstack/openstack-specs
+.. _Cross Project Specification Liaison: cross-project.html#cross-project-specification-liaisons
 .. _adding your blog: https://wiki.openstack.org/wiki/AddingYourBlog
