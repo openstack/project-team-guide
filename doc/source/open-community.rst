@@ -149,6 +149,9 @@ The PTL for each project team is elected on a 6-month term. Thus, the project
 will have an election every 6 months to determine the leader of the project
 for the upcoming 6-month cycle.
 
+Projects without any nominated PTL candidates during a specified period will be
+considered leaderless and default to the technical committee for `decision`_.
+
 The electorate for elections (both PTL and TC) are the active contributors
 to a project or projects. If your project is a git repository and all active
 contributors submit patches to gerrit, their work will be automatically
@@ -221,4 +224,5 @@ for more details about TC elections.
 .. _Planet OpenStack: http://planet.openstack.org/
 .. _Cross Project Meeting: https://wiki.openstack.org/wiki/Meetings/CrossProjectMeeting
 .. _posted: http://releases.openstack.org
+.. _decision: http://governance.openstack.org/resolutions/20141128-elections-process-for-leaderless-programs.html
 .. _adding your blog: https://wiki.openstack.org/wiki/AddingYourBlog
