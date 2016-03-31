@@ -133,7 +133,7 @@ The PTL is expected to have sufficient time available to dedicate to running
 the project. Responsibilities of the PTL include the following tasks:
 
 * Organizing the content of the project team track in our Design Summits
-* Interacting with the release team in the #openstack-relmgr-office IRC channel
+* Interacting with the release team in the #openstack-release IRC channel
 * Participating in the weekly `Cross Project meeting`_
 * Maintaining cycle and development milestone plans. The dates for milestones
   and releases are `posted`_ well in advance, make sure you have sufficient
