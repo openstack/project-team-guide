@@ -98,6 +98,56 @@ they are done by someone on the project team.
 * Work with the PTL of your project to begin prioritizing implementations of
   agreed specs from the community.
 
+Meetings
+========
+
+General
+-------
+
+The cross-project meeting occurs if there are `agenda items`_ proposed by the
+community that involve the attention of the `Cross-Project Spec Liaisons`_.
+
+Sub Cross-Project Meetings
+--------------------------
+
+Some cross-project initiatives don't involve all projects under the big tent.
+Some may also take more than a couple of meetings to discuss. For these
+initiatives it's recommended to break out into a group with all involved
+projects' `Cross-Project Spec Liaisons`_, and iterate together through
+a specification.
+
+To facilitate scheduling such temporary cross-project meetings, a specific
+meeting channel is available and should be used: #openstack-meeting-cp.
+
+Just like what is an applicable cross-project spec, these meetings should not
+just be project to project interaction. These meetings should have a specific
+and concrete goal. When that goal is reached, the meetings should stop.
+
+Propose A Sub Cross-Project Meeting
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+#. Clone https://git.openstack.org/openstack-infra/irc-meetings
+#. In the meetings directory add a file in the format of <name>_wg.rst, where
+   <name> should be something to identify your groups initiative. Use this
+   example for the file content of service-catalog-wg.rst::
+
+    project:  Service Catalog TNG Working Group Virtual Standup
+    meeting_id:  service_catalog_tng
+    agenda_url:  https://wiki.openstack.org/wiki/Meetings/ServiceCatalogTNG
+    schedule:
+      - time:       '1500'
+        day:        Thursday
+        irc:        openstack-meeting-cp
+        frequency:  weekly
+        start_date: 20160107
+        duration:   60
+    chair:  Sean Dague (sdague), Anne Gentle (annegentle)
+    description:  >
+      This is a weekly 30 minute virtual standup to see where our progress
+      is for the overall effort. It is assumed most folks won't attend the
+      meeting but will instead update our virtual standup etherpad before
+      the meeting. This will just be a checkpoint and point at the top
+      issue that needs to be focussed on for the next week.
 
 .. _developer guide: http://docs.openstack.org/infra/manual/developers.html
 .. _template: http://git.openstack.org/cgit/openstack/openstack-specs/plain/template.rst
