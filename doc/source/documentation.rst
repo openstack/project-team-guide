@@ -40,9 +40,8 @@ Documentation for Operators
 ===========================
 
 Full length operating manuals for OpenStack are managed in their own
-repositories and are written using RST except for the Operations Guide,
-which is authored in DocBook XML. Often these manuals are authored by operators
-themselves, with help from project teams.
+repositories and are written using RST. Often these manuals are
+authored by operators themselves, with help from project teams.
 
 How to Contribute Documentation
 ===============================
