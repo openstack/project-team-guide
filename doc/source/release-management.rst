@@ -6,14 +6,16 @@ OpenStack project teams produce a large variety of code repositories. Some
 are services providing infrastructure APIs. Some are libraries being consumed
 by those services. Some are supporting cast and tools. Most of those
 are formally "released" at given points. We call those "deliverables", and
-use git tags to define the release points.
+use git tags to define the release points. Deliverables may contain multiple
+git repositories, which are all tagged with the same version at the same
+moment.
 
-OpenStack deliverables can be released under three different models. Most
+OpenStack deliverables can be released under four different models. Most
 follow a common 6-month development cycle, with some releasing intermediary
 releases within that. The release management team manages the release process
-for a selection of project teams repositories (indicated by the release:managed
-tag) and provide tools for other teams and repositories to do self-service
-releases.
+for all deliverables following the development cycle, and provide tools for
+cycle-independent deliverables and other teams and repositories to do
+self-service releases.
 
 
 Release models
@@ -41,15 +43,18 @@ history.
 
 The dates for the milestones and final release in a given development cycle
 are defined by the Release Management team, and communicated before the new
-development cycle starts.
+development cycle starts on `http://releases.openstack.org`.
 
 The $series-3 milestone coincides with Feature Freeze ("FF"). Managed projects
 are requested to stop merging code adding new features, new dependencies, new
 configuration options, database schema changes, changes in strings... all
 things that make the work of packagers, documenters or testers more difficult.
-Feature Freeze Exceptions ("FFE") may be requested by PTLs to the Release
-managers. As we get closer to the release date, those are less likely to get
-accepted.
+Feature Freeze Exceptions ("FFE") may be exceptionally granted by project PTLs
+(or release liaison), but every FFE accepted results in more work, less time
+spent testing and fixing issues in release candidates, therefore lowering the
+quality of the end release. The closer we get to the final release date, the
+greater the impact on release quality. In doubt, the Release Team is available
+for advice.
 
 At the same time as Feature Freeze, is Soft String Freeze. Translators start
 to translate the strings after ``$SERIES-3``. To aid their work, it is
@@ -58,11 +63,12 @@ their translation work. New strings are allowed for things like new log
 messages, as in many cases leaving those strings untranslated is better than
 not having any message at all.
 
-After the $series-3 milestone, a list of release-critical bugs is built, and
-when all those are fixed (or considered not-release-critical after all), a
-first release candidate is tagged (rc1). This RC1 will be used as-is as the
-final release, unless new release-critical issues are found that warrant a RC
-respin.
+After the $series-3 milestone, each team works on a list of release-critical
+bugs, and when they consider that all the critical issues are fixed (or
+considered not-release-critical after all), the release liaison requests the
+publication of a first release candidate (rc1). This RC1 will be used as-is
+as the final release, unless new release-critical issues are found that
+warrant a RC respin.
 
 After RC1 is tagged, a stable/$series branch is cut from that same commit.
 That is where further release candidates (and the final release) will be
@@ -76,43 +82,39 @@ team. It is expected that at least 10 working days after RC1 there will be
 another milestone tagged that includes the latest translations.
 
 Potential new release critical issues have first to get fixed on the master
-branch. Once merged in master, based on their severity and the risk of
-regression in the patch, they may or may not trigger the opening of a
-new release candidate window. Once a new RC window is opened, a number of
-bugs are marked for backport to the stable branch, and the new RC tag is
-pushed when all the backports are completed. Until the final release is
-produced, the stable/$series branch is under the control of the release
-management team, to make sure that merges happen only when a release
-candidate window is open.
+branch. Once merged in master, they can be backported to the release branch.
+Such backports are apporved by the PTL (or release liaison), and once all the
+desired backports (and translations updates) are merged, a new release
+candidate can be produced.
 
-On final release day, each project's last release candidate is tagged with
-the final release version. There is no difference between the last release
-candidate and the final version, apart from the version number. The stable
-branch passes under stable maintenance team management, and is open for
-backports following the stable branch rules.
+On final release day, the Release Team will take each project's last release
+candidate and re-tag it with the final release version. There is no difference
+between the last release candidate and the final version, apart from the
+version number. The stable branch then passes under stable maintenance team
+management, and is open for backports following the stable branch rules.
 
 Common cycle with intermediary releases
 ---------------------------------------
 
 Projects which want to do a formal release more often, but still want to
 coordinate a release at the end of the cycle from which to maintain a stable
-branch may opt for this model. This is especially suitable to more stable
-projects which add a limited set of new features and don't plan to go through
-large architectural changes. Getting the latest and greatest out as often as
-possible, while ensuring stability and upgradeability.
+branch may opt for this model. This is especially suitable to libraries, and
+to more stable projects which add a limited set of new features and don't plan
+to go through large architectural changes. Getting the latest and greatest out
+as often as possible, while ensuring stability and upgradeability.
 
 Projects following this model do not use intermediary development milestones.
-They may tag new versions at any point in time during the development cycle.
-They do not use Feature Freeze, they do not go through a RC cycle. They use
-a post-version semver-based numbering scheme, where every tag is a X.Y.Z
-version.
+They may request publication of versions at any point in time during the
+development cycle. They do not use Feature Freeze, they do not go through a
+release candidate cycle. They use a post-version semver-based numbering scheme,
+where every tag is a X.Y.Z version.
 
-Those projects must tag a final version for a development cycle (generally
+Those projects must request a final version for a development cycle (generally
 in the last month of the cycle). A stable branch is cut from that proposed
 version, and the master branch will from then on produce releases of the
 next development cycle. If a critical issue is found in the "final release",
-backports can be pushed to the stable branch and a new release be
-tagged there. That is why it is important to increment at least the Y component
+backports can be pushed to the stable branch and a new release be requested
+there. That is why it is important to increment at least the Y component
 of the X.Y.Z version when we switch to the next development cycle, so that the
 Z component can be used in future tags on the release (or stable) branch.
 
@@ -121,6 +123,19 @@ period for projects in an independent release model, it is recommended to
 focus on bugfixes and hold on major disruptive features as you get closer
 to the end of a development cycle, to ensure that the final release of any
 given development cycle is as usable and bug-free as it can be.
+
+Trailing the common cycle
+-------------------------
+
+Some projects follow the release cycle, but because they rely on the other
+projects being completed, they may not always publish their final release at
+the same time as those projects. For example, projects related to packaging
+or deploying OpenStack components need the final releases of those components
+to be available before they can run their own final tests.
+
+Cycle-trailing projects are given an extra 2 weeks after the final release date
+to request publication of their release. They may otherwise use intermediary
+releases or development milestones.
 
 Independent release model
 -------------------------
@@ -132,25 +147,9 @@ Versions are tagged from the master branch without any specific constraint,
 although the usage of a post-version numbering scheme based on
 `semantic versioning`_ is strongly recommended.
 
-.. _library-release-process-managed:
 
-Libraries release process, managed projects
-===========================================
-
-Releases for managed projects are handled by the release team at the
-request of the release liaison for the project. Requests should be
-submitted in the form of a patch to the appropriate "deliverables"
-file in the ``openstack/releases`` git repository. See the README file
-in that repository for more details.
-
-Libraries release process, unmanaged projects
-=============================================
-
-OpenStack library projects follow the "common cycle with intermediary releases"
-model described above, including the use of stable branches. They use a
-variation of `semantic versioning`_ (or SemVer) rules to choose
-version numbers. Library releases may be managed by the Release
-Management team, or by the liaison from the project team.
+How to release ?
+================
 
 Releases occur as often as weekly (or more), and are typically
 scheduled for early in the day and early in the week, based on the
@@ -160,32 +159,47 @@ release is made to minimize the duration of any outage, without
 requiring extra effort outside of a normal work week by overlapping
 with the weekend.
 
-Releases are created by pushing a *signed* tag to the gerrit
+Technically, releases are created by pushing a *signed* tag to the gerrit
 repository where the library is managed. The CI system recognizes the
-new signed tag, and triggers the jobs that build the packages and
-upload them to the distribution servers (our tarball site and the
-Python Package Index).
-
-The release scripts also manage milestones within the Launchpad page
-for the project, recording the release date and completed work.
-Project that track the work that will land in an upcoming release can
-use the special milestone name "``next-$SERIES``", which will be
-renamed as a release is created. If no ``next-$SERIES`` milestone
-exists, a new empty milestone is created and then the fixed bugs and
-closed blueprints not already associated with a milestone are moved
-into the new milestone.
-
-Announcing each library release is an important part of the process,
-because new versions may introduce instability into the test
-systems. The release notes for each library version are generated
-automatically and sent to the openstack-announce mailing list as part
-of the release process.
+new signed tag, and triggers the jobs that build the packages, upload them
+to the distribution servers (our tarball site and the Python Package Index),
+and send email announcements.
 
 For more details about setting up a repository to support automated
 releases, see the `Project Creator's Guide`_ from the
 *Infrastructure User Manual*.
 
 .. _Project Creator's Guide: http://docs.openstack.org/infra/manual/creators.html
+
+.. _release-process-managed:
+
+Release process for projects following the release cycle
+--------------------------------------------------------
+
+Releases for deliverables following one of the three models tied to the release
+cycle (cycle-with-milestones, cycle-with-intermediary, and cycle-trailing) are
+handled by the release team at the request of the PTL or release liaison for
+the project. Requests should be submitted in the form of a patch to the
+appropriate "deliverables" file in the ``openstack/releases`` git repository.
+See the `README file in that repository`_ for more details.
+
+Such requests are then checked and processed by the Release Team, generally
+avoiding Mondays and Fridays and periods where the CI system is not fully
+operational.
+
+.. _README file in that repository: http://git.openstack.org/cgit/openstack/releases/tree/README.rst
+
+Release process for other projects
+----------------------------------
+
+OpenStack projects following a cycle-independent model can use the process
+for projects following the release cycle, or push signed tags by themselves.
+
+In all cases they should use a variation of `semantic versioning`_ (or SemVer)
+rules to choose version numbers, and they should push the corresponding patch
+to the ``openstack/releases`` git repository so that the release appears on
+the https://releases.openstack.org website.
+
 .. _semantic versioning: http://docs.openstack.org/developer/pbr/semver.html
 
 
@@ -217,11 +231,11 @@ must ensure they are done by someone on the project team.
    blocking future releases. For example, keeping the requirements
    lists up to date, adding tools, and updating packaging files.
 
-#. Submit release requests and milestone tags. If the request is not
+#. Submit miletone and release tag requests. If the request is not
    submitted by the liaison or PTL, one of them must indicate their
    approval.
 
-   See :ref:`library-release-process-managed` above.
+   See :ref:`release-process-managed` above.
 
 #. Coordinate feature freeze exceptions (FFEs) at the end of a
    release, and track blocking bug fixes and feature work that must be
