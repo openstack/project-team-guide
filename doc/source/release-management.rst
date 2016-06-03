@@ -182,10 +182,10 @@ automatically and sent to the openstack-announce mailing list as part
 of the release process.
 
 For more details about setting up a repository to support automated
-releases, see the `Repository Creator's Guide`_ from the
+releases, see the `Project Creator's Guide`_ from the
 *Infrastructure User Manual*.
 
-.. _Repository Creator's Guide: http://docs.openstack.org/infra/manual/creators.html
+.. _Project Creator's Guide: http://docs.openstack.org/infra/manual/creators.html
 .. _semantic versioning: http://docs.openstack.org/developer/pbr/semver.html
 
 
