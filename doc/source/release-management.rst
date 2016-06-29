@@ -147,6 +147,22 @@ Versions are tagged from the master branch without any specific constraint,
 although the usage of a post-version numbering scheme based on
 `semantic versioning`_ is strongly recommended.
 
+.. note::
+
+   Client libraries and libraries distributed by official project
+   teams should not use this model.
+
+   In order to support security and critical bug fixes in official
+   projects, they all need to provide series-based stable branches. If
+   a library has no stable branch for a series, then in order to fix
+   issues in the library for that series we must allow new versions
+   from the master branch to be used in the stable branch. Sometimes
+   that works fine, but in cases where the new release from master
+   requires new minimum versions of second-tier dependencies, we
+   cannot safely introduce the new version into the stable branch. It
+   is better to use the cycle-with-intermediary model, even if a
+   project does not aggressively backport changes to the stable
+   branches created.
 
 How to release ?
 ================
