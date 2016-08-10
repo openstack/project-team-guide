@@ -367,8 +367,8 @@ Feature Freeze +1
 - Final Feature Freeze Exceptions merged
 - Create stable branches for all libraries
 
-Release -3
-----------
+Release Candidate Period, Release -3
+------------------------------------
 
 The release candidate period spans several weeks, and usually starts
 the week after the feature freeze.
@@ -376,6 +376,19 @@ the week after the feature freeze.
 - All projects issue their first release candidates
 - Create branches for all services to use for release candidates, and
   eventually stable maintenance work
+
+  During this period, patches submitted to and being merged into the
+  new branch should be managed carefully.
+
+  1. Avoid aggressive backports during this time period, since having
+     a lot of pending reviews consumes reviewer resources and makes it
+     harder to understand which patches are release blockers.
+  2. All code patches should merge into the master branch before being
+     approved to merge into the new release branch.
+  3. Translation updates should be merged quickly to ensure they make
+     it into the final release.
+  4. Requirements sync patches should be merged quickly to ensure they
+     make it into the final release.
 
 Release -2
 ----------
