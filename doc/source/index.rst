@@ -28,6 +28,7 @@ Contents:
    oslo
    documentation
    i18n
+   ptl
    glossary
 
 ====================
