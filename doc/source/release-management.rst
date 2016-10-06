@@ -466,6 +466,13 @@ stable branches where you wish to use reno.
 #. Edit ``releasenotes/source/conf.py`` to change the ``extensions``
    list to include ``'reno.sphinxext'``.
 
+#. Edit ``releasenotes/source/conf.py`` and add:
+
+   ::
+
+      # -- Options for Internationalization output ------------------------------
+      locale_dirs = ['locale/']
+
 #. Edit ``test-requirements.txt`` to add ``reno``. Make sure to use
    the current entry from the global requirements list to avoid
    version conflicts.
