@@ -83,7 +83,7 @@ another milestone tagged that includes the latest translations.
 
 Potential new release critical issues have first to get fixed on the master
 branch. Once merged in master, they can be backported to the release branch.
-Such backports are apporved by the PTL (or release liaison), and once all the
+Such backports are approved by the PTL (or release liaison), and once all the
 desired backports (and translations updates) are merged, a new release
 candidate can be produced.
 
@@ -255,7 +255,7 @@ must ensure they are done by someone on the project team.
 
 #. Coordinate feature freeze exceptions (FFEs) at the end of a
    release, and track blocking bug fixes and feature work that must be
-   completed before a release
+   completed before a release.
 
    The period between feature freeze and release should be used to
    stabilize new features and fix bugs. However, for every release
