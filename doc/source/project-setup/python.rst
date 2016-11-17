@@ -145,7 +145,7 @@ Run individual tests with the following syntax::
 
 So for example, run the list test in openstack/swift::
 
-  tox -epy27 -- --tests test.unit.container.test_backend:TestContainerBroker.test_empty
+  tox -e py27 -- --tests test.unit.container.test_backend:TestContainerBroker.test_empty
 
 .. _`testr`: https://wiki.openstack.org/wiki/Testr
 .. _`nose`: https://nose.readthedocs.org/en/latest/
