@@ -1,6 +1,5 @@
 :title: Python Project Guide
 
-
 Python Project Guide
 ####################
 
@@ -45,13 +44,13 @@ to compile.
 `bindep`_ project exists to address this need. It is a tool for checking the
 presence of binary packages needed by an application or library::
 
-  pip install bindep
+  $ pip install bindep
 
 If the project you are working on has a `other-requirements.txt`, bindep will
 read system requirements from there. Just call it along with your package
 manager::
 
-  sudo [apt-get | yum] install $(bindep -b)
+  $ sudo [apt-get | yum] install $(bindep -b)
 
 If there is no such file, in order to learn what system dependencies need to be
 installed, you should look at the documentation of the specific project you are
@@ -69,11 +68,12 @@ several categories of tests:
 * Unit Tests --  Self contained in each repository
 * Integration Tests -- Require a running OpenStack environment
 
-This section assumes you have all system dependencies needed by the project
-installed. It covers how to run the style check and unit tests. Both are run
-through `tox`_, so you need to install it::
+The tests available and the tools used to implement these tests vary from
+project to project. This section assumes you have all system dependencies
+needed by the project installed. It covers how to run the style check and unit
+tests. Both are run through `tox`_, so you need to install it::
 
-  pip install tox
+  $ sudo pip install tox
 
 .. _`tox`: https://tox.readthedocs.org/en/latest/
 
@@ -82,16 +82,16 @@ Run The Tests
 
 Navigate to the repository's root directory and execute::
 
-  tox
+  $ tox
 
-Note: Completing this command may take a long time (depends on system
-resources), also you might not see any output until tox is complete.
-
+.. note::
+  Completing this command may take a long time, depending on system resources.
+  You might not see any output until tox is complete.
 
 Run One Set of Tests
 ^^^^^^^^^^^^^^^^^^^^
 
-Tox will run your entire test suite in the environments specified in the
+tox will run your entire test suite in the environments specified in the
 repository tox.ini::
 
   [tox]
@@ -100,19 +100,18 @@ repository tox.ini::
 
 To run just one test suite in envlist execute::
 
-  tox -e <env>
+  $ tox -e <env>
 
 so for example, run the test suite in py27::
 
-  tox -e py27
-
+  $ tox -e py27
 
 Running the style checks
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Just run::
 
-  tox -e pep8
+  $ tox -e pep8
 
 Run One Test
 ^^^^^^^^^^^^
@@ -127,11 +126,11 @@ If `testr`_ is in tox.ini, for example::
 
 Run individual tests with the following syntax::
 
-  tox -e <env> -- path.to.module.Class.test
+  $ tox -e <env> -- path.to.module.Class.test
 
 So for example, run the test_memory_unlimited test in openstack/nova::
 
-  tox -e py27 -- nova.tests.unit.compute.test_claims.ClaimTestCase.test_memory_unlimited
+  $ tox -e py27 -- nova.tests.unit.compute.test_claims.ClaimTestCase.test_memory_unlimited
 
 If `nose`_ is in tox.ini, for example::
 
@@ -141,11 +140,11 @@ If `nose`_ is in tox.ini, for example::
 
 Run individual tests with the following syntax::
 
-  tox -e <env> -- --tests path.to.module:Class.test
+  $ tox -e <env> -- --tests path.to.module:Class.test
 
 So for example, run the list test in openstack/swift::
 
-  tox -e py27 -- --tests test.unit.container.test_backend:TestContainerBroker.test_empty
+  $ tox -e py27 -- --tests test.unit.container.test_backend:TestContainerBroker.test_empty
 
 .. _`testr`: https://wiki.openstack.org/wiki/Testr
 .. _`nose`: https://nose.readthedocs.org/en/latest/
