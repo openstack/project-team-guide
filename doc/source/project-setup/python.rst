@@ -148,3 +148,32 @@ So for example, run the list test in openstack/swift::
 
 .. _`testr`: https://wiki.openstack.org/wiki/Testr
 .. _`nose`: https://nose.readthedocs.org/en/latest/
+
+Debugging Python Unit Tests
+===========================
+
+You can debug tests with `pdb`_. To begin, insert ``set_trace()`` where you
+wish to break::
+
+  import pdb; pdb.set_trace()
+
+If testr is in tox.ini, the ``testtools.run`` command should be used to run
+tests. However, due to a `bug`_, it is not possible to simply pass a regex to
+this tool. Instead, first generate a list of tests to run and then pipe this
+list through ``testtools.run``::
+
+  $ source .tox/py27/bin/activate
+  $ testr list-tests test_name_regex > my-list
+  $ python -m testtools.run discover --load-list my-list
+
+Alternatively, some projects provide a ``debug`` in their tox envlist, which is
+based on `oslo_debug_helper`_. Run individual tests with pdb enabled with the
+following syntax::
+
+  $ tox -e debug -- path.to.module.Class.test
+
+.. TODO(stephenfin): How to debug nose tests?
+
+.. _`pdb`: https://docs.python.org/3/library/pdb.html
+.. _`bug`: https://bugs.launchpad.net/testrepository/+bug/902881
+.. _`oslo_debug_helper`: http://docs.openstack.org/developer/oslotest/features.html
