@@ -49,4 +49,4 @@ How to Contribute Documentation
 The documentation team maintains a `guide with instructions on how
 to contribute documentation <http://docs.openstack.org/contributor-guide/index.html>`_.
 To look up the source for a particular document, refer to the
-`content specification page <http://docs.openstack.org/contributor-guide/content-specs.html>`_.
+`content specification page <http://docs.openstack.org/contributor-guide/blueprints-and-specs.html>`_.
