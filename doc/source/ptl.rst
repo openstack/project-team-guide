@@ -16,7 +16,8 @@ Weekly Tasks
 
 #.  Follow the weekly `[release]` guidelines email to keep track of the
     development cycle tasks (unless you have an appointed release liaison to
-    follow it for you).
+    follow it for you).  It is also very useful to subscribe into the `release
+    calendar`_.
 
 #.  Attend Technical Committee and Cross-Project meetings when possible. For
     more information see `meetings`_.
@@ -213,5 +214,6 @@ When necessary, the following can be performed at unscheduled times.
 
 
 .. _meetings: http://docs.openstack.org/project-team-guide/cross-project.html#meetings
+.. _release calendar: https://releases.openstack.org/schedule.ics
 .. _cross project liaisons: https://wiki.openstack.org/wiki/CrossProjectLiaisons
 .. _release management: http://docs.openstack.org/project-team-guide/release-management.html
