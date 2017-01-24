@@ -13,13 +13,29 @@ Support phases
 ==============
 
 Stability is always a trade-off between "bug-free" and "slow-moving". In order
-to reach that stability, we define several support phases:
+to reach that stability, we define several support phases.
 
-* Phase I (first 6 months): All bugfixes (which meet the criteria described
-  below) are appropriate
-* Phase II (6-12 months): Only critical bugfixes and security patches are
-  acceptable
-* Phase III (more than 12 months): Only security patches are acceptable
+.. list-table::
+   :header-rows: 1
+   :widths: 10 20 20 50
+
+   - * Phase
+     * Time frame
+     * Summary
+     * Changes Supported
+   - * I
+     * First 6 months
+     * Latest release
+     * All bugfixes (that meet the criteria described below) are
+       appropriate
+   - * II
+     * 6-12 months after release
+     * Maintained release
+     * Only critical bugfixes and security patches are acceptable
+   - * III
+     * more than 12 months after release
+     * Legacy release
+     * Only security patches are acceptable
 
 .. note::
    It's nevertheless allowed to backport fixes for other bugs if their safety
