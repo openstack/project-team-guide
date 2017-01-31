@@ -550,11 +550,6 @@ necessary jobs. All of these changes are made to the
    your repository to add the ``openstack-releasenotes-jobs`` job
    group to the list of jobs for your project.
 
-#. Modify the section of ``jenkins/jobs/projects.yaml`` related to
-   your repository to add the ``doc-publisher-site`` for your
-   project. The ``doc-publisher-site`` should be set to
-   ``docs.openstack.org``.
-
 #. Modify the section of ``zuul/layout.yaml`` related to your
    repository to add ``release-notes-jobs`` to the list of job
    templates for your project.
