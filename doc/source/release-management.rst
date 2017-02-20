@@ -120,7 +120,7 @@ Z component can be used in future tags on the release (or stable) branch.
 
 While the release management team will not enforce a formal feature-frozen
 period for projects in an independent release model, it is recommended to
-focus on bugfixes and hold on major disruptive features as you get closer
+focus on bug fixes and hold on major disruptive features as you get closer
 to the end of a development cycle, to ensure that the final release of any
 given development cycle is as usable and bug-free as it can be.
 
@@ -247,7 +247,7 @@ must ensure they are done by someone on the project team.
    blocking future releases. For example, keeping the requirements
    lists up to date, adding tools, and updating packaging files.
 
-#. Submit miletone and release tag requests. If the request is not
+#. Submit milestone and release tag requests. If the request is not
    submitted by the liaison or PTL, one of them must indicate their
    approval.
 
@@ -344,7 +344,7 @@ Feature Freeze -1
 
 The week before the full feature freeze we prepare the final releases
 for Oslo and other non-client libraries to give consuming projects
-time to stablize and for the owners to prepare bug fixes if needed.
+time to stabilize and for the owners to prepare bug fixes if needed.
 
 - Final Oslo and non-client library release
 
