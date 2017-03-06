@@ -641,4 +641,26 @@ recommended.
   * A driver interface or other plugin API changes
   * A REST API changes
 
+Not every patch is worth a release note. A user may skim through the
+release notes for a dozen projects or more after the release, what is
+helpful and what may be noise should be considered carefully.
+
 .. _reno: http://docs.openstack.org/developer/reno/
+
+How to Write a Good Release Note
+--------------------------------
+
+Release notes should be written from the perspective of the user and
+what they should know. Here are a few sample questions to keep in mind
+when writing them:
+
+* What is particularly relevant from the end-user/deployer's
+  perspective?
+* What changes for them?
+* Is there anything they need to do in particular?
+* Will the change have an impact on their day-to-day use?
+
+Release notes are not meant to be a replacement for git commit
+messages. They should focus on the impact for the user and make that
+understandable, even for people who don't know the full technical
+context for the patch or project.
