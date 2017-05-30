@@ -397,7 +397,9 @@ Release -2
   testing tools like devstack and grenade
 - Remove the freeze for the global requirements list on the master
   branch
-- All library releases freeze
+- Freeze all library releases, except independently-released libraries
+  (which can still be released, although constraint and requirement changes
+  will be held until the end the freeze period)
 
 Release -1
 ----------
