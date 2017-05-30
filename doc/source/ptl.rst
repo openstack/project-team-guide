@@ -70,7 +70,7 @@ private messages on IRC or publicly through the openstack-dev mailing list.
 
 #.  Does the person participate in weekly meetings?
 
-#.  Does the person participate at the summit design sessions?
+#.  Does the person participate in the forum discussions?
 
 #.  Does the person participate at the mid-cycle / project-team-gathering?
 
@@ -146,6 +146,31 @@ During the cycle
     release after 4 weeks even if the changes are minor. *More often is
     better than less often.*
 
+Before the Forum
+================
+
+#.  Start an etherpad to brainstorm potential session topics. For example:
+    http://lists.openstack.org/pipermail/openstack-dev/2017-March/114123.html
+
+#.  Based on that brainstorming, propose sessions. Create an etherpad for
+    every session, prime the content. List these etherpads in the Wiki.
+
+During the Forum
+================
+
+#.  Reach out to potential new contributors to the project, participate in
+    project on-boarding sessions.
+
+#.  Attend as many cross-project sessions as possible.
+
+#.  In the discussion sessions you moderate:
+
+  * Take notes on the etherpad (or delegate a scribe)
+  * Act as a moderator rather than actively participate (or delegate a moderator)
+
+#.  After the discussion, post a summary of the session outcome to the ML, for the
+    benefit of those who could not be present.
+
 
 At the end of the cycle
 =======================
@@ -166,28 +191,23 @@ At the end of the cycle
     install guide need to be updated?
 
 
-Before the Summit
-=================
+Before the PTG
+==============
 
-#.  Start an etherpad for the design session proposals mail it out. For example:
-    https://www.mail-archive.com/openstack-dev@lists.openstack.org/msg49312.html
+#.  Decide if your team will hold a team meeting at the PTG, and communicate
+    with the events organizers
 
-#.  Create an etherpad for every design session, prime the content. List these
-    etherpads in the Wiki and send out a note to mailing list. For example:
-    http://lists.openstack.org/pipermail/openstack-dev/2015-October/076283.html
+#.  If your team gathers at the PTG, create an etherpad to dynamically build
+    the room agenda, and list it on the event wiki page.
 
 
-During the summit
-=================
+During the PTG
+==============
 
-#.  Reach out to new contributors to the project at the design sessions.
+#.  Be flexible, attend inter-project sessions as appropriate.
 
-#.  Attend as many cross-project sessions as possible.
-
-#.  At the project design sessions.
-
-  * Take notes on the etherpad (or delegate a scribe)
-  * Act as a moderator rather than actively participate (or delegate a moderator)
+#.  Keep the event schedule up to date on what the current topics of discussion
+    in your team room is.
 
 
 Stable

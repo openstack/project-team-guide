@@ -51,10 +51,10 @@ Phase II support. Depending on how long each branch is supported, there may be
 one or more releases in Phase III support.
 
 The exact length of any given stable branch life support is discussed amongst
-stable branch maintainers and QA/infrastructure teams at every Design Summit.
-It is generally between 9 and 15 months, at which point the value of the
-stable branch is clearly outweighed by the cost in maintaining it in our
-continuous integration systems.
+stable branch maintainers and QA/infrastructure teams at the start of every
+release cycle. It is generally between 9 and 15 months, at which point the
+value of the stable branch is clearly outweighed by the cost in maintaining
+it in our continuous integration systems.
 
 
 Appropriate Fixes

@@ -296,22 +296,22 @@ Typical Development Cycle Schedule
 
 The development cycles follow a repeating pattern, which is described
 in general terms here. The length of time between milestones may
-change from cycle to cycle because of holidays, summit scheduling, and
+change from cycle to cycle because of holidays, event scheduling, and
 other factors, so consult the wiki for the actual schedule for the
 current cycle.  The cycles follow a repeating pattern, which is
 described more generally here.
 
 Weeks with negative numbers are counting down leading to the event
-("Summit -2" is 2 weeks before the summit). Weeks with positive
+("Release -2" is 2 weeks before the release). Weeks with positive
 numbers are counting up following an event ("Feature Freeze +1" is the
 week following the feature freeze).
 
 .. note::
 
   Dates for elections are specified in the Technical Committee charter
-  relative to the design summits, while most other dates are based on
+  relative to events dates, while most other dates are based on
   community consensus and expressed in terms of the release date.
-  Because the summit may move around in the cycle, the two scheduling
+  Because the events may move around in the cycle, the two scheduling
   systems may overlap differently in different cycles.
 
 Weeks Leading to Milestone 1
@@ -412,19 +412,6 @@ Release 0
   Thursday of this week
 - All library releases freeze on master ends
 
-Summit -2
----------
-
-Final summit planning and design session preparation.
-
-Summit
-------
-
-The semi-annual Design Summit and Conference where contributors,
-operators, and users meet in person to discuss the state of the
-project and future work.
-
-.. _Mitaka Release Schedule: https://wiki.openstack.org/wiki/Mitaka_Release_Schedule
 
 Managing Release Notes
 ======================

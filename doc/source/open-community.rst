@@ -132,7 +132,8 @@ a default ambassador of the project team in communications with other teams.
 The PTL is expected to have sufficient time available to dedicate to running
 the project. Responsibilities of the PTL include the following tasks:
 
-* Organizing the content of the project team track in our Design Summits
+* Organizing the team participation to events like the Forum or Project Teams
+  Gatherings
 * Interacting with the release team in the #openstack-release IRC channel
 * By default participating in the weekly `Cross Project meeting`_ and watching
   the `cross project repository`_, unless a `Cross Project Specification
@@ -179,37 +180,10 @@ wiki page on `tie breaking`_.
 Election Schedule
 -----------------
 
-The election schedule is based on the release cycle and summit dates,
-so the following timeline is expressed as the number of weeks leading
-up to the summit.
-
-Summit -6
-~~~~~~~~~
-
-Nominations open for PTL elections for the next cycle begin the week
-before the election.
-
-Summit -5
-~~~~~~~~~
-
-PTL elections for the next cycle are held 5 weeks before the design
-summit. Refer to `the TC charter
-<http://governance.openstack.org/reference/charter.html#election-for-ptl-seats>`__
-for more details about PTL elections.
-
-Summit -4
-~~~~~~~~~
-
-Nominations for the Technical Committee election begin the week before
-the election.
-
-Summit -3
-~~~~~~~~~
-
-The Technical Committee election is held 3 weeks before the design
-summit. Refer to `the TC charter
-<http://governance.openstack.org/reference/charter.html#election-for-tc-seats>`__
-for more details about TC elections.
+The `Technical Committee charter
+<https://governance.openstack.org/tc/reference/charter.html>`__
+defines the rules for the election schedule. Dates are generally based on the
+release cycle (for PTL elections) and summit dates (for the TC elections).
 
 
 .. _should be logged: http://governance.openstack.org/reference/irc.html

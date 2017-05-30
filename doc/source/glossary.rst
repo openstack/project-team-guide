@@ -6,9 +6,16 @@
 
    Design Summit
 
-     Design Summits are periodic, in-person, meetings for the entire
-     OpenStack community used to finalize plans for a development
-     cycle. See :ref:`design-summit` for details.
+     The 'Design Summit' is the previous name for the developer-oriented event
+     that used to happen concurrently with the OpenStack Summit. Design
+     Summits have been split into two separtate events: the :ref:`forum` at the
+     OpenStack Summit, and the :ref:`ptg`.
+
+   Forum
+
+     The 'Forum' is one of the pillars of the OpenStack Summit event. It is
+     where the community gets together to discuss the future of OpenStack.
+     See :ref:`forum` for details.
 
    IRC
 
@@ -18,11 +25,18 @@
      https://wiki.openstack.org/wiki/IRC for tips for setting up a
      client.
 
-   Mid-cycle sprints/meetups
+   Mid-cycle sprints
 
      Midcycle sprints or meetups are optional in-person gatherings
      focused around a project team or a specific initiative within the
-     community. See :ref:`midcycles` for details.
+     community. See :ref:`sprints` for details.
+
+   Project Teams Gathering ('PTG')
+
+     The 'Project Teams Gathering' is an event for upstream project team
+     members to get together to bootstrap a new development cycle and
+     organize the work for the remainder of the cycle. See :ref:`ptg`
+     for details.
 
    PTL
 
@@ -34,4 +48,4 @@
 
      The OpenStack Technical Committee is responsible for governance
      of the technical contributors to the project. See
-     http://governance.openstack.org for more details.
+     https://governance.openstack.org/tc/ for more details.
