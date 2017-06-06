@@ -498,7 +498,7 @@ stable branches where you wish to use reno.
       ==============================
 
       .. release-notes::
-         :branch: origin/stable/liberty
+         :branch: stable/liberty
 
 #. Edit ``releasenotes/source/index.rst`` to remove most of the
    automatically-generated content and replace it with a title and
