@@ -26,9 +26,10 @@ Common cycle with development milestones
 
 By default, most OpenStack services opt to follow a common, time-based
 release model. It results in a single release at the end of the development
-cycle. It is recommended at the earlier stages of development, when
-it is difficult to commit to multiple upgrade paths and large features or
-architectural refactors are still common.
+cycle, with a few milestones to mark the progress in between. It is
+recommended at the middle stages of development, when regular releases
+are desirable, but release management is not internalized in the team,
+and testing coverage is not perfect yet.
 
 Projects following that model use a pre-version numbering scheme. If the
 final release will be called 5.0.0, intermediary milestones will be called
@@ -98,16 +99,19 @@ Common cycle with intermediary releases
 
 Projects which want to do a formal release more often, but still want to
 coordinate a release at the end of the cycle from which to maintain a stable
-branch may opt for this model. This is especially suitable to libraries, and
-to more stable projects which add a limited set of new features and don't plan
-to go through large architectural changes. Getting the latest and greatest out
-as often as possible, while ensuring stability and upgradeability.
+branch may opt for this model. All our libraries follow this model, in order
+to allow for immediate consumption of new features in consuming projects.
+But this is also potentially suitable for regular projects, either at the
+very early stages (where releasing often can be useful) or once the project
+is more stable, changes are limited, automated testing can be relied on, and
+the team decided to more directly handle release management.
 
 Projects following this model do not use intermediary development milestones.
 They may request publication of versions at any point in time during the
 development cycle. They do not use Feature Freeze, they do not go through a
-release candidate cycle. They use a post-version semver-based numbering scheme,
-where every tag is a X.Y.Z version.
+release candidate cycle. Every tag is a release supposed to be consumable by
+users. They use a post-version semver-based numbering scheme, where every tag
+is a X.Y.Z version.
 
 Those projects must request a final version for a development cycle (generally
 in the last month of the cycle). A stable branch is cut from that proposed
@@ -253,9 +257,9 @@ must ensure they are done by someone on the project team.
 
    See :ref:`release-process-managed` above.
 
-#. Coordinate feature freeze exceptions (FFEs) at the end of a
-   release, and track blocking bug fixes and feature work that must be
-   completed before a release.
+#. Coordinate feature freeze exceptions (FFEs) at the end of a release
+   cycle (for cycle-with-milestones deliverables), and track blocking
+   bug fixes and feature work that must be completed before a release.
 
    The period between feature freeze and release should be used to
    stabilize new features and fix bugs. However, for every release
@@ -294,12 +298,12 @@ must ensure they are done by someone on the project team.
 Typical Development Cycle Schedule
 ==================================
 
-The development cycles follow a repeating pattern, which is described
-in general terms here. The length of time between milestones may
-change from cycle to cycle because of holidays, event scheduling, and
-other factors, so consult the wiki for the actual schedule for the
-current cycle.  The cycles follow a repeating pattern, which is
-described more generally here.
+The development cycles for cycle-with-milestones deliverables follow a
+repeating pattern, which is described in general terms here. The length
+of time between milestones may change from cycle to cycle because of
+holidays, event scheduling, and other factors, so consult the actual
+'Under development' schedule on the `releases website`_ for the actual
+schedule.
 
 Weeks with negative numbers are counting down leading to the event
 ("Release -2" is 2 weeks before the release). Weeks with positive
@@ -414,6 +418,7 @@ Release 0
   Thursday of this week
 - All library releases freeze on master ends
 
+.. _releases website: https://releases.openstack.org/
 
 Managing Release Notes
 ======================
