@@ -109,7 +109,7 @@ the team decided to more directly handle release management.
 Projects following this model do not use intermediary development milestones.
 They may request publication of versions at any point in time during the
 development cycle. They do not use Feature Freeze, they do not go through a
-release candidate cycle. Every tag is a release supposed to be consumable by
+release candidate cycle. Every tag is a release that should be be consumable by
 users. They use a post-version semver-based numbering scheme, where every tag
 is a X.Y.Z version.
 
