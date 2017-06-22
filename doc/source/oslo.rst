@@ -139,7 +139,7 @@ For more details, refer to the Oslo `naming policy spec`_.
 .. _`Taking the Long View: How the Oslo Program Reduces Technical Debt`: https://www.openstack.org/summit/openstack-paris-summit-2014/session-videos/presentation/taking-the-long-view-how-the-oslo-program-reduces-technical-debt
 .. _Published Oslo Specs: http://specs.openstack.org/openstack/oslo-specs/
 .. _Oslo in the OpenStack wiki: https://wiki.openstack.org/wiki/Oslo
-.. _growing set of libraries of Python code: http://governance.openstack.org/reference/projects/oslo.html
+.. _growing set of libraries of Python code: https://governance.openstack.org/tc/reference/projects/oslo.html
 .. _The Oslo Incubator: http://specs.openstack.org/openstack/oslo-specs/specs/policy/incubator.html
 .. _Oslo Liaison program spec: http://specs.openstack.org/openstack/oslo-specs/specs/policy/liaisons.html
 .. _CrossProjectLiaisons: https://wiki.openstack.org/wiki/CrossProjectLiaisons

@@ -14,8 +14,8 @@ its success and growth in the OpenStack ecosystem.
 Public Meetings on IRC
 ======================
 
-OpenStack projects are required to have team meetings on the Freenode
-:term:`IRC` network in one of the publicly logged team meeting
+OpenStack projects are required to have their team meetings (if any) on the
+Freenode :term:`IRC` network in one of the publicly logged team meeting
 channels managed by the OpenStack infrastructure team. As part of
 working in an open community, the logging of meetings allows those who
 cannot participate at the meeting's designated time to read the logs
@@ -83,7 +83,7 @@ Community Support Channels
 As a project in the OpenStack ecosystem, you will inevitably field requests for
 support from users of your software. These can come in the following ways:
 
-* Bugs on Launchpad_
+* Bugs on Launchpad_ or StoryBoard_
 * Mailing list requests
 * IRC message requests
 * ask.openstack.org_
@@ -91,7 +91,7 @@ support from users of your software. These can come in the following ways:
 A project must be prepared to provide best effort support for these types of
 requests. Recommended courses of action include:
 
-* Triaging bugs on Launchpad_ at least weekly.
+* Triaging bugs (on Launchpad_ or StoryBoard_) at least weekly.
 * Responding to project queries on the various mailing lists.
 * Working in-channel on IRC to answer questions.
 * Looking weekly at ask.openstack.org_ for open queries related to your
@@ -190,9 +190,10 @@ defines the rules for the election schedule. Dates are generally based on the
 release cycle (for PTL elections) and summit dates (for the TC elections).
 
 
-.. _should be logged: http://governance.openstack.org/reference/irc.html
+.. _should be logged: https://governance.openstack.org/tc/reference/irc.html
 .. _etiquette rules: https://wiki.openstack.org/wiki/MailingListEtiquette
 .. _Launchpad: https://launchpad.net/openstack
+.. _StoryBoard: https://storyboard.openstack.org
 .. _ask.openstack.org: https://ask.openstack.org/
 .. _Technical Committee website: https://governance.openstack.org/tc/
 .. _TC office hours: https://governance.openstack.org/tc/#office-hours
@@ -205,7 +206,7 @@ release cycle (for PTL elections) and summit dates (for the TC elections).
 .. _Planet OpenStack: http://planet.openstack.org/
 .. _Cross Project Meeting: https://wiki.openstack.org/wiki/Meetings/CrossProjectMeeting
 .. _posted: http://releases.openstack.org
-.. _decision: http://governance.openstack.org/resolutions/20141128-elections-process-for-leaderless-programs.html
+.. _decision: https://governance.openstack.org/tc/resolutions/20141128-elections-process-for-leaderless-programs.html
 .. _cross project repository: https://review.openstack.org/#/q/project:openstack/openstack-specs
 .. _Cross Project Specification Liaison: cross-project.html#cross-project-specification-liaisons
 .. _adding your blog: https://wiki.openstack.org/wiki/AddingYourBlog

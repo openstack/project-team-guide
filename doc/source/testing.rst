@@ -63,7 +63,7 @@ Gerrit code review system under the name *Jenkins*.
 In order to facilitate projects interacting with the automated test
 system in a standardized way, the Technical Committee has adopted the
 `Consistent Testing Interface
-<http://governance.openstack.org/reference/project-testing-interface.html>`_
+<https://governance.openstack.org/tc/reference/project-testing-interface.html>`_
 which describes what facilities a project must provide for both
 developers and the automated systems to run tests on the project.
 

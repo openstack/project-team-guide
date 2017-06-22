@@ -61,4 +61,4 @@ below.
    Python<project-setup/python>
    JavaScript<project-setup/javascript>
 
-.. _Consistent Testing Interface: http://governance.openstack.org/reference/project-testing-interface.html
+.. _Consistent Testing Interface: https://governance.openstack.org/tc/reference/project-testing-interface.html

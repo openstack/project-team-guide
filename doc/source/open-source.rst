@@ -27,11 +27,15 @@ ensure the "fully functional open source" principle is satisfied.
 Acceptable Licensing
 ====================
 
-OpenStack projects must utilize the `Apache License, 2.0`_ for the source code
-they produce. This is the license used by all existing OpenStack software.
-New projects are required to utilize this license as well, as it's specifically
-called out in the OpenStack Foundation bylaws. The Apache License, 2.0,
-provides the following benefits:
+Licensing requirements are described in the following governance document:
+
+https://governance.openstack.org/tc/reference/licensing.html
+
+Generally speaking, OpenStack projects must utilize the `Apache License, 2.0`_
+for the source code they produce. This is the license used by all existing
+OpenStack software. New projects are required to utilize this license as well,
+as it's specifically called out in the OpenStack Foundation bylaws. The
+Apache License, 2.0, provides the following benefits:
 
 * OSI approved
 * GPLv3 compatible
@@ -43,10 +47,12 @@ Dependencies and Optional Modules
 
 When utilizing third party modules or libraries which are not Apache 2.0
 licensed, contributors need to understand how the interaction between the
-modules will work and the compatibility of the licenses involved. If there
-are doubts or concerns, it is recommended to raise the issue in the
-`Technical Committee Meeting`_ to discuss with the Technical Committee how to
-proceed. In general, err on the side of caution here.
+modules will work and the compatibility of the licenses involved. Please read
+the `licensing requirements`_, and if there are any remaining doubts or
+concerns, it is recommended to contact the Technical Committee (using the
+openstack-dev mailing-list with the [tc] prefix, or on the #openstack-tc IRC
+channel) to discuss with the Technical Committee how to proceed. In general,
+err on the side of caution here.
 
 With regards to dependencies, any third-party libraries or modules need to be
 vetted in the `global requirements`_. This ensures the added requirement of
@@ -54,5 +60,5 @@ including the third party module goes through review and will not conflict
 with broad cross-project efforts, such as the Python 3 porting effort.
 
 .. _Apache License, 2.0: http://www.apache.org/licenses/LICENSE-2.0
-.. _Technical Committee Meeting: https://wiki.openstack.org/wiki/Meetings/TechnicalCommittee
+.. _licensing requirements: https://governance.openstack.org/tc/reference/licensing.html
 .. _global requirements: https://git.openstack.org/cgit/openstack/requirements/plain/README.rst

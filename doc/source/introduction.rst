@@ -34,12 +34,18 @@ The Four Opens
 
 The best short definition of "the OpenStack Way" is the four opens as
 defined in the governance document approved by the Technical
-Committee.
+Committee:
 
-http://governance.openstack.org/reference/opens.html
+https://governance.openstack.org/tc/reference/opens.html
+
+These were further refined in a set of guiding principles that apply to all
+OpenStack projects:
+
+https://governance.openstack.org/tc/reference/principles.html
 
 In the following chapters, we'll further elaborate on those basic principles
 and explain more precisely what they mean for OpenStack project teams.
+
 
 A quick history of OpenStack governance
 =======================================
@@ -75,6 +81,9 @@ The reponsibilities of the Project Policy Board were split between two bodies:
 * The `Technical Committee`_, which manages the technical matters and has
   authority over the open source upstream OpenStack Project
 
+The Foundation bylaws also established a third body, the `User Committee`_,
+to more accurately reflect the views and needs of the users of OpenStack.
+
 The Technical Committee was originally formed by all the PTLs + five members
 directly elected by all the contributors. In June 2013, to accommodate the
 growth in the number of project teams and PTLs, the Technical Committee
@@ -83,4 +92,5 @@ renewed every 6 months.
 
 .. _OpenStack Foundation: http://www.openstack.org/foundation/
 .. _Board of Directors: http://www.openstack.org/foundation/board-of-directors/
-.. _Technical Committee: http://governance.openstack.org/
+.. _Technical Committee: https://governance.openstack.org/tc/
+.. _User Committee: https://governance.openstack.org/uc/
