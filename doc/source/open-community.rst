@@ -124,13 +124,17 @@ of elected technical positions in OpenStack:
 * Project Team Lead (PTL)
 
 The *project team* guide naturally focuses on PTLs. More information about the
-TC can be found on the `Technical Committee website`_. Each project team in
-OpenStack needs a PTL. The PTL is an elected leader who has final say over
-all things in that specific project team, and all the code repositories in it.
-The PTL typically leads the day to day operations of the project, and acts as
-a default ambassador of the project team in communications with other teams.
-The PTL is expected to have sufficient time available to dedicate to running
-the project. Responsibilities of the PTL include the following tasks:
+TC can be found on the `Technical Committee website`_. You can reach out to
+TC members using the openstack-dev mailing-list (with the [tc] prefix), or
+on the #openstack-tc IRC channel (especially around `TC office hours`_).
+
+Each project team in OpenStack needs a PTL. The PTL is an elected leader who
+has final say over all things in that specific project team, and all the code
+repositories in it. The PTL typically leads the day to day operations of the
+project, and acts as a default ambassador of the project team in communications
+with other teams. The PTL is expected to have sufficient time available to
+dedicate to running the project. Responsibilities of the PTL include the
+following tasks:
 
 * Organizing the team participation to events like the Forum or Project Teams
   Gatherings
@@ -190,7 +194,8 @@ release cycle (for PTL elections) and summit dates (for the TC elections).
 .. _etiquette rules: https://wiki.openstack.org/wiki/MailingListEtiquette
 .. _Launchpad: https://launchpad.net/openstack
 .. _ask.openstack.org: https://ask.openstack.org/
-.. _Technical Committee website: http://governance.openstack.org
+.. _Technical Committee website: https://governance.openstack.org/tc/
+.. _TC office hours: https://governance.openstack.org/tc/#office-hours
 .. _Condorcet: https://en.wikipedia.org/wiki/Condorcet_method
 .. _tie breaking: https://wiki.openstack.org/wiki/Governance/TieBreaking
 .. _eavesdrop: http://eavesdrop.openstack.org/
