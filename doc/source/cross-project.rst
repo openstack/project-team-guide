@@ -110,7 +110,7 @@ community that involve the attention of the `Cross-Project Spec Liaisons`_.
 Sub Cross-Project Meetings
 --------------------------
 
-Some cross-project initiatives don't involve all projects under the big tent.
+Some cross-project initiatives don't involve all official OpenStack projects.
 Some may also take more than a couple of meetings to discuss. For these
 initiatives it's recommended to break out into a group with all involved
 projects' `Cross-Project Spec Liaisons`_, and iterate together through
