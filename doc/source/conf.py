@@ -31,8 +31,15 @@ from jinja2.utils import Markup
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
 extensions = ['sphinx.ext.todo',
               'sphinx.ext.viewcode',
-              'oslosphinx'
+              'openstackdocstheme'
              ]
+
+# openstackdocstheme options
+repository_name = 'openstack/project-team-guide'
+bug_project = 'openstack-manuals'
+bug_tag = 'PTG'
+html_last_updated_fmt = '%Y-%m-%d %H:%M'
+html_theme = 'openstackdocs'
 
 todo_include_todos = True
 
@@ -96,7 +103,7 @@ man_pages = []
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'nature'
+#html_theme = 'nature'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -124,8 +131,8 @@ html_theme = 'nature'
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
-git_cmd = "git log --pretty=format:'%ad, commit %h' --date=local -n1"
-html_last_updated_fmt = os.popen(git_cmd).read()
+#git_cmd = "git log --pretty=format:'%ad, commit %h' --date=local -n1"
+#html_last_updated_fmt = os.popen(git_cmd).read()
 
 # If true, SmartyPants will be used to convert quotes and dashes to
 # typographically correct entities.
