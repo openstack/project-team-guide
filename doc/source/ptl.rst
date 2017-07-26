@@ -165,8 +165,8 @@ During the Forum
 
 #.  In the discussion sessions you moderate:
 
-  * Take notes on the etherpad (or delegate a scribe)
-  * Act as a moderator rather than actively participate (or delegate a moderator)
+    * Take notes on the etherpad (or delegate a scribe)
+    * Act as a moderator rather than actively participate (or delegate a moderator)
 
 #.  After the discussion, post a summary of the session outcome to the ML, for the
     benefit of those who could not be present.
