@@ -46,7 +46,7 @@ presence of binary packages needed by an application or library::
 
   $ pip install bindep
 
-If the project you are working on has a `other-requirements.txt`, bindep will
+If the project you are working on has a `bindep.txt`, bindep will
 read system requirements from there. Just call it along with your package
 manager::
 
