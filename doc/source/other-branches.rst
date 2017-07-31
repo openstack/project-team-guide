@@ -24,10 +24,22 @@ Creating the Branch
 
 Feature branches should be used infrequently, because they bypass regular
 CI testing and usually result in extra pain and effort when the work needs
-to be merged back into master. New feature branches will be created by the
-release team at the request of the project team, after evaluating the need for
-the branch. A branch should only be created if the change that would be
-developed on it is deemed complex enough to justify the extra pain.
+to be merged back into master.
+
+New feature branches can be requested using the same mechanism as stable
+branch creation. Submit a patch to the releases repository with a new
+``feature/feature-name`` branch defined. Set the location value to the
+repository and commit hash from which to create the feature branch::
+
+    ---
+    branches:
+      - name: feature/example-feature-work
+        location:
+          openstack/oslo.config: 02a86d2eefeda5144ea8c39657aed24b8b0c9a39
+
+For more details, refer to the openstack/releases
+`README.rst <http://git.openstack.org/cgit/openstack/releases/tree/README.rst>`_
+file.
 
 Naming the Branch
 -----------------
