@@ -352,6 +352,24 @@ time to stabilize and for the owners to prepare bug fixes if needed.
 
 - Final Oslo and non-client library release
 
+.. note::
+
+  Exceptions may be requested for libraries impacting project releases
+  if it is deemed critical to the release and the risk of an update
+  causing regressions is low.
+
+  To request an exception for a library release past the freeze, send
+  an email to the openstack-dev mailing list with the following tags
+  in the subject line::
+
+    [release][requirements][other-impacted-projects]
+
+  The release and requirements teams will evaluate the risks and provide
+  feedback.
+
+  If at all possible, it is best to wait until the freeze is over and do
+  a stable release of the library afterwards.
+
 Milestone 3 / Feature Freeze
 ----------------------------
 
