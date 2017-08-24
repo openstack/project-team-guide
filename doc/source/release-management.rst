@@ -693,3 +693,35 @@ See the reno user documentation for details on the correct way to
 `Update stable branch release notes
 <https://docs.openstack.org/reno/latest/user/usage.html#updating-stable-branch-release-notes>`__.
 
+How to Preview Release Notes at RC-time
+---------------------------------------
+
+OpenStack projects on the common cycle with development milestones will
+typically add a release note before each milestone and release candidate
+is tagged.  These will appear on the same generated page, but separated
+by tag.  After the stable branch is tagged for final release, however,
+when the release notes are generated they will all be combined into a
+single note.  If you're following the advice above about what to include
+in release notes (and including release notes throughout the development
+cycle on appropriate patches), then you're likely to have some notes with
+a Prelude, some without, and so on for all the sections.  Before the release
+is cut, you'll probably want to see exactly what the single generated note
+is going to look like so that you can read through the entire note in the
+same order that consumers will read it.  Here's one way to do that:
+
+* Clone a new repo from git or make sure your copy is completely up to
+  date.
+
+* Suppose you're preparing for the Pike release, which will be tagged
+  as '15.0.0' and is being prepared in the branch 'stable/pike'.
+  Check out the stable/pike branch and create a tag for the release
+  in your local repository: ``git tag 15.0.0``
+
+* Check out master, and generate the release notes the usual way:
+  ``tox -e releasenotes``
+
+* Browse to the generated notes in the releasenotes/build/html
+  directory
+
+* When you're done proof reading, delete the tag:
+  ``git tag -d 15.0.0``
