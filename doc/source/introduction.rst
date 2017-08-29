@@ -72,7 +72,7 @@ In September 2012, the `OpenStack Foundation`_ was launched as an independent
 body providing shared resources to protect, empower, and promote OpenStack
 software and the community around it.
 
-The reponsibilities of the Project Policy Board were split between two bodies:
+The responsibilities of the Project Policy Board were split between two bodies:
 
 * The Foundation `Board of Directors`_, which defines the objectives of the
   OpenStack Foundation, controls how the Foundation budget is spent, and
@@ -90,7 +90,33 @@ growth in the number of project teams and PTLs, the Technical Committee
 decided to switch to 13 directly-elected members instead. Half of those are
 renewed every 6 months.
 
+The Project structure reform (a.k.a. the 'big tent')
+----------------------------------------------------
+
+One of the prerogatives of The Technical Committee (and its predecessors) is
+to define what is "an OpenStack project" from an upstream, open source project
+perspective. OpenStack started with two projects, but as their functionality
+was refactored and as our community grew, new projects were added.
+
+Requirements for new projects evolved over time. End of 2012 we introduced
+the concept of incubation, to be able to grow new projects for inclusion in
+"OpenStack". However, requirements based on maturity created a catch-22, as
+projects had trouble attracting enough contributors until they were
+recognized as official. Concerns around the size of the "integrated
+release" also resulted in artificially excluding a lot of people from
+the OpenStack community.
+
+In December 2014, the Technical Committee introduced a
+`Project structure reform`_ (dubbed the 'big tent') that moved to a
+community-centric definition of 'OpenStack'. Its premise was that teams
+that follow the OpenStack principles, use our development model and have
+a scope compatible with the OpenStack mission should not be excluded from the
+OpenStack community. They can apply to become official OpenStack project
+teams: if approved they are placing themselves under the OpenStack governance
+rules, and their deliverables are considered OpenStack projects.
+
 .. _OpenStack Foundation: http://www.openstack.org/foundation/
 .. _Board of Directors: http://www.openstack.org/foundation/board-of-directors/
 .. _Technical Committee: https://governance.openstack.org/tc/
 .. _User Committee: https://governance.openstack.org/uc/
+.. _Project structure reform: https://governance.openstack.org/tc/resolutions/20141202-project-structure-reform-spec.html
