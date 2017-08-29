@@ -189,7 +189,7 @@ For more details about setting up a repository to support automated
 releases, see the `Project Creator's Guide`_ from the
 *Infrastructure User Manual*.
 
-.. _Project Creator's Guide: http://docs.openstack.org/infra/manual/creators.html
+.. _Project Creator's Guide: https://docs.openstack.org/infra/manual/creators.html
 
 .. _release-process-managed:
 
@@ -220,7 +220,7 @@ rules to choose version numbers, and they should push the corresponding patch
 to the ``openstack/releases`` git repository so that the release appears on
 the https://releases.openstack.org website.
 
-.. _semantic versioning: http://docs.openstack.org/developer/pbr/semver.html
+.. _semantic versioning: https://docs.openstack.org/pbr/latest/user/semver.html#semantic-versioning-specification-semver
 
 
 Release Liaisons
@@ -602,7 +602,7 @@ will be no merge conflicts as the fix is backported. For example:
 After the new file is created, edit it to remove any sections that are
 not relevant and to add notes under the appropriate sections. Refer to
 the `Editing a Release Note
-<http://docs.openstack.org/developer/reno/usage.html#creating-new-release-notes>`__
+<https://docs.openstack.org/developer/reno/user/usage.html#creating-new-release-notes>`__
 section of the reno documentation for details about what should go in
 each section of the YAML file and for tips on formatting notes.
 
@@ -657,7 +657,7 @@ Not every patch is worth a release note. A user may skim through the
 release notes for a dozen projects or more after the release, what is
 helpful and what may be noise should be considered carefully.
 
-.. _reno: http://docs.openstack.org/developer/reno/
+.. _reno: https://docs.openstack.org/reno/latest/
 
 How to Write a Good Release Note
 --------------------------------
@@ -676,3 +676,20 @@ Release notes are not meant to be a replacement for git commit
 messages. They should focus on the impact for the user and make that
 understandable, even for people who don't know the full technical
 context for the patch or project.
+
+Updating Stable Branch Release Notes
+------------------------------------
+
+Occasionally it is necessary to update release notes for past releases.
+Release notes need to be handled differently than normal code backports.
+
+.. note::
+
+   Due to the way reno parses release notes, if a note is updated on
+   master instead of its original stable branch, it will then show up
+   in the release notes for the later release.
+
+See the reno user documentation for details on the correct way to
+`Update stable branch release notes
+<https://docs.openstack.org/reno/latest/user/usage.html#updating-stable-branch-release-notes>`__.
+
