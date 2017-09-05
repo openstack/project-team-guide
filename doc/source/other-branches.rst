@@ -112,3 +112,60 @@ Maintenance teams
 Unlike stable branches, bug branches are not managed by a separate
 team. They are managed by the core review team for the project, in
 conjunction with the release management team.
+
+
+Driverfixes Branches
+====================
+
+Some projects include drivers for external devices or other vendor
+supported plugins. It was found to be a common issue with these
+projects that once the stable branches reach `Phase II
+<https://docs.openstack.org/project-team-guide/stable-branches.html#support-phases>`_
+or later, fixes for drivers are no longer accepted. This resulted
+in many vendors maintaining their own stable trees, with some fixes
+included in one vendor's repo and other fixes in another's repo.
+
+In order to provided a common place for distributions to pull in
+driver fixes past what the normal stable policy allows, these projects
+can create a driverfixes branch.
+
+.. warning::
+   There is explicitly no expectation that any driverfixes branches
+   will be kept in a deployable state. They are solely intended as
+   a central collection point for driver fixes only and will not be
+   updated with security or other critical updates that will go to
+   the normal stable/* branches
+
+Creating the Branch
+-------------------
+
+Driverfixes branches are typically created when a stable release
+transitions into Phase II support. It is at the discretion of the
+project team when, and whether, they want to create a driverfixes
+branch. The branch itself is created from the current head of the
+stable/* branch it is supporting.
+
+Naming the Branch
+-----------------
+
+The driverfixes branches should be named for the release they are
+branching from and the code they are targeting. For example, for
+driver fixes for the Ocata release, the branch should be named
+``driverfixes/ocata``, for Pike, ``driverfixes/pike``, and so on.
+
+Appropriate Commits
+-------------------
+
+Only fixes for driver code can be included. No changes to any
+non-driver code should be allowed. All patches to the bug branch must
+be treated as a backport, and merged into the master branch before
+the bug branch.
+
+Pep8 and unit tests should continue to pass for any change introduced.
+
+Maintenance teams
+-----------------
+
+Unlike stable branches, driverfixes branches are not managed by a
+separate team. They are managed by the core review team for the
+project.
