@@ -84,8 +84,11 @@ another milestone tagged that includes the latest translations.
 
 Potential new release critical issues have first to get fixed on the master
 branch. Once merged in master, they can be backported to the release branch.
-Such backports are approved by the PTL (or release liaison), and once all the
-desired backports (and translations updates) are merged, a new release
+A specific Gerrit team named PROJECTNAME-release (usually the PTL, release
+liaison and other few trusted team members) is tasked with approving such
+backports. To that effect, the PROJECTNAME-release team has CodeReview+2 and
+Workflow+1 rights on the stable/$series branch until final release. Once all
+the desired backports (and translations updates) are merged, a new release
 candidate can be produced.
 
 On final release day, the Release Team will take each project's last release

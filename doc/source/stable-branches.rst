@@ -108,8 +108,10 @@ Project-specific teams
 ----------------------
 
 Each project with a stable branch will have a project-specific stable
-maintenance team, which will be in charge of reviewing backports for a given
-project, following the stable branch policy. Originally that group should be
+maintenance Gerrit team called PROJECTNAME-stable-maint. This team
+will have CodeReview+2 and Workflow+1 rights over the stable branches,
+and be in charge of reviewing backports for a given project, following
+the rules of the stable branch policy. Originally that group should be
 the project Stable Branch Cross-Project Liaison + the stable maintenance core
 team. Those groups are managed by the stable maintenance core team, names are
 added after the suggestion of the Stable Branch cross-project liaison.
