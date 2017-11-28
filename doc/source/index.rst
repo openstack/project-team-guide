@@ -22,6 +22,7 @@ Contents:
    release-management
    stable-branches
    other-branches
+   bugs
    vulnerability-management
    project-setup
    testing
