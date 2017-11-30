@@ -99,7 +99,8 @@ Note that presence of `Critical` bugs will delay the release.
 Assigned To
 -----------
 
-The person currently working to fix this bug. Must be set by In progress stage.
+The person currently working to fix this bug. Must be set by `In Progress`
+stage.
 
 Milestone
 ---------
