@@ -36,17 +36,18 @@ typically written in an REST API reference format such as WADL or Swagger
 and published to `developer.openstack.org <http://developer.openstack.org>`_. The API working group has published
 `guidelines for OpenStack APIs <http://specs.openstack.org/openstack/api-wg/#guidelines>`_.
 
-Documentation for Operators
-===========================
+Documentation for Operators and Users
+=====================================
 
-Full length operating manuals for OpenStack are managed in their own
-repositories and are written using RST. Often these manuals are
-authored by operators themselves, with help from project teams.
+OpenStack projects maintain their own documentation for operators and
+end users. This includes information on running and operating the software,
+concept guides, reference documentation, and more. There are also full-length
+manuals for OpenStack operators and users available, managed in their own
+repositories. Often these manuals are authored by operators and users
+themselves, with help from project teams.
 
 How to Contribute Documentation
 ===============================
 
-The documentation team maintains a `guide with instructions on how
-to contribute documentation <http://docs.openstack.org/contributor-guide/index.html>`_.
-To look up the source for a particular document, refer to the
-`content specification page <http://docs.openstack.org/contributor-guide/blueprints-and-specs.html>`_.
+The documentation team maintains a
+`guide with instructions on how to contribute documentation <https://docs.openstack.org/doc-contrib-guide/>`_.
