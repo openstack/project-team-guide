@@ -176,4 +176,4 @@ following syntax::
 
 .. _`pdb`: https://docs.python.org/3/library/pdb.html
 .. _`bug`: https://bugs.launchpad.net/testrepository/+bug/902881
-.. _`oslo_debug_helper`: http://docs.openstack.org/developer/oslotest/features.html
+.. _`oslo_debug_helper`: https://docs.openstack.org/oslotest/latest/user/features.html
