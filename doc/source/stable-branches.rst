@@ -9,33 +9,120 @@ Stable branches are cut from the last release of a given deliverable, at the
 end of the common 6-month development cycle.
 
 
-Support phases
-==============
+Maintenance phases
+==================
 
-Stability is always a trade-off between "bug-free" and "slow-moving". In order
-to reach that stability, we define several support phases.
+Project stable branches will be in one of the following states:
 
 .. list-table::
    :header-rows: 1
-   :widths: 10 20 20 50
+   :widths: 15 35 50
 
-   - * Phase
+   - * State
      * Time frame
      * Summary
-     * Changes Supported
-   - * I
-     * First 6 months
-     * Latest release
+   - * Maintained
+     * Approximately 18 months
      * All bugfixes (that meet the criteria described below) are
-       appropriate
-   - * II
-     * 6-12 months after release
-     * Maintained release
-     * Only critical bugfixes and security patches are acceptable
-   - * III
-     * more than 12 months after release
-     * Legacy release
-     * Only security patches are acceptable
+       appropriate. Releases produced.
+   - * Extended Maintenance
+     * While there are community members maintaining it.
+     * All bugfixes (that meet the criteria described below) are
+       appropriate.  No Releases produced, reduced CI commitment.
+   - * Unmaintained
+     * 6 months
+     * The branch is under Extended Maintenance rules, but there are no
+       maintainers
+   - * End of Life (EOL)
+     * N/A
+     * Branch no longer accepting changes
+
+It is not required that all projects for a given branch transition between
+phases at the same time.  For example it's quite reasonable for the
+``stable/$series`` branch of ``openstack/long-life-project`` to still be
+in the Maintained phase while all other projects have transitioned to either
+`Extended Maintenance`_ or even `End of Life`_.
+
+.. note::
+   At this time the exact mechanism for describing and updating this state is undefined
+   but it's probable it will involved updating a meta-data in a projects
+   deliverable file in the :code:`openstack/releases` repo.
+
+.. _Maintained:
+
+Maintained
+----------
+
+For any project/branch combination that is considered Maintained, OpenStack
+Infrastructure, `OpenStack Vulnerability Management`_ and QE tools are expected
+to work and be active.  Project teams will produce consumable releases and
+upgrades are tested.
+
+Per Project Stable teams and the Stable Maintainers are responsible for all
+`tagged`_ projects during the this phase.
+
+
+.. _`Extended Maintenance`:
+
+Extended Maintenance
+--------------------
+
+Once a project reaches Extended Maintenance project teams will cease producing
+releases and `OpenStack Vulnerability Management`_ will be reasonable efforts
+only.  There is no statement about the level of testing and upgrades from
+Extended Maintenance are not supported within the Community.
+
+Members of the community interested in a given project/branch are encouraged to
+engage with the appropriate stable team *early* in its life-cycle to ensure
+this process runs well.  In the absence of identified maintainers the project
+will immediately enter the 6 month notification period as described under `End
+of Life`_ below.
+
+.. note::
+   Some project teams may choose to NOT enter extended maintenance and go
+   directly to End of Life.  At this point should a group wish to maintain
+   that branch of a project they can do so within license and trademark
+   constraints.  Some OpenStack CI testing *may* be available via `Zuul
+   drivers`_
+
+
+.. _`Unmaintained`:
+
+Unmaintained
+------------
+
+At this stage of the project/branch the Extended Maintenance policy applies but CI
+may not be working and/or there aren't any active maintainers.  Projects that
+remain in this state for 6 months will be transitioned to `End of Life`_.
+Should  maintainers be found a project can be placed back into Extended Maintenance.
+
+.. _End Of Life:
+
+End of Life
+-----------
+
+After a project/branch exceeds the time allocation as `Unmaintained`_, it
+will be become End of Life.  The HEAD of the appropriate branch will be tagged
+as ``$series-eol`` and the branch deleted.
+
+Appropriate Fixes
+=================
+
+Only a limited class of changes are appropriate for inclusion on the stable
+branch. A number of factors must be weighed when considering a change:
+
+#. The risk of regression: even the tiniest changes carry some risk of breaking
+   something and we really want to avoid regressions on the stable branch
+#. The user visible benefit: are we fixing something that users might actually
+   notice and, if so, how important is it?
+#. How self-contained the fix is: if it fixes a significant issue but also
+   refactors a lot of code, it's probably worth thinking about what a less
+   risky fix might look like
+#. Whether the fix is already on master and all consequent stable branches:
+   a change **must** be a backport of a change already merged onto master,
+   unless the change simply does not make sense on master. Same applies to N-2
+   releases, where N is master, in which case both N-1 and N branches should
+   have the patch merged and so on.
 
 .. note::
    It's nevertheless allowed to backport fixes for other bugs if their safety
@@ -45,39 +132,8 @@ to reach that stability, we define several support phases.
    those types of backports, stable maintainers will decide on case by case
    basis.
 
-Given that stable branches are created every 6 months, that means that at any
-given time, only one branch is in Phase I support and only one branch is in
-Phase II support. Depending on how long each branch is supported, there may be
-one or more releases in Phase III support.
-
-The exact length of any given stable branch life support is discussed amongst
-stable branch maintainers and QA/infrastructure teams at the start of every
-release cycle. It is generally between 9 and 15 months, at which point the
-value of the stable branch is clearly outweighed by the cost in maintaining
-it in our continuous integration systems.
-
-
-Appropriate Fixes
-=================
-
-Only a limited class of changes are appropriate for inclusion on the stable
-branch. A number of factors must be weighed when considering a change:
-
-* The risk of regression: even the tiniest changes carry some risk of breaking
-  something and we really want to avoid regressions on the stable branch
-* The user visible benefit: are we fixing something that users might actually
-  notice and, if so, how important is it?
-* How self-contained the fix is: if it fixes a significant issue but also
-  refactors a lot of code, it's probably worth thinking about what a less
-  risky fix might look like
-* Whether the fix is already on master and all consequent stable branches:
-  a change **must** be a backport of a change already merged onto master,
-  unless the change simply does not make sense on master. Same applies to N-2
-  releases, where N is master, in which case both N-1 and N branches should
-  have the patch merged.
-
 .. note::
-   Some patches may get exception from this last rule. These are patches
+   Some patches may get exception from rule 4 above. These are patches
    that do not touch production code, like test-only patches, or tox.ini
    changes that fix major gate breakage, etc.; or security patches that
    should not take much time to merge once the patches are published.
@@ -229,16 +285,20 @@ branches but a discussion around that is beyond the scope of this guide.
 In order to accept a change into :code:`$release` it must first be accepted
 into all releases back to master.
 
-* A change for *stable* must exist in master
-* A change for *oldstable* must exist in *stable* and *master*
-
 For the sake of discussion assume a hypothetical development milestones:
 
-* The current development branch (:code:`master`) will be the Uniform release.
-* The current *stable* branch (:code:`stable/tango`) was Tango and is now in
-  **Phase I** support.
-* The current *oldstable* branch :code:`stable/sierra` was Sierra and is now in
-  **Phase II** support.
+* The development branch (:code:`master`) will be the Uniform release.
+* The :code:`N-1` branch is :code:`stable/tango`
+* The :code:`N-2` branch is :code:`stable/sierra`
+* The :code:`N-3` branch is :code:`stable/romeo`
+* and so on
+
+Backport examples:
+
+* A change for Tango must exist in :code:`master`
+* A change for Sierra must exist in :code:`stable/tango` and :code:`master`
+* A change for Romeo must exist in :code:`stable/sierra`, :code:`stable/tango` and :code:`master`
+* and so on
 
 Proposing Fixes
 ---------------
@@ -534,3 +594,6 @@ volume.
 .. _on Designate: https://review.openstack.org/#/c/292617/
 .. _openstack-infra/release-tools repository: http://git.openstack.org/cgit/openstack-infra/release-tools/
 .. _neutron proactive-backport-potential dashboard: https://bugs.launchpad.net/neutron/+bugs?field.searchtext=&orderby=-importance&search=Search&field.status%3Alist=NEW&field.status%3Alist=CONFIRMED&field.status%3Alist=TRIAGED&field.status%3Alist=INPROGRESS&field.status%3Alist=FIXCOMMITTED&field.status%3Alist=FIXRELEASED&field.status%3Alist=INCOMPLETE_WITH_RESPONSE&field.status%3Alist=INCOMPLETE_WITHOUT_RESPONSE&assignee_option=any&field.assignee=&field.bug_reporter=&field.bug_commenter=&field.subscriber=&field.structural_subscriber=&field.tag=neutron-proactive-backport-potential&field.tags_combinator=ANY&field.has_cve.used=&field.omit_dupes.used=&field.omit_dupes=on&field.affects_me.used=&field.has_patch.used=&field.has_branches.used=&field.has_branches=on&field.has_no_branches.used=&field.has_no_branches=on&field.has_blueprints.used=&field.has_blueprints=on&field.has_no_blueprints.used=&field.has_no_blueprints=on
+.. _OpenStack Vulnerability Management: https://security.openstack.org/vmt-process.html
+.. _Zuul Drivers: https://docs.openstack.org/infra/zuul/admin/connections.html#drivers
+.. _tagged: https://governance.openstack.org/tc/reference/tags/stable_follows-policy.html
