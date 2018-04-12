@@ -60,6 +60,15 @@ new releases of OpenStack libraries are not immediately used: they have to
 pass through this automated process before we can benefit from (or be harmed
 by) them.
 
+Each project team may also optionally maintain a list of "lower
+bounds" constraints for the dependencies used to test the project in a
+``lower-constraints.txt`` file. If the file exists, the requirements
+check job will ensure that the values it contains match the minimum
+values specified in the local requirements files, so when the minimums
+are changed ``lower-constraints.txt`` will need to be updated at the
+same time. Per-project test jobs can be configured to use the file for
+unit or functional tests.
+
 Format
 ------
 
