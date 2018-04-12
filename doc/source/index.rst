@@ -23,6 +23,7 @@ Contents:
    other-branches
    bugs
    vulnerability-management
+   dependency-management
    project-setup
    testing
    oslo
