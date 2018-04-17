@@ -111,6 +111,68 @@ those projects can not add a requirement that is not already in
 be merged in infra before proposing the change to ``projects.txt`` in
 ``openstack/requirements``.
 
+Update Processes
+================
+
+Updating dependency settings can be a two-step process.  If you create
+both patches at the same time, #2 can use ``Depends-On`` to link it to
+#1.
+
+Adding a new dependency
+-----------------------
+
+1. Add the dependency to ``global-requirements.txt`` in
+   ``openstack/requirements``, including any instructions for
+   excluding versions or choosing different versions for python 2
+   or 3. Add a recent version to ``upper-constraints.txt`` in the same
+   repository at the same time.
+2. Add the dependency to the appropriate requirements file(s) within
+   the project tree, providing a minimum version specifier. Update the
+   ``lower-constraints.txt`` file in the project tree at the same
+   time.
+
+Removing a dependency
+---------------------
+
+1. Remove the dependency from the requirements files in the project
+   tree, including the ``lower-constraints.txt`` file.
+2. Check for other projects using the dependency. If none do, update
+   ``openstack/requirements`` to remove the item from
+   ``global-requirements.txt``.
+
+Updating the minimum version of a dependency
+--------------------------------------------
+
+1. Check the ``upper-constraints.txt`` file in
+   ``openstack/requirements``. If the version there is lower than the
+   desired version, prepare a patch to update the setting.
+2. Update the minimum version in the relevant requirements file(s) in
+   the project tree. Update the ``lower-constraints.txt`` setting in
+   the same patch.
+
+Excluding a version of a dependency
+-----------------------------------
+
+We need to maintain a consistent set of exclusions across all projects
+to ensure that the ``upper-constraints.txt`` list of versions stays
+co-installable.
+
+1. Check ``global-requirements.txt`` in ``openstack/releases``. If it
+   does not exclude the version, prepare a patch to update the
+   specifiers for the dependency. If the excluded version is currently
+   being used in ``upper-constraints.txt``, update that file in the
+   same patch.
+
+   .. warning::
+
+      Lowering the value in upper-constraints.txt may result in
+      excluding a version that another project depends on. Check for
+      this situation before proceeding.
+
+2. Update the relevant requirements files in the project tree to add
+   the exclusion. It is not necessary to copy the exclusion to every
+   project that uses the dependency.
+
 Review Guidelines
 =================
 
