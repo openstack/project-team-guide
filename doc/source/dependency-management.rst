@@ -74,10 +74,13 @@ Format
 
 ``global-requirements.txt`` supports a subset of pip requirement file
 contents. Distributions may only be referenced by name, not URL. Options
-(such as -e or -f) may not be used. Version specifiers, environment markers
-and comments are all permitted. A single distribution may be listed more than
-once if different specifiers are required with different markers - for
-instance, if a dependency has dropped Python 2.7 support.
+(such as -e or -f) may not be used. Environment markers
+and comments are permitted. Version specifiers are only allowed for excluding
+(blacklisting) versions, not setting minimum required versions. Minimum
+required versions should be specified in ``lower-constraints.txt`` per-project.
+A single distribution may be listed more than once if different specifiers are
+required with different markers - for instance, if a dependency has dropped
+Python 2.7 support.
 
 ``upper-constraints.txt`` is machine generated and nothing more or less than
 an exact list of versions.
@@ -92,12 +95,6 @@ DevStack
 DevStack uses the pip ``-c`` option to pin all the libraries to known good
 versions. ``edit-constraints`` can be used to unpin a single constraint, and
 this is done to install libraries from git.
-
-Tox
-+++
-
-We are working on the necessary changes to use ``upper-constraints.txt`` in
-tox jobs but it is not yet complete.
 
 Enforcement in Projects
 -----------------------
