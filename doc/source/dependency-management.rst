@@ -69,6 +69,9 @@ are changed ``lower-constraints.txt`` will need to be updated at the
 same time. Per-project test jobs can be configured to use the file for
 unit or functional tests.
 
+.. image:: constraints.png
+   :alt: Overview of the contraints system
+
 Format
 ------
 
