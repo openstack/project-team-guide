@@ -21,12 +21,18 @@ officially announced at OSCON in Portland, OR, on July 21st, 2010.
 The mission
 ===========
 
-The OpenStack mission is "to produce the ubiquitous Open Source Cloud Computing
-platform that will meet the needs of public and private clouds regardless of
-size, by being simple to implement and massively scalable".
+The OpenStack mission is "to produce a ubiquitous Open Source Cloud Computing
+platform that is easy to use, simple to implement, interoperable between
+deployments, works well at all scales, and meets the needs of users and
+operators of both public and private clouds".
 
-It appeared on the wiki on May 24th, 2010 and still captures the long-term goal
-of the OpenStack community.
+It was updated in February of 2016 to include interoperability and better
+serving end users.
+
+The original mission was "to produce the ubiquitous Open Source Cloud Computing
+platform that will meet the needs of public and private clouds regardless of
+size, by being simple to implement and massively scalable". It originally
+appeared on the wiki on May 24th, 2010.
 
 
 The Four Opens
