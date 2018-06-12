@@ -92,7 +92,9 @@ Every reviewer has the ability to vote on patches (+1, 0, -1) and only core
 reviewers have the ability to +2, -2 and approve patches. Each of these votes
 have an influence on the patch itself and they communicate agreement,
 disagreement or errors in the patch. Therefore, these votes must be used
-properly and it's the reviewer's responsibility to do so.
+properly and it's the reviewer's responsibility to do so. Read
+:doc:`review-the-openstack-way` for guidance on how to use the different votes
+appropriately.
 
 Specifications
 ==============

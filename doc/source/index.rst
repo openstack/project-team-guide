@@ -18,6 +18,7 @@ Contents:
    open-community
    open-design
    open-development
+   review-the-openstack-way
    release-management
    stable-branches
    other-branches
