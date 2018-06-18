@@ -79,9 +79,10 @@ You might leave a comment without a review if you don't have strong feelings
 either way about a change, or if you simply have a question you need answered
 in order to form an opinion. Unless you're fairly sure the answer to the
 question is going to reveal a problem, this is preferable to voting -1 in the
-first instance. If it's been a while without an answer, or new patch sets are
-posted without anyone responding to your comments, that might be time to
-consider a -1.
+first instance. Comments without -1 votes are easier to miss accidentally, so
+if it's been a while without an answer, or new patch sets are posted without
+anyone responding to your comments, that might be time to try contacting the
+submitter on IRC or consider a -1 vote.
 
 .. _code-review-minus-1:
 
