@@ -9,6 +9,11 @@ around the use of Python.
 It describes the use of a Python virtual environment, the install of both
 system and project-specific dependencies and, finally, running the tests.
 
+.. note::
+
+   Make sure you have installed ``python3-dev`` or ``python-dev`` before running
+   these ``tox`` checks.
+
 Virtual Environment
 ===================
 
