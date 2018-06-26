@@ -15,18 +15,17 @@ Public Meetings on IRC
 ======================
 
 OpenStack projects are required to have their team meetings (if any) on the
-Freenode :term:`IRC` network in one of the publicly logged team meeting
+Freenode :term:`IRC` network in one of the publicly logged
 channels managed by the OpenStack infrastructure team. As part of
 working in an open community, the logging of meetings allows those who
 cannot participate at the meeting's designated time to read the logs
 and participate asynchronously.
 
-Worth noting is the fact the OpenStack infrastructure team maintains a limited
-number of meeting channels. The reason for this limitation is to force
-teams to spread their meetings around. This allows for participation by people
-all around the globe. It also allows people to attend multiple meetings where
-otherwise they may have a conflict if we had a larger number of channels and
-most meetings took similar timeslots.
+The OpenStack infrastructure team maintains a limited number of channels
+dedicated to meetings. While teams can hold meetings on their own team IRC
+channels, they are encouraged to use those common meeting channels to give
+their meeting some external exposure. The limited number of meeting channels
+encourages teams to spread their meetings around and reduce conflicts.
 
 To schedule a team meeting, please go to the eavesdrop_ site and follow the
 instructions there. All meeting reservations are managed through gerrit
