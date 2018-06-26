@@ -96,6 +96,10 @@ man_pages = []
 
 # -- Options for HTML output ---------------------------------------------------
 
+# Add any paths that contain "extra" files, such as .htaccess or
+# robots.txt.
+html_extra_path = ['_extra']
+
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #html_theme = 'nature'
