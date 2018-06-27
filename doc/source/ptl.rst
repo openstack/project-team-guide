@@ -120,6 +120,8 @@ At the beginning of a new cycle
 
 #.  Appoint `cross project liaisons`_ (Docs, release, QA, Oslo, etc.).
 
+#.  Appoint `FirstContact SIG liaisons`_ (By default, the liaison will be the PTL).
+
 #.  Check if the meeting time works for most active contributors.
 
 #.  If you keep release liaison responsibilities, join `#openstack-release` and
@@ -237,3 +239,4 @@ When necessary, the following can be performed at unscheduled times.
 .. _release calendar: https://releases.openstack.org/schedule.ics
 .. _cross project liaisons: https://wiki.openstack.org/wiki/CrossProjectLiaisons
 .. _release management: http://docs.openstack.org/project-team-guide/release-management.html
+.. _FirstContact SIG liaisons: https://wiki.openstack.org/wiki/First_Contact_SIG#Project_Liaisons
