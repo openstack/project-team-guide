@@ -150,7 +150,7 @@ indeed a valid bug), you should set:
 
 * Status: `Confirmed`
 
-If you're a core developer or a member of the project bug supervision team,
+If you're a core reviewer or a member of the project bug supervision team,
 you should also prioritize the bug:
 
 * Importance: <Bug impact> (see above)
@@ -163,7 +163,7 @@ solution in the comments. Sometimes the implementation of the fix will be
 straightforward and you would jump directly to bugfixing, but in some other
 cases, you would just post your complete debugging analysis and give someone
 else the opportunity of fixing the bug. Then you should ask a core
-developer or bug supervisor to set:
+reviewer or bug supervisor to set:
 
 * Status: `Triaged`
 

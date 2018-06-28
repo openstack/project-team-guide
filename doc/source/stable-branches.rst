@@ -267,7 +267,7 @@ If unsure if a fix is appropriate for the stable branch, project-specific
 stable maintenance team members should seek stable maintenance core team
 members opinion.
 
-Existing core developers are greatly encouraged to join the stable maintenance
+Existing core reviewers are greatly encouraged to join the stable maintenance
 teams in order to help with reviewing backports, judging their appropriateness
 for the stable branch and approving them.
 
