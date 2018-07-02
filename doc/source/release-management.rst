@@ -378,6 +378,8 @@ the week after the feature freeze.
 - All projects issue their first release candidates
 - Create branches for all services to use for release candidates, and
   eventually stable maintenance work
+- Submit cycle-highlights in the project deliverables yaml file. See
+  below for information about cycle-highlights.
 
   During this period, patches submitted to and being merged into the
   new branch should be managed carefully.
@@ -705,3 +707,54 @@ same order that consumers will read it.  Here's one way to do that:
 
 * When you're done proof reading, delete the tag:
   ``git tag -d 15.0.0``
+
+Cycle Highlights
+================
+
+Cycle highlights give a high-level, user-focused summary of what has
+changed in the latest release. This is not necessarily the most
+technically complex work you accomplished in the release, but is the
+work that will have the largest impact on users. Cycle highlights
+auto-populate the Release Highlights page at
+releases.openstack.org/$RELEASE/highlights.html.
+
+Adding Cycle Highlights
+-----------------------
+
+Cycle highlights should be submitted with RC1. This is done by adding
+information to deliverables/$RELEASE/$PROJECT.yaml in the
+openstack/releases repo. You should include 3-5 cycle-highlight bullets.
+
+  cycle-highlights:
+    - Introduced new service to use unused host to mine bitcoin
+    - Merged code from shade, os-client-config and openstacksdk into
+      a single library to create a unified and simpler our client-side library
+    - Added Rescue Mode to let users recover from lost SSH keys and
+      misconfigurations
+
+
+You can check on the formatting of the output by either running locally:
+
+  tox -e docs
+
+And checking the resulting file under doc/build/html/$RELEASE/highlights.html,
+or you can view the output of the build-openstack-sphinx-docs job under
+html/$RELEASE/highlights.html.
+
+Writing a Good Cycle Highlight
+------------------------------
+
+Unlike commit messages for developers or reno release notes for operators,
+cycle highlights are intended to give product managers, press, marketers,
+users not responsible for operations, etc a snapshot of what will change
+for them in this release. You submit 3-5 cycle-highlights bullets, with
+a format of:
+
+  - What was changed/introduced, what it does for the user/benefit
+
+Highlights should stay fairly brief--aim for less than 2 lines in length.
+
+By submitting your highlights at RC1 or as close as possible, the
+Release Management Team will be able to offer edits and help you write
+cycle highlights that show off your work.
+
