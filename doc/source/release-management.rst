@@ -716,14 +716,16 @@ changed in the latest release. This is not necessarily the most
 technically complex work you accomplished in the release, but is the
 work that will have the largest impact on users. Cycle highlights
 auto-populate the Release Highlights page at
-releases.openstack.org/$RELEASE/highlights.html.
+``releases.openstack.org/$RELEASE/highlights.html``.
 
 Adding Cycle Highlights
 -----------------------
 
 Cycle highlights should be submitted with RC1. This is done by adding
-information to deliverables/$RELEASE/$PROJECT.yaml in the
-openstack/releases repo. You should include 3-5 cycle-highlight bullets.
+information to ``deliverables/$RELEASE/$PROJECT.yaml`` in the
+``openstack/releases`` repo. You should include 3-5 cycle-highlight bullets.
+
+.. code-block:: yaml
 
   cycle-highlights:
     - Introduced new service to use unused host to mine bitcoin
@@ -735,11 +737,13 @@ openstack/releases repo. You should include 3-5 cycle-highlight bullets.
 
 You can check on the formatting of the output by either running locally:
 
+.. code-block:: console
+
   tox -e docs
 
-And checking the resulting file under doc/build/html/$RELEASE/highlights.html,
-or you can view the output of the build-openstack-sphinx-docs job under
-html/$RELEASE/highlights.html.
+And checking the resulting file under ``doc/build/html/$RELEASE/highlights.html``,
+or you can view the output of the ``build-openstack-sphinx-docs`` job under
+``html/$RELEASE/highlights.html``.
 
 Writing a Good Cycle Highlight
 ------------------------------
@@ -750,11 +754,10 @@ users not responsible for operations, etc a snapshot of what will change
 for them in this release. You submit 3-5 cycle-highlights bullets, with
 a format of:
 
-  - What was changed/introduced, what it does for the user/benefit
+- What was changed/introduced, what it does for the user/benefit
 
 Highlights should stay fairly brief--aim for less than 2 lines in length.
 
 By submitting your highlights at RC1 or as close as possible, the
 Release Management Team will be able to offer edits and help you write
 cycle highlights that show off your work.
-
