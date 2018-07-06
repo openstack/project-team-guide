@@ -61,6 +61,15 @@ cross-project communication. If an idea needs to span projects, the mailing
 lists is a great place for this to happen. And finally, mailing lists are used
 to interact with non-developer community members of OpenStack.
 
+Because mailing lists are a form of asynchronous communication, they are the
+best resource the community has for sharing information with, and getting ideas
+from, the entire community. People who participate at different times of the
+day or less regularly have a greater opportunity to engage. People who read or
+write English with different levels of proficiency can be on a more (but not
+perfectly) level playing field with email than they might be with synchronous
+forms of text-based communication, such as IRC. When in doubt, prefer using a
+mailing list to other options.
+
 When using the mailing list for team communication, it's best to tag the
 subject with the name of the project surrounded by brackets. For example,
 to communicate something to the mailing list about Nova, you would add this
