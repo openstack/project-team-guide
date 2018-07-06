@@ -148,9 +148,8 @@ following tasks:
 * Organizing the team participation to events like the Forum or Project Teams
   Gatherings
 * Interacting with the release team in the #openstack-release IRC channel
-* By default participating in the weekly `Cross Project meeting`_ and watching
-  the `cross project repository`_, unless a `Cross Project Specification
-  Liaison`_ is assigned.
+* Engaging with and tracking cross-project initiatives, including
+  `OpenStack-wide goals`_.
 * Maintaining cycle and development milestone plans. The dates for milestones
   and releases are `posted`_ well in advance, make sure you have sufficient
   free time on those special weeks.
@@ -213,9 +212,7 @@ release cycle (for PTL elections) and summit dates (for the TC elections).
 .. _Freenode: https://freenode.net/
 .. _mailing lists: http://lists.openstack.org/cgi-bin/mailman/listinfo
 .. _Planet OpenStack: http://planet.openstack.org/
-.. _Cross Project Meeting: https://wiki.openstack.org/wiki/Meetings/CrossProjectMeeting
 .. _posted: http://releases.openstack.org
 .. _decision: https://governance.openstack.org/tc/resolutions/20141128-elections-process-for-leaderless-programs.html
-.. _cross project repository: https://review.openstack.org/#/q/project:openstack/openstack-specs
-.. _Cross Project Specification Liaison: cross-project.html#cross-project-specification-liaisons
 .. _adding your blog: https://wiki.openstack.org/wiki/AddingYourBlog
+.. _Openstack-wide goals: https://governance.openstack.org/tc/goals/index.html
