@@ -154,7 +154,7 @@ We need to maintain a consistent set of exclusions across all projects
 to ensure that the ``upper-constraints.txt`` list of versions stays
 co-installable.
 
-1. Check ``global-requirements.txt`` in ``openstack/releases``. If it
+1. Check ``global-requirements.txt`` in ``openstack/requirements``. If it
    does not exclude the version, prepare a patch to update the
    specifiers for the dependency. If the excluded version is currently
    being used in ``upper-constraints.txt``, update that file in the
