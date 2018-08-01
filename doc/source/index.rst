@@ -8,6 +8,7 @@
 ==============================
 
 Contents:
+=========
 
 .. toctree::
    :maxdepth: 2
@@ -33,8 +34,8 @@ Contents:
    ptl
    glossary
 
-====================
- Indices and tables
-====================
+
+Indices and tables
+==================
 
 * :ref:`search`
