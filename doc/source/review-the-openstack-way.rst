@@ -21,17 +21,18 @@ code review process.
 Code Review +2
 ==============
 
-The +2 vote is only available to core reviewers. In general, two +2 votes are
-required before a change can be merged, although some projects relax the
-requirements in certain circumstances, such as trivial changes. Confusingly,
-two +1s do not equal a +2!
+The +2 vote is only available to core reviewers. Projects are encouraged to
+require two +2 votes before a change can be merged, although some projects only
+require a single +2, and many relax the requirements in certain circumstances
+(such as trivial changes). If you are a core reviewer, check your local
+policies. Confusingly, two +1s do not equal a +2!
 
-Voting +2 indicates that you're happy for another core reviewer to Approve the
-change. If another core reviewer has already voted +2 then you would generally
-Approve the change at the same time. However, you might hold off on approval to
-give the author or another reviewer the chance to respond to some trivial
-feedback if they think it appropriate. If the feedback is sufficiently trivial,
-this is preferable to only voting +1.
+Voting +2 without Approving indicates that you're happy for another core
+reviewer to Approve the change. If another core reviewer has already voted +2
+then you would generally Approve the change at the same time. However, you
+might hold off on approval to give the author or another reviewer the chance to
+respond to some trivial feedback if they think it appropriate. If the feedback
+is sufficiently trivial, this is preferable to only voting +1.
 
 If another core reviewer had previously voted +2 on an earlier patch set, and
 the patch has only changed in trivial ways that you're sure they would be happy
