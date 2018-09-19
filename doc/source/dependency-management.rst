@@ -381,6 +381,50 @@ block the affected releases and still be able to keep requirements in sync, we
 list the library in global-requirements.txt and update all projects that
 require it.
 
+
+Tox & Stable Branches
+=====================
+
+The community relies on ``tox`` for test automation, but managing its
+installation has changed depending the versions of other tools being used.
+
+Most projects adopted a script to provide a facade for developers to invoke in
+their ``tox.ini`` file. The script, named ``tox_install.sh`` required ``tox``
+to be install and managed the installation of dependencies needed for tests.
+
+The script had issues with newer versions of pip, which ended up being smarter
+about how to install dependencies while adhering to constraint files.
+
+I'm using ``tox_install.sh`` in my project, what should I do with it?
+---------------------------------------------------------------------
+
+If you're project has a copy of ``tox_install.sh``, you should remove it. All
+references to the script should be converted to use appropriate upper
+constraint files, which is typically found in the project's ``tox.ini`` file.
+An example can be found `here <https://review.openstack.org/#/c/524828/>`_.
+
+Why are stable branches failing due to issues with ``tox_install.sh``?
+----------------------------------------------------------------------
+
+Depending on the state of a project's stable branches, you might notice the
+following error::
+
+  ERROR: You must give at least one requirement to install (see "pip help
+  install")
+
+This error is caused by a newer version of pip being used on a stable branch
+that isn't compatible with the ``tox_install.sh`` script.
+
+You can fix the issue one of two ways.
+
+The first way is by removing ``tox_install.sh`` all together from the stable
+branch and convert the branch to use constraints like you did with master.
+
+The second way, which might be required depending on the extent of the changes
+being made to the stable branch, is to patch ``tox_install.sh`` to make it
+compatible with newer versions of pip. An example of how to do that can be
+found in this `patch <https://review.openstack.org/#/c/564756/>`_.
+
 Resources
 =========
 
