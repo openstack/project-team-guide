@@ -49,9 +49,9 @@ team:
   which in turn makes it easier to post-process the logs with tools
   like Logstash.
 
-.. _oslo.config: http://docs.openstack.org/developer/oslo.config/
-.. _oslo.messaging: http://docs.openstack.org/developer/oslo.messaging/
-.. _oslo.log: http://docs.openstack.org/developer/oslo.log/
+.. _oslo.config: https://docs.openstack.org/oslo.config/latest/
+.. _oslo.messaging: https://docs.openstack.org/oslo.messaging/latest/
+.. _oslo.log: https://docs.openstack.org/oslo.log/latest
 
 Brief History
 =============

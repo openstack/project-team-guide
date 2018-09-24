@@ -584,7 +584,7 @@ will be no merge conflicts as the fix is backported. For example:
 After the new file is created, edit it to remove any sections that are
 not relevant and to add notes under the appropriate sections. Refer to
 the `Editing a Release Note
-<https://docs.openstack.org/developer/reno/user/usage.html#creating-new-release-notes>`__
+<https://docs.openstack.org/reno/latest/#creating-new-release-notes>`__
 section of the reno documentation for details about what should go in
 each section of the YAML file and for tips on formatting notes.
 
