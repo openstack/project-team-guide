@@ -67,7 +67,7 @@ Per Project Stable teams and the Stable Maintainers are responsible for all
 Extended Maintenance
 --------------------
 
-Once a project reaches Extended Maintenance project teams will cease producing
+Once a branch reaches Extended Maintenance project teams will cease producing
 releases and `OpenStack Vulnerability Management`_ will be reasonable efforts
 only.  There is no statement about the level of testing and upgrades from
 Extended Maintenance are not supported within the Community.
