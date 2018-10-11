@@ -72,6 +72,9 @@ releases and `OpenStack Vulnerability Management`_ will be reasonable efforts
 only.  There is no statement about the level of testing and upgrades from
 Extended Maintenance are not supported within the Community.
 
+The HEAD of the appropriate branch will be tagged as ``$series-em``, for
+example: https://review.openstack.org/608296/
+
 Members of the community interested in a given project/branch are encouraged to
 engage with the appropriate stable team *early* in its life-cycle to ensure
 this process runs well.  In the absence of identified maintainers the project
