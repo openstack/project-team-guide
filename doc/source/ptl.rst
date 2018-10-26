@@ -212,6 +212,77 @@ During the PTG
     in your team room is.
 
 
+Collecting Feedback
+===================
+
+Collecting feedback from users and operators is an essential step for
+incrementally improving software. Anyone can collect feedback, but sometimes it
+falls on the shoulders of the PTL to facilitate open lines of communication.
+The following are a few ways you can do that.
+
+Mailing Lists
+-------------
+
+Our community has several mailing lists, some of which are specific to
+operators. The `OpenStack Operator mailing list`_ is a great place to ask for
+feedback. An advantage of using mailing lists is that responses are logged
+making it easy to reference them later. You also don't have to wait for a
+specific time or place to use mailing lists, making it easy to attempt to
+collect feedback in a pinch or when a formal setting isn't feasible.
+
+User Surveys
+------------
+
+The Foundation puts together a survey for users and operators. The Foundation
+shares the results with PTLs, who can then disseminate the knowledge to others
+who may be interested.
+
+It's worth checking to see if your project is participating in the survey. Make
+sure the survey questions for your project are relevant and reflect the current
+status of what the team is doing. If you're not sure what's being asked in the
+survey or want to update the project-specific survey questions, reach out to
+someone from the Foundation.
+
+User Committee
+--------------
+
+The User Committee is an elected body within the community that helps
+facilitate communication between users and developers. If there are specific
+things your project wants feedback on, but you're not sure how or where to
+start, the User Committee can help. They hold `weekly meetings`_ on IRC, and
+they can help you come up with a plan for collecting feedback.
+
+PTG Sessions
+------------
+
+Occasionally, you might find operators or users at Project Team Gatherings. You
+can set up timeslots on your projects agenda, inviting them to share feedback
+with developers. If an official time slot doesn't make its way into the
+schedule, hallway discussions are good ways to collect quick feedback.
+
+Forum Sessions
+--------------
+
+It isn't uncommon to find more operators and users at Summits and Forums than
+PTGs. You can use this as an opportunity to collect as much feedback from them
+as possible if you're attending. Since everyone usually has a busy schedule,
+it's better to plan ahead and socialize those sessions. There are a couple of
+specific ways you can collect feedback throughout the week.
+
+First, submit a Forum session proposal to collect feedback for your project.
+The Foundation asks the community for session proposals, which are used to
+build the schedule for the Forum. Be explicit if you're looking for feedback on
+specific things. By having a feedback session on the formal schedule, you're
+letting operators and users know your project is open to listening to what they
+have to say. It's a great way to meet users face-to-face, exchange contact
+information, and discuss issues they might be having.
+
+Second, use your project update to advertise feedback sessions or that the team
+is interested in feedback. If you're looking for direction on a new feature,
+share a little bit about it and say you'd like to hear what people think. You
+don't have to spend the entire project update focusing on this, but it could
+result in a follow-up afterward or an interesting hallway discussion.
+
 Stable
 ======
 
@@ -240,3 +311,5 @@ When necessary, the following can be performed at unscheduled times.
 .. _cross project liaisons: https://wiki.openstack.org/wiki/CrossProjectLiaisons
 .. _release management: http://docs.openstack.org/project-team-guide/release-management.html
 .. _FirstContact SIG liaisons: https://wiki.openstack.org/wiki/First_Contact_SIG#Project_Liaisons
+.. _weekly meetings: http://eavesdrop.openstack.org/#User_Committee_Meeting
+.. _OpenStack Operator mailing list: http://lists.openstack.org/cgi-bin/mailman/listinfo/openstack-operators
