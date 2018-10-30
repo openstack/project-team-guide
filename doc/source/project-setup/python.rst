@@ -118,20 +118,6 @@ Just run::
 
   $ tox -e pep8
 
-.. note::
-
-    For projects that publish their deliverables to PyPi, there are some extra
-    checks that are recommended for the RST formatting of the repo's README
-    file. In most cases, the repo's README file is used as the package
-    description on PyPi, and the upload of new packages to PyPi validate that
-    the description is valid RST.
-
-    It is recommended that these projects add the following command to be run
-    under the pep8 tox target:
-
-        python setup.py check --restructuredtext --strict
-
-
 Run One Test
 ^^^^^^^^^^^^
 
