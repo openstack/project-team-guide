@@ -225,6 +225,14 @@ General Review Criteria
   or ``requirements.txt`` are allowed to approved and workflowed by a single
   core reviewer.
 
+Freeze
+++++++
+
+Per project requirements allows the review process to stay the same during the
+freeze.  This is due to the proposal bot not proposing changes to projects
+``requirements.txt``.  Projects are responsible for their own
+``requirements.txt`` maintenance.
+
 For new Requirements
 --------------------
 
