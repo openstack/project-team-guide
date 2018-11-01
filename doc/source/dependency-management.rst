@@ -221,6 +221,10 @@ General Review Criteria
   removal or addition, the +1 from the current PTL (or core if the PTL proposed
   the change) should be enough.
 
+- Reviews proposed by the OpenStack Proposal Bot to ``upper-constraints.txt``
+  or ``requirements.txt`` are allowed to approved and workflowed by a single
+  core reviewer.
+
 For new Requirements
 --------------------
 
