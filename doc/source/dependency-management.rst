@@ -121,8 +121,11 @@ Adding a new dependency
 1. Add the dependency to ``global-requirements.txt`` in
    ``openstack/requirements``, including any instructions for
    excluding versions or choosing different versions for python 2
-   or 3. Add a recent version to ``upper-constraints.txt`` in the same
-   repository at the same time.
+   or 3.  As part of the same review, run the following command
+   ``generate-constraints -b blacklist.txt -p /usr/bin/python2.7 \
+   -p /usr/bin/python3.6 -r global-requirements.txt --version-map 3.6:3.4 \
+   --version-map 3.6:3.5 > upper-constraints.txt``.  Be sure to only update
+   or add constraints related to your addition.
 2. Add the dependency to the appropriate requirements file(s) within
    the project tree, providing a minimum version specifier. Update the
    ``lower-constraints.txt`` file in the project tree at the same
@@ -131,8 +134,8 @@ Adding a new dependency
 Removing a dependency
 ---------------------
 
-1. Remove the dependency from the requirements files in the project
-   tree, including the ``lower-constraints.txt`` file.
+1. Remove the dependency from the requirements and constraints files within
+   the project tree.  Be sure to check the docs folder as well.
 2. Check for other projects using the dependency. If none do, update
    ``openstack/requirements`` to remove the item from
    ``global-requirements.txt``.
@@ -393,6 +396,58 @@ block the affected releases and still be able to keep requirements in sync, we
 list the library in global-requirements.txt and update all projects that
 require it.
 
+Tools
+=====
+
+All tools require ``openstack_requirements`` to be installed (e.g. in a Python
+virtualenv).  All tools have the ``--help`` option, which is the authoritative
+documentation for that command.
+
+generate-constraints
+--------------------
+
+Compile a constraints file showing the versions resulting from installing all
+of ``global-requirements.txt``::
+
+  generate-constraints -p /usr/bin/python2.7 -p /usr/bin/python3.6 \
+  -r global-requirements.txt -b blacklist.txt --version-map 3.6:3.4 \
+  --version-map 3.6:3.5 > new-constraints.txt
+
+edit-constraints
+----------------
+
+Replace all references to a package in a constraints file with a new
+specification. Used by DevStack to enable git installations of libraries that
+are normally constrained::
+
+  edit-constraints oslo.db "-e file://opt/stack/oslo.db#egg=oslo.db"
+
+build-lower-constraints
+-----------------------
+
+Combine multiple lower-constraints.txt files to produce a list of the
+highest version of each package mentioned in the files. This can be
+used to produce the "highest minimum" for a global lower constraints
+list (a.k.a., the "TJ Maxx").::
+
+    build-lower-constraints input1.txt input2.txt
+
+Where the input files are lower-constraints.txt or requirements.txt
+files from one or more projects.
+
+If the inputs are requirements files, a lower constraints list for the
+requirements is produced. If the inputs are lower-constraints.txt, the
+output includes the highest version of each package referenced in the
+files.
+
+check-requirements
+------------------
+
+Run the validation checks from the ``requirements-check`` job locally
+using the ``requirements-check`` tox environment (test is run via ansible
+with non-installed playbooks).::
+
+    tox -e requirements-check -- /path/to/repo/to/test
 
 Tox & Stable Branches
 =====================
