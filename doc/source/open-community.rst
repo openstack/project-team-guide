@@ -70,12 +70,30 @@ perfectly) level playing field with email than they might be with synchronous
 forms of text-based communication, such as IRC. When in doubt, prefer using a
 mailing list to other options.
 
-When using the mailing list for team communication, it's best to tag the
-subject with the name of the project surrounded by brackets. For example,
-to communicate something to the mailing list about Nova, you would add this
-to the subject::
+For the openstack-discuss_ mailing list, where most usage, operations and
+development discussions take place, the following tags are recommended to
+better categorize topics (add as many to the beginning of the subject line as
+are relevant):
 
-  [nova]
+  * ``[$groupname-wg]`` Discussion within $groupname working group (example:
+    `[publiccloud-wg]`)
+  * ``[$projectname]`` Discussion affects the $project project team (example:
+    `[nova]`)
+  * ``[$signame-sig]`` Discussion within $signame SIG (example:
+    `[upgrades-sig]`)
+  * ``[all]`` Topic is a general community discussion affecting everyone. Use
+    with care.
+  * ``[dev]`` Discussion is specific to development concerns, but otherwise
+    affects all devs
+  * ``[docs]`` Any kind of documentation discussions that are cross-projects
+  * ``[goals]`` Affects community goals
+  * ``[ops]`` Discussion is specific to operators concerns, but otherwise
+    affects all ops
+  * ``[ptl]`` Topics needing the attention of PTLs
+  * ``[release]`` Affects the upcoming release, all PTLs or release liaisons
+    should read
+  * ``[tc]`` Discussion around Technical Committee activities
+  * ``[uc]`` Discussion around User Committee activities
 
 There are many mailing lists in the OpenStack ecosystem. Projects should ensure
 they have subscribers on all of the lists relevant to their project.
@@ -216,3 +234,4 @@ release cycle (for PTL elections) and summit dates (for the TC elections).
 .. _decision: https://governance.openstack.org/tc/resolutions/20141128-elections-process-for-leaderless-programs.html
 .. _adding your blog: https://wiki.openstack.org/wiki/AddingYourBlog
 .. _Openstack-wide goals: https://governance.openstack.org/tc/goals/index.html
+.. _openstack-discuss: http://lists.openstack.org/cgi-bin/mailman/listinfo/openstack-discuss

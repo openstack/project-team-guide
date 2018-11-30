@@ -49,9 +49,10 @@ consider.
 Criteria when considering new cores
 -----------------------------------
 
-A successful appointment can be made solely by the PTL, however it is encouraged
-to hear the opinions of the existing core team. This can be done through
-private messages on IRC or publicly through the openstack-dev mailing list.
+A successful appointment can be made solely by the PTL, however it is
+encouraged to hear the opinions of the existing core team. This can be done
+through private messages on IRC or publicly through the openstack-discuss_
+mailing list.
 
 #.  Are their review numbers (quantity and disagreements) similar to those of
     existing core members?
@@ -223,12 +224,13 @@ The following are a few ways you can do that.
 Mailing Lists
 -------------
 
-Our community has several mailing lists, some of which are specific to
-operators. The `OpenStack Operator mailing list`_ is a great place to ask for
-feedback. An advantage of using mailing lists is that responses are logged
-making it easy to reference them later. You also don't have to wait for a
-specific time or place to use mailing lists, making it easy to attempt to
-collect feedback in a pinch or when a formal setting isn't feasible.
+Our community has several mailing lists, though most usage, operations and
+development discussions take place on the openstack-discuss_ mailing list
+making it a great place to ask for feedback. An advantage of using mailing
+lists is that responses are logged making it easy to reference them later. You
+also don't have to wait for a specific time or place to use mailing lists,
+making it easy to attempt to collect feedback in a pinch or when a formal
+setting isn't feasible.
 
 User Surveys
 ------------
@@ -312,4 +314,4 @@ When necessary, the following can be performed at unscheduled times.
 .. _release management: http://docs.openstack.org/project-team-guide/release-management.html
 .. _FirstContact SIG liaisons: https://wiki.openstack.org/wiki/First_Contact_SIG#Project_Liaisons
 .. _weekly meetings: http://eavesdrop.openstack.org/#User_Committee_Meeting
-.. _OpenStack Operator mailing list: http://lists.openstack.org/cgi-bin/mailman/listinfo/openstack-operators
+.. _openstack-discuss: http://lists.openstack.org/cgi-bin/mailman/listinfo/openstack-discuss
