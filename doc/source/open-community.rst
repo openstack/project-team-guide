@@ -75,25 +75,25 @@ development discussions take place, the following tags are recommended to
 better categorize topics (add as many to the beginning of the subject line as
 are relevant):
 
-  * ``[$groupname-wg]`` Discussion within $groupname working group (example:
-    `[publiccloud-wg]`)
-  * ``[$projectname]`` Discussion affects the $project project team (example:
-    `[nova]`)
-  * ``[$signame-sig]`` Discussion within $signame SIG (example:
-    `[upgrades-sig]`)
-  * ``[all]`` Topic is a general community discussion affecting everyone. Use
-    with care.
-  * ``[dev]`` Discussion is specific to development concerns, but otherwise
-    affects all devs
-  * ``[docs]`` Any kind of documentation discussions that are cross-projects
-  * ``[goals]`` Affects community goals
-  * ``[ops]`` Discussion is specific to operators concerns, but otherwise
-    affects all ops
-  * ``[ptl]`` Topics needing the attention of PTLs
-  * ``[release]`` Affects the upcoming release, all PTLs or release liaisons
-    should read
-  * ``[tc]`` Discussion around Technical Committee activities
-  * ``[uc]`` Discussion around User Committee activities
+* ``[$groupname-wg]`` Discussion within $groupname working group (example:
+  `[publiccloud-wg]`)
+* ``[$projectname]`` Discussion affects the $project project team (example:
+  `[nova]`)
+* ``[$signame-sig]`` Discussion within $signame SIG (example:
+  `[upgrades-sig]`)
+* ``[all]`` Topic is a general community discussion affecting everyone. Use
+  with care.
+* ``[dev]`` Discussion is specific to development concerns, but otherwise
+  affects all devs
+* ``[docs]`` Any kind of documentation discussions that are cross-projects
+* ``[goals]`` Affects community goals
+* ``[ops]`` Discussion is specific to operators concerns, but otherwise
+  affects all ops
+* ``[ptl]`` Topics needing the attention of PTLs
+* ``[release]`` Affects the upcoming release, all PTLs or release liaisons
+  should read
+* ``[tc]`` Discussion around Technical Committee activities
+* ``[uc]`` Discussion around User Committee activities
 
 There are many mailing lists in the OpenStack ecosystem. Projects should ensure
 they have subscribers on all of the lists relevant to their project.
@@ -151,7 +151,7 @@ of elected technical positions in OpenStack:
 
 The *project team* guide naturally focuses on PTLs. More information about the
 TC can be found on the `Technical Committee website`_. You can reach out to
-TC members using the openstack-dev mailing-list (including the ``[tc]`` "tag"
+TC members using the openstack-discuss_ mailing-list (including the ``[tc]`` "tag"
 in your subject line will make it more likely for them to see the message), or
 on the #openstack-tc IRC channel (especially around `TC office hours`_).
 
