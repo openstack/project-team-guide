@@ -222,7 +222,7 @@ branches which generally includes:
    backports from passing tests. These could be project-specific or global in
    nature and are usually tracked in the `stable tracker etherpad`_. From time
    to time the Stable Maintenance Core team may also ask for help from
-   individual projects in IRC or the openstack-dev mailing list and expect a
+   individual projects in IRC or the openstack-discuss mailing list and expect a
    reasonably prompt response.
 
    .. note::
@@ -254,7 +254,7 @@ Some types of changes are completely forbidden:
 * Incompatible config file changes
 
 Proposed backports breaking any of the above guidelines can be discussed as
-exception requests on the openstack-dev list (prefix with [stable]) where
+exception requests on the openstack-discuss list (prefix with [stable]) where
 the stable maintenance core team will have the final say.
 
 Each backported commit proposed to Gerrit should be reviewed and +2ed by

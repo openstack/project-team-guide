@@ -50,9 +50,9 @@ licensed, contributors need to understand how the interaction between the
 modules will work and the compatibility of the licenses involved. Please read
 the `licensing requirements`_, and if there are any remaining doubts or
 concerns, it is recommended to contact the Technical Committee (using the
-openstack-dev mailing-list with the [tc] prefix, or on the #openstack-tc IRC
-channel) to discuss with the Technical Committee how to proceed. In general,
-err on the side of caution here.
+openstack-discuss mailing-list with the [tc] prefix, or on the #openstack-tc
+IRC channel) to discuss with the Technical Committee how to proceed. In
+general, err on the side of caution here.
 
 With regards to dependencies, any third-party libraries or modules need to be
 vetted in the `global requirements`_. This ensures the added requirement of

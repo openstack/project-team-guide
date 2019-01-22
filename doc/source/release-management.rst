@@ -264,7 +264,7 @@ must ensure they are done by someone on the project team.
    topics.
 
    The primary means of communication between the release management
-   team and other project teams is the openstack-dev mailing
+   team and other project teams is the openstack-discuss mailing
    list. Liaisons must be subscribed and ensure that they pay
    attention to threads with the topic "[release]". Watch for
    instructions related to deadlines, release changes that need to be
@@ -339,7 +339,7 @@ time to stabilize and for the owners to prepare bug fixes if needed.
   causing regressions is low.
 
   To request an exception for a library release past the freeze, send
-  an email to the openstack-dev mailing list with the following tags
+  an email to the openstack-discuss mailing list with the following tags
   in the subject line::
 
     [release][requirements][other-impacted-projects]
