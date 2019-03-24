@@ -48,7 +48,7 @@ npm. This process is fairly straightforward, and will ensure that all
 dependencies, tools, and other resources are available.::
 
   # Check out the project
-  git checkout git://git.openstack.org/openstack/<PROJECT NAME>.git
+  git checkout https://git.openstack.org/openstack/<PROJECT NAME>.git
 
   # Initialize the project.
   cd <PROJECT NAME>
