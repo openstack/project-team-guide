@@ -72,8 +72,12 @@ releases and `OpenStack Vulnerability Management`_ will be reasonable efforts
 only.  There is no statement about the level of testing and upgrades from
 Extended Maintenance are not supported within the Community.
 
-The HEAD of the appropriate branch will be tagged as ``$series-em``, for
-example: https://review.openstack.org/608296/
+The ``last release`` of the appropriate branch will be tagged as ``$series-em``,
+for example: https://review.opendev.org/608296/.
+For all projects that follow the stable policy a patch with a ``$series-em``
+tag will be automatically generated after the final release from the latest
+development cycle happened. This is because this is a less busy period in
+development perspective compared to feature freeze and release periods.
 
 Members of the community interested in a given project/branch are encouraged to
 engage with the appropriate stable team *early* in its life-cycle to ensure
