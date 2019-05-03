@@ -200,10 +200,10 @@ form of a patch to the appropriate "deliverables" file of that repository.
 See the `README file in that repository`_ for more details.
 
 Such requests are then automatically tested, reviewed and processed by the
-Release Team, generally avoiding Mondays and Fridays and periods where the
-CI system is not fully operational.
+Release Team, generally avoiding weekends when no one would be around to help
+triage potential release automation issues.
 
-.. _README file in that repository: http://git.openstack.org/cgit/openstack/releases/tree/README.rst
+.. _README file in that repository: https://opendev.org/openstack/releases/src/branch/master/README.rst
 
 .. _semantic versioning: https://docs.openstack.org/pbr/latest/user/semver.html#semantic-versioning-specification-semver
 
