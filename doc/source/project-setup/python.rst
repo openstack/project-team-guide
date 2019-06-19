@@ -97,17 +97,17 @@ Run One Set of Tests
 ^^^^^^^^^^^^^^^^^^^^
 
 tox will run your entire test suite in the environments specified in the
-repository tox.ini::
+repository ``tox.ini``::
 
   [tox]
 
-  envlist = <list of available environments>
+  envlist = <list of default environments>
 
-To run just one test suite in envlist execute::
+To run just one test suite in ``envlist``, execute::
 
   $ tox -e <env>
 
-so for example, run the test suite in py27::
+so for example, run the test suite in the ``py27`` environment::
 
   $ tox -e py27
 
@@ -118,41 +118,74 @@ Just run::
 
   $ tox -e pep8
 
-Run One Test
-^^^^^^^^^^^^
+Run individual tests with tox
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To run individual tests with tox:
+stestr
+------
 
-If `testr`_ is in tox.ini, for example::
+`stestr`_ is `OpenStack's recommended test runner`_.  If it's set up
+in ``tox.ini``, for example::
+
+  [testenv]
+
+  ... stestr run {posargs}
+
+then run individual tests with the following syntax::
+
+  $ tox -e <env> -- -n path.to.module.Class.test
+
+So for example, run the ``test_memory_unlimited`` test in openstack/nova::
+
+  $ tox -e py27 -- -n nova.tests.unit.compute.test_claims.ClaimTestCase.test_memory_unlimited
+
+If you want to specify multiple tests via multiple command line
+arguments and/or via substring matching, just drop the ``-n`` option,
+e.g.::
+
+  $ tox -e py27 -- test_memory_unlimited test_memory_with_overhead
+
+This actually causes `stestr` to internally build a list of all tests,
+and then run only those which contain one of the substrings provided
+on the command line.  However this extra test discovery phase will
+typically take a few seconds longer to run.
+
+.. _`stestr`: https://pypi.org/project/stestr/
+.. _`OpenStack's recommended test runner`:
+   https://governance.openstack.org/tc/reference/pti/python.html#python-test-running
+
+testr
+-----
+
+.. warning::
+
+   testr is deprecated and should not be used within OpenStack.
+   Please use `stestr` instead as per above.
+
+If `testr`_ is in ``tox.ini``, for example::
 
   [testenv]
 
   ... "python setup.py testr --slowest --testr-args='{posargs}'"
 
-Run individual tests with the following syntax::
+then run individual tests with the following syntax::
 
   $ tox -e <env> -- path.to.module.Class.test
 
-So for example, run the test_memory_unlimited test in openstack/nova::
+So for example, run the ``test_memory_unlimited`` test in openstack/nova::
 
   $ tox -e py27 -- nova.tests.unit.compute.test_claims.ClaimTestCase.test_memory_unlimited
 
-If `nose`_ is in tox.ini, for example::
-
-  [testenv]
-
-  ... "nosetests {posargs}"
-
-Run individual tests with the following syntax::
-
-  $ tox -e <env> -- --tests path.to.module:Class.test
-
-So for example, run the list test in openstack/swift::
-
-  $ tox -e py27 -- --tests test.unit.container.test_backend:TestContainerBroker.test_empty
-
 .. _`testr`: https://wiki.openstack.org/wiki/Testr
-.. _`nose`: https://nose.readthedocs.org/en/latest/
+
+nose
+----
+
+.. warning::
+
+   nose and nose2 are both deprecated and should not be used within
+   OpenStack.  Please use `stestr` instead as per above.
+
 
 Debugging Python Unit Tests
 ===========================
@@ -162,7 +195,7 @@ wish to break::
 
   import pdb; pdb.set_trace()
 
-If testr is in tox.ini, the ``testtools.run`` command should be used to run
+If testr is in ``tox.ini``, the ``testtools.run`` command should be used to run
 tests. However, due to a `bug`_, it is not possible to simply pass a regex to
 this tool. Instead, first generate a list of tests to run and then pipe this
 list through ``testtools.run``::
