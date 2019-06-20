@@ -128,6 +128,16 @@ focus on bug fixes and hold on major disruptive features as you get closer
 to the end of a development cycle, to ensure that the final release of any
 given development cycle is as usable and bug-free as it can be.
 
+Common cycle with one automatic release at the end
+--------------------------------------------------
+
+Some technical deliverables, like tempest plugins, only need to be released
+once at the end of the cycle. PTLs and release liaisons for such deliverables
+may choose to release them using a cycle-automatic release model.
+
+Cycle-automatic deliverables are automatically proposed for release by the
+release team around RC1. No stable branch is created.
+
 Trailing the common cycle
 -------------------------
 
