@@ -180,6 +180,17 @@ During the cycle
 Conference and event tasks
 ==========================
 
+Project Updates
+----------------
+
+#. Decide if your project has news they want to share with the community
+   in the form of a 20 or 40 min project update at the upcoming Summit.
+#. Keep an eye out for the Project Update Request Survey from OSF staff.
+   The survey will come directly to PTLs, not to the openstack-discuss ML.
+#. If you requested a Project Update, make sure to register yourself (or
+   that whoever else is listed as speaker does) before the deadline noted
+   in the email with the survey to secure the update slot.
+
 Before the Forum
 ----------------
 
@@ -213,8 +224,8 @@ Before the PTG
 --------------
 
 #.  Decide if your team will hold a team meeting at the PTG, and communicate
-    with the events organizers. An email is sent out beforehand by the
-    Foundation - keep an eye out.
+    with the events organizers. An email is sent out beforehand by OSF staff
+    directly to PTLs- keep an eye out.
 
 #.  If your team gathers at the PTG, create an etherpad to dynamically build
     the room agenda, and list it on the event wiki page.
