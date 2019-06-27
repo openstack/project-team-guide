@@ -55,7 +55,8 @@ guides them in the interaction with the contributor.
    recommend thing to do. Note that these project's guidelines inherit from the
    OpenStack's guidelines anyway.
 
-#. Verify that the commit message is also compliant with the following criterias:
+#. Verify that the commit message is also compliant with the following
+   criteria:
 
    #. The title is not longer than 50 characters.
    #. Summary lines should be wrapped at 70 characters.
@@ -64,11 +65,12 @@ guides them in the interaction with the contributor.
       Sometimes the patches are partially fixes for a bigger problem and
       it's extremely important to have all that explicitly stated in the
       commit message.
-   #. Make sure the commit message is correctly flagged. If there are API changes
-      then the `APIImpact` flag should be used. If there are security
+   #. Make sure the commit message is correctly flagged. If there are API
+      changes then the `APIImpact` flag should be used. If there are security
       implications then the `SecurityImpact` flag should be used. If there are
       documentation changes then the `DocImpact` flag should be used.
-   #. Make sure blueprints and bugs are correctly referenced in the commit message:
+   #. Make sure blueprints and bugs are correctly referenced in the commit
+      message:
 
       #. Closes-bug: #12345
       #. Implements-blueprint: my-blueprint-slug

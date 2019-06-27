@@ -136,7 +136,8 @@ At the beginning of a new cycle
 
 #.  Appoint `cross project liaisons`_ (Docs, release, QA, Oslo, etc.).
 
-#.  Appoint `FirstContact SIG liaisons`_ (By default, the liaison will be the PTL).
+#.  Appoint `First Contact SIG liaisons`_ (By default, the liaison will be the
+    PTL).
 
 #.  Check if the meeting time works for most active contributors.
 
@@ -145,7 +146,8 @@ At the beginning of a new cycle
 
 #.  If necessary, squash database migrations. This is usually not necessary,
     but will reduce the amount of time necessary for upgrading. A sample
-    squash can be seen `by the keystone team <https://github.com/openstack/keystone/commit/f5c64718a1c91fdce5c1da3b1043c14c5b0a97fd>`_.
+    squash can be seen `by the keystone
+    team <https://github.com/openstack/keystone/commit/f5c64718a1c91fdce5c1da3b1043c14c5b0a97fd>`_.
 
 #.  Track removed and deprecated features, for example using
     `deprecated-as-of-<series>` and `removed-as-of-<series>` blueprints.
@@ -170,9 +172,10 @@ During the cycle
 
 #.  Lack of reviews? Reach out to the core team and remind them.
 
-#.  `Release libraries as necessary <https://releases.openstack.org/reference/release_models.html#cycle-with-intermediary>`_,
-    but don't wait too long! Some teams will release after 4 weeks even if the changes are
-    minor. *More often is better than less often.*
+#.  `Release libraries as
+    necessary <https://releases.openstack.org/reference/release_models.html#cycle-with-intermediary>`_,
+    but don't wait too long! Some teams will release after 4 weeks even if the
+    changes are minor. *More often is better than less often.*
 
 Conference and event tasks
 ==========================
@@ -197,13 +200,14 @@ During the Forum
 #.  In the discussion sessions you moderate:
 
     * Take notes on the etherpad (or delegate a scribe)
-    * Act as a moderator rather than actively participate (or delegate a moderator)
+    * Act as a moderator rather than actively participate (or delegate a
+      moderator)
 
-#.  After the discussion, post a summary of the session outcome to the ML, for the
-    benefit of those who could not be present.
+#.  After the discussion, post a summary of the session outcome to the ML, for
+    the benefit of those who could not be present.
 
-#.  Towards the end of the Forum, ensure a summary of all discussions are sent to the ML for
-    individuals who did not attend the event.
+#.  Towards the end of the Forum, ensure a summary of all discussions are sent
+    to the ML for individuals who did not attend the event.
 
 Before the PTG
 --------------
@@ -215,8 +219,8 @@ Before the PTG
 #.  If your team gathers at the PTG, create an etherpad to dynamically build
     the room agenda, and list it on the event wiki page.
 
-#.  Create a tentative time schedule so that people from other projects who are interested
-    in a certain topic know when to join in the discussion.
+#.  Create a tentative time schedule so that people from other projects who are
+    interested in a certain topic know when to join in the discussion.
 
 During the PTG
 --------------
@@ -226,18 +230,19 @@ During the PTG
 #.  Keep the event schedule up to date on what the current topics of discussion
     in your team room is.
 
-#.  Towards the end of the PTG, ensure a summary of all discussions are sent to the ML for
-    individuals who did not attend the event.
+#.  Towards the end of the PTG, ensure a summary of all discussions are sent to
+    the ML for individuals who did not attend the event.
 
 Attending events
 ----------------
 
 Whilst attending the Summit and PTG as a PTL is preferential, it is not the
-end of the world if you are unable to do so for personal or professional reasons.
-The community is here to support you, and is available to help plan
+end of the world if you are unable to do so for personal or professional
+reasons. The community is here to support you, and is available to help plan
 team orientated events and tasks if you are unable to make the trip.
 
-If you are unable to attend, see our section on `How to successfully delegate`_.
+If you are unable to attend, see our section on
+`How to successfully delegate`_.
 
 At the end of the cycle
 =======================
@@ -245,8 +250,8 @@ At the end of the cycle
 #.  Clean up release notes.
 
 #.  Coordinate with the `release management`_ team for deliverables, unless a
-    liaison has been appointed and make sure release-highlights are documented in
-    the release files.
+    liaison has been appointed and make sure release-highlights are documented
+    in the release files.
 
 #.  Perform a retrospective via an etherpad. Suggested sections include:
     `What went well?`, `What didn't go well`.
@@ -360,7 +365,8 @@ some community tips on what you can do to help make your experience as an
 OpenStack project leader better.
 
 If you can think of anything else that might be helpful, do not hesitate
-to clone the `project-team-guide` repo from `OpenDev <https://opendev.org/openstack/project-team-guide>`_
+to clone the `project-team-guide` repo from
+`OpenDev <https://opendev.org/openstack/project-team-guide>`_
 and submit an addition.
 
 - Ensuring your email filters are setup to catch anything with `[ptl]` or
@@ -374,94 +380,97 @@ and submit an addition.
 - Project update emails: An optional extra for when you're getting into the
   swing of things. Providing an occasional project team update email to the
   openstack-discuss mailing list is a great way to keep part-time contributors
-  informed of the changes occurring within the project. For example, the Keystone
-  team provides updates weekly: http://lists.openstack.org/pipermail/openstack-discuss/2019-June/006799.html
+  informed of the changes occurring within the project. For example, the
+  Keystone team provides updates weekly:
+  http://lists.openstack.org/pipermail/openstack-discuss/2019-June/006799.html
 
-- Set aside time during the weekly meeting to look at the oldest outstanding review
-  in the project. The resulting action should be one of the following: the patch is
-  merged, -1'd, or someone is assigned to follow up if the review cannot be completed
-  in real time. This is a great way to reduce significant backlogs and potential
-  technical debt.
+- Set aside time during the weekly meeting to look at the oldest outstanding
+  review in the project. The resulting action should be one of the following:
+  the patch is merged, -1'd, or someone is assigned to follow up if the review
+  cannot be completed in real time. This is a great way to reduce significant
+  backlogs and potential technical debt.
 
 - Courtesy pings in IRC meetings: Everyone lives busy lives outside of the
   community. Coming up with a way to ping team members who are interested in
   attending team meetings is a helpful addition.
 
   Another way to do this is to encourage team members to configure their
-  IRC client to highlight on a specific keyword. For example `#startmeeting <PROJECT>`
-  or `foo-team`.
+  IRC client to highlight on a specific keyword. For example
+  `#startmeeting <PROJECT>` or `foo-team`.
 
-- Manage priority reviews. This can be done by adding a review priority column in Gerrit or
-  maintaining the priority `blueprint <https://blueprints.launchpad.net/>`_ in a spec repo.
+- Manage priority reviews. This can be done by adding a review priority column
+  in Gerrit or maintaining the priority
+  `blueprint <https://blueprints.launchpad.net/>`_ in a spec repo.
   Here is an example from the Cinder team implemented the review priority
   column: https://review.opendev.org/#/c/620664/
 
 How to successfully delegate
 ----------------------------
 
-Delegating is a large part of your role as an OpenStack PTL. There are numerous tasks
-and we know how difficult it can be to keep up with it all. Some projects are more
-fortunate than others, having multiple people around to delegate to, however this is
-not always the case - no matter the size of the project.
+Delegating is a large part of your role as an OpenStack PTL. There are numerous
+tasks and we know how difficult it can be to keep up with it all. Some projects
+are more fortunate than others, having multiple people around to delegate to,
+however this is not always the case - no matter the size of the project.
 
-The following are some tips and tricks derived from community members to help you
-delegate:
+The following are some tips and tricks derived from community members to help
+you delegate:
 
 - Reach out to team members on IRC or the mailing lists - everyone communicates
   differently.
 
-- Detail your ask. Vague requests tend to go ignored because people have their own
-  workloads. But if you need someone to host a team meeting, summarize the forum or
-  PTG, or even fix a bug, details are key to getting results.
+- Detail your ask. Vague requests tend to go ignored because people have their
+  own workloads. But if you need someone to host a team meeting, summarize the
+  forum or PTG, or even fix a bug, details are key to getting results.
 
-- Don't wait until the last minute to ask for help. If you've got a big project on
-  horizon, find someone to help at the beginning - even if that person is to be your
-  backup if things fall through.
+- Don't wait until the last minute to ask for help. If you've got a big project
+  on horizon, find someone to help at the beginning - even if that person is to
+  be your backup if things fall through.
 
 If you can't find a delegate, it is okay to let things go. It is not the upmost
-importance to have a team meeting, or plan everything perfectly. Here are some tips
-to help you deal with being unable to delegate tasks:
+importance to have a team meeting, or plan everything perfectly. Here are some
+tips to help you deal with being unable to delegate tasks:
 
-- Do not be afraid to reach out to other project teams, the TC, or the UC for help.
-  The TC and the UC are designed to provide guidance and support where possible.
+- Do not be afraid to reach out to other project teams, the TC, or the UC for
+  help. The TC and the UC are designed to provide guidance and support where
+  possible.
 
-- Don't be a hero. Ensure people are aware that you are having troubles and some deliverables
-  might not be met. We care about our community members, and it's important that you feel
-  supported, and not crushed.
+- Don't be a hero. Ensure people are aware that you are having troubles and
+  some deliverables might not be met. We care about our community members, and
+  it's important that you feel supported, and not crushed.
 
 Handing over PTL duties
 =======================
 
-Are you thinking of moving on? Hoping to encouraging healthy rotation in the role?
-Perhaps you've decided you've had enough and you're burnt out. Or perhaps you're
-moving to a new role or company and OpenStack is no longer your work priority.
-There are a myriad of reasons why someone would need or want to move on from
-the PTL position. While the community would be sad to see you step down, it is
-part of the lifecycle of the position and it's often a positive change to see new
-people and new ideas into leadership positions.
+Are you thinking of moving on? Hoping to encouraging healthy rotation in the
+role? Perhaps you've decided you've had enough and you're burnt out. Or perhaps
+you're moving to a new role or company and OpenStack is no longer your work
+priority. There are a myriad of reasons why someone would need or want to move
+on from the PTL position. While the community would be sad to see you step
+down, it is part of the lifecycle of the position and it's often a positive
+change to see new people and new ideas into leadership positions.
 
-Handing over the PTL position is not easy, it's not as simple as pinging someone
-who is an active contributor and asking if they're interested or not. The main thing
-is to get the individual up to speed on the content covered in this document, as it
-may be things they have not encountered yet.
+Handing over the PTL position is not easy, it's not as simple as pinging
+someone who is an active contributor and asking if they're interested or not.
+The main thing is to get the individual up to speed on the content covered in
+this document, as it may be things they have not encountered yet.
 
 .. note::
 
-   There are some important bits of information to pass on, but you're never going
-   to have a complete knowledge transfer. This is okay!
+   There are some important bits of information to pass on, but you're never
+   going to have a complete knowledge transfer. This is okay!
 
-To make that process a little bit easier for you, and for them, offer PTL mentoring
-before stepping down. If you know that your situation is going to change in advance,
-why not reach out to the whole team and ask who is interested and if you could mentor
-them in the last few months?
+To make that process a little bit easier for you, and for them, offer PTL
+mentoring before stepping down. If you know that your situation is going to
+change in advance, why not reach out to the whole team and ask who is
+interested and if you could mentor them in the last few months?
 
-If there are no takers, reach out to the OpenStack TC before stepping down so they
-are aware of the current situation and can step in to help.
+If there are no takers, reach out to the OpenStack TC before stepping down so
+they are aware of the current situation and can step in to help.
 
 .. _meetings: http://docs.openstack.org/project-team-guide/cross-project.html#meetings
 .. _release calendar: https://releases.openstack.org/schedule.ics
 .. _cross project liaisons: https://wiki.openstack.org/wiki/CrossProjectLiaisons
 .. _release management: http://docs.openstack.org/project-team-guide/release-management.html
-.. _FirstContact SIG liaisons: https://wiki.openstack.org/wiki/First_Contact_SIG#Project_Liaisons
+.. _First Contact SIG liaisons: https://wiki.openstack.org/wiki/First_Contact_SIG#Project_Liaisons
 .. _weekly meetings: http://eavesdrop.openstack.org/#User_Committee_Meeting
 .. _openstack-discuss: http://lists.openstack.org/cgi-bin/mailman/listinfo/openstack-discuss

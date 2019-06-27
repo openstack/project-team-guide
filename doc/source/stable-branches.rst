@@ -44,9 +44,9 @@ in the Maintained phase while all other projects have transitioned to either
 `Extended Maintenance`_ or even `End of Life`_.
 
 .. note::
-   At this time the exact mechanism for describing and updating this state is undefined
-   but it's probable it will involved updating a meta-data in a projects
-   deliverable file in the :code:`openstack/releases` repo.
+   At this time the exact mechanism for describing and updating this state is
+   undefined but it's probable it will involved updating a meta-data in a
+   projects deliverable file in the :code:`openstack/releases` repo.
 
 .. _Maintained:
 
@@ -72,8 +72,8 @@ releases and `OpenStack Vulnerability Management`_ will be reasonable efforts
 only.  There is no statement about the level of testing and upgrades from
 Extended Maintenance are not supported within the Community.
 
-The ``last release`` of the appropriate branch will be tagged as ``$series-em``,
-for example: https://review.opendev.org/608296/.
+The ``last release`` of the appropriate branch will be tagged as
+``$series-em``, for example: https://review.opendev.org/608296/.
 For all projects that follow the stable policy a patch with a ``$series-em``
 tag will be automatically generated after the final release from the latest
 development cycle happened. This is because this is a less busy period in
@@ -98,10 +98,11 @@ of Life`_ below.
 Unmaintained
 ------------
 
-At this stage of the project/branch the Extended Maintenance policy applies but CI
-may not be working and/or there aren't any active maintainers.  Projects that
-remain in this state for 6 months will be transitioned to `End of Life`_.
-Should  maintainers be found a project can be placed back into Extended Maintenance.
+At this stage of the project/branch the Extended Maintenance policy applies but
+CI may not be working and/or there aren't any active maintainers.  Projects
+that remain in this state for 6 months will be transitioned to `End of Life`_.
+Should  maintainers be found a project can be placed back into Extended
+Maintenance.
 
 .. _End Of Life:
 
@@ -214,20 +215,20 @@ branches which generally includes:
    appropriate branches quickly.
 #. Monitoring the backlog of open backport reviews and actually reviewing them
    in a timely manner.
-#. Releasing frequently enough to get fixes out without overwhelming the release
-   team or consumers. In general, security fixes and other critical bug fixes
-   should be released quickly. Otherwise when there are a reasonable amount of
-   unreleased fixes committed, teams should be looking at doing a release.
-   Milestone boundaries during the master release schedule are also good times
-   to be inspecting the list of unreleased changes to see if a stable point
-   release should happen.
+#. Releasing frequently enough to get fixes out without overwhelming the
+   release team or consumers. In general, security fixes and other critical bug
+   fixes should be released quickly. Otherwise when there are a reasonable
+   amount of unreleased fixes committed, teams should be looking at doing a
+   release. Milestone boundaries during the master release schedule are also
+   good times to be inspecting the list of unreleased changes to see if a
+   stable point release should happen.
 #. Monitoring and resolving issues in the continuous integration 'gate' system.
    This basically means making sure there aren't things blocking proposed
    backports from passing tests. These could be project-specific or global in
    nature and are usually tracked in the `stable tracker etherpad`_. From time
    to time the Stable Maintenance Core team may also ask for help from
-   individual projects in IRC or the openstack-discuss mailing list and expect a
-   reasonably prompt response.
+   individual projects in IRC or the openstack-discuss mailing list and expect
+   a reasonably prompt response.
 
    .. note::
       Projects with the ``stable:follows-policy`` tag should be running the
@@ -304,7 +305,8 @@ Backport examples:
 
 * A change for Tango must exist in :code:`master`
 * A change for Sierra must exist in :code:`stable/tango` and :code:`master`
-* A change for Romeo must exist in :code:`stable/sierra`, :code:`stable/tango` and :code:`master`
+* A change for Romeo must exist in :code:`stable/sierra`, :code:`stable/tango`
+  and :code:`master`
 * and so on
 
 Proposing Fixes
@@ -320,11 +322,11 @@ If you don't have the appropriate permissions to nominate the bug, then tagging
 it with e.g. *$release-backport-potential* is also sufficient e.g.
 `Nova Liberty potential`_
 
-The best way to get the patch merged in a timely manner is to send it backported
-by yourself. To do so, you may try to use the "Cherry Pick To" button in the
-Gerrit UI for the original patch in master. Gerrit will take care of creating a
-new review, modifying the commit message to include 'cherry-picked from ...'
-line etc.
+The best way to get the patch merged in a timely manner is to send it
+backported by yourself. To do so, you may try to use the "Cherry Pick To"
+button in the Gerrit UI for the original patch in master. Gerrit will take care
+of creating a new review, modifying the commit message to include
+'cherry-picked from ...' line etc.
 
 .. note::
    The backport must match the master commit, unless there is a serious need to
@@ -373,10 +375,10 @@ Email Notifications
 If you want to be notified of new stable patches you can create a watch on the
 gerrit `watched projects`_ screen with the following settings.
 
-.. code-block:: none
+.. code-block::
 
- Project Name: All-Projects
-      Only If: branch:stable/liberty
+   Project Name: All-Projects
+        Only If: branch:stable/liberty
 
 Then check the "Email Notifications - New Changes" checkbox. That will cause
 gerrit to send an email whenever a matching change is proposed, and better yet,

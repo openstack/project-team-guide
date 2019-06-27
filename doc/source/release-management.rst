@@ -741,9 +741,9 @@ You can check on the formatting of the output by either running locally:
 
   tox -e docs
 
-And checking the resulting file under ``doc/build/html/$RELEASE/highlights.html``,
-or you can view the output of the ``build-openstack-sphinx-docs`` job under
-``html/$RELEASE/highlights.html``.
+And checking the resulting file under
+``doc/build/html/$RELEASE/highlights.html``, or you can view the output of the
+``build-openstack-sphinx-docs`` job under ``html/$RELEASE/highlights.html``.
 
 Writing a Good Cycle Highlight
 ------------------------------

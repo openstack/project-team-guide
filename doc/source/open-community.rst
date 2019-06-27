@@ -151,9 +151,10 @@ of elected technical positions in OpenStack:
 
 The *project team* guide naturally focuses on PTLs. More information about the
 TC can be found on the `Technical Committee website`_. You can reach out to
-TC members using the openstack-discuss_ mailing-list (including the ``[tc]`` "tag"
-in your subject line will make it more likely for them to see the message), or
-on the #openstack-tc IRC channel (especially around `TC office hours`_).
+TC members using the openstack-discuss_ mailing-list (including the ``[tc]``
+"tag" in your subject line will make it more likely for them to see the
+message), or on the #openstack-tc IRC channel (especially around
+`TC office hours`_).
 
 Each project team in OpenStack needs a PTL. The PTL is an elected leader who
 has final say over all things in that specific project team, and all the code

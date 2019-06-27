@@ -335,8 +335,8 @@ Suggested names patterns:
     A javascript library of common utilities used in other OpenStack
     projects, published to bower as :code:`openstack-oslo-jslib`
   :code:`openstack/ironic-jslib`
-    A javascript library that integrates with the Ironic API, published to bower
-    as :code:`openstack-ironic-jslib`
+    A javascript library that integrates with the Ironic API, published to
+    bower as :code:`openstack-ironic-jslib`
   :code:`openstack/ironic-jsclient`
     A commandline client for ironic, written in JavaScript, published to npm
     as :code:`openstack-ironic-jsclient`

@@ -353,8 +353,8 @@ bot will generate an appropriate change itself. Ask in
 #openstack-infra if the bot needs to be run more quickly.
 
 Otherwise the change may be the result of recalculating the constraints which
-changed when a ``global-requirements.txt`` change is proposed. In this case, ignore
-the changes to ``upper-constraints.txt`` and review the
+changed when a ``global-requirements.txt`` change is proposed. In this case,
+ignore the changes to ``upper-constraints.txt`` and review the
 ``global-requirements.txt`` component of the change.
 
 stable-branch maintenance
