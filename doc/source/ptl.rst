@@ -53,9 +53,6 @@ on your team's function.
     follow it for you). It is also useful to subscribe to the `release
     calendar`_.
 
-#.  Attend relevant cross-project meetings when possible. For
-    more information see `meetings`_.
-
 #.  The PTL should make sure the team regularly triages incoming bugs. For example,
     to view all `new` bugs for `keystone <https://bugs.launchpad.net/keystone/+bugs?orderby=status&start=0>`_
     on Launchpad or `Ironic <https://storyboard.openstack.org/#!/project/openstack/ironic>`_
@@ -478,7 +475,6 @@ interested and if you could mentor them in the last few months?
 If there are no takers, reach out to the OpenStack TC before stepping down so
 they are aware of the current situation and can step in to help.
 
-.. _meetings: http://docs.openstack.org/project-team-guide/cross-project.html#meetings
 .. _release calendar: https://releases.openstack.org/schedule.ics
 .. _cross project liaisons: https://wiki.openstack.org/wiki/CrossProjectLiaisons
 .. _release management: http://docs.openstack.org/project-team-guide/release-management.html
