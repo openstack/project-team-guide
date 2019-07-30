@@ -32,9 +32,11 @@ Documentation for Developers
 
 OpenStack APIs are documented for the use of developers writing
 applications that interact with OpenStack components. These docs are
-typically written in an REST API reference format such as WADL or Swagger
-and published to `developer.openstack.org <http://developer.openstack.org>`_. The API working group has published
-`guidelines for OpenStack APIs <http://specs.openstack.org/openstack/api-wg/#guidelines>`_.
+typically written in RST using the `os-api-ref
+<https://docs.openstack.org/os-api-ref/>`_ tool and published to
+`docs.openstack.org <https://docs.openstack.org>`_. The API working
+group has published `guidelines for OpenStack APIs
+<https://specs.openstack.org/openstack/api-wg/#guidelines>`_.
 
 Documentation for Operators and Users
 =====================================
