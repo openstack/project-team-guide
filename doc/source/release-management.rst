@@ -131,7 +131,7 @@ given development cycle is as usable and bug-free as it can be.
 Common cycle with one automatic release at the end
 --------------------------------------------------
 
-Some technical deliverables, like tempest plugins, only need to be released
+Some technical deliverables, like tempest plugins, need to be released
 once at the end of the cycle. PTLs and release liaisons for such deliverables
 may choose to release them using a cycle-automatic release model.
 
