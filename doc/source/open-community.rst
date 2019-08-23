@@ -85,6 +85,7 @@ are relevant):
   with care.
 * ``[dev]`` Discussion is specific to development concerns, but otherwise
   affects all devs
+* ``[elections]`` Election-related communications
 * ``[docs]`` Any kind of documentation discussions that are cross-projects
 * ``[goals]`` Affects community goals
 * ``[ops]`` Discussion is specific to operators concerns, but otherwise
