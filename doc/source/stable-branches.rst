@@ -339,10 +339,8 @@ of creating a new review, modifying the commit message to include
    For code that touches code from oslo-incubator, special backporting rules
    apply. More details in `Oslo policies`_
 
-If the patch you're proposing will not cherry-pick cleanly, you can help by
-resolving the conflicts yourself and proposing the resulting patch. Please keep
-Conflicts lines in the commit message to help reviewers! You can use
-`git-review`_ to propose a change to the hypothetical stable branch with:
+You can use `git-review`_ to propose a change to the hypothetical stable
+branch with:
 
 .. code-block:: bash
 
@@ -356,6 +354,14 @@ Conflicts lines in the commit message to help reviewers! You can use
 
 Failing all that, just ping one of the team and mention that you think the
 bug/commit is a good candidate.
+
+Conflicts
+~~~~~~~~~
+
+If the patch you're proposing will not cherry-pick cleanly, you can help by
+resolving the conflicts yourself and proposing the resulting patch. Please keep
+"Conflicts" lines in the commit message to help reviewers, for example:
+https://review.opendev.org/686292/
 
 Change-Ids
 ----------
