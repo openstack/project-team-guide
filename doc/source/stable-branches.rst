@@ -363,6 +363,10 @@ resolving the conflicts yourself and proposing the resulting patch. Please keep
 "Conflicts" lines in the commit message to help reviewers, for example:
 https://review.opendev.org/686292/
 
+.. note::
+   If a cherry-picked patch's commit message contains "Conflicts" lines that
+   are not valid anymore in the target branch, then remove those lines.
+
 Change-Ids
 ----------
 When cherry-picking a commit, keep the original :code:`Change-Id` and gerrit
