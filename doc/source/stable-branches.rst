@@ -1,6 +1,6 @@
-=================
+================
  Stable Branches
-=================
+================
 
 The stable branches are intended to be a safe source of fixes for high impact
 bugs and security issues which have been fixed on master since a given release.
@@ -30,12 +30,12 @@ Project stable branches will be in one of the following states:
      * All bugfixes (that meet the criteria described below) are
        appropriate.  No Releases produced, reduced CI commitment.
    - * Unmaintained
-     * 6 months
+     * 0 - 6 months
      * The branch is under Extended Maintenance rules, but there are no
-       maintainers
+       maintainers.
    - * End of Life (EOL)
      * N/A
-     * Branch no longer accepting changes
+     * Branch no longer accepting changes.
 
 It is not required that all projects for a given branch transition between
 phases at the same time.  For example it's quite reasonable for the
@@ -109,8 +109,9 @@ Maintenance.
 End of Life
 -----------
 
-After a project/branch exceeds the time allocation as `Unmaintained`_, it
-will be become End of Life.  The HEAD of the appropriate branch will be tagged
+After a project/branch exceeds the time allocation as `Unmaintained`, or a team
+decides to explicitly end support for a branch, it
+will become End of Life.  The HEAD of the appropriate branch will be tagged
 as ``$series-eol`` and the branch deleted.
 
 Appropriate Fixes
