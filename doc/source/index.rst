@@ -20,6 +20,7 @@ Contents:
    open-design
    open-development
    review-the-openstack-way
+   repository
    release-management
    stable-branches
    other-branches
