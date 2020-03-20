@@ -109,10 +109,20 @@ Maintenance.
 End of Life
 -----------
 
-After a project/branch exceeds the time allocation as `Unmaintained`, or a team
-decides to explicitly end support for a branch, it
+After a project/branch exceeds the time allocation as `Unmaintained`_, or a
+team decides to explicitly end support for a branch, it
 will become End of Life.  The HEAD of the appropriate branch will be tagged
 as ``$series-eol`` and the branch deleted.
+
+To initiate this transition, either the PTL of the given project or other
+stable maintainer should:
+
+* Send an announcement to the openstack-discuss mailing list (in order to give
+  some time for others to step up as maintainers if there are volunteers).
+* Remove any related zuul jobs that are defined in ``other repositories`` and
+  not needed anymore.
+* Finally, propose a patch against the given project/repository. (For
+  example, see: https://review.opendev.org/#/c/677478/)
 
 Appropriate Fixes
 =================
