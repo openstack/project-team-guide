@@ -92,8 +92,8 @@ their own authority under the perhaps mistaken impression that they
 know better than the test system whether a change functions correctly.
 
 For more information on the automated testing infrastructure itself,
-including how to configure and use it, see the `Infrastructure User
-Manual <http://docs.openstack.org/infra/manual/>`_.
+including how to configure and use it, see the `OpenDev
+Manual <https://docs.opendev.org/opendev/infra-manual/latest/>`_.
 
 Test Failures
 =============
@@ -112,4 +112,4 @@ system.
 
 For more information on how to deal with integration test failures,
 see the `Developer's Guide
-<http://docs.openstack.org/infra/manual/developers.html#automated-testing>`_.
+<https://docs.opendev.org/opendev/infra-manual/latest/developers.html#automated-testing>`_.

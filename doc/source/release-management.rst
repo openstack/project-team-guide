@@ -199,7 +199,7 @@ For more details about setting up a repository to support automated
 releases, see the `Project Creator's Guide`_ from the
 *Infrastructure User Manual*.
 
-.. _Project Creator's Guide: https://docs.openstack.org/infra/manual/creators.html
+.. _Project Creator's Guide: https://docs.opendev.org/opendev/infra-manual/latest/creators.html
 
 
 The tagging and releasing process is error-prone. In order to properly review
