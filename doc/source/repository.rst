@@ -24,7 +24,7 @@ rename is done.
 
 The detailed steps for renaming a project are documented in the
 section `Project Renames
-<https://docs.openstack.org/infra/manual/creators.html#project-renames>`_
+<https://docs.opendev.org/opendev/infra-manual/latest/creators.html#project-renames>`_
 of the OpenDev Manual.
 
 Retiring a Repository
@@ -53,7 +53,7 @@ Steps 2-4: Remove Project from OpenDev and Retire it
 ----------------------------------------------------
 
 Follow the steps about `Retiring a Project
-<https://docs.openstack.org/infra/manual/drivers.html#retiring-a-project>`_
+<https://docs.opendev.org/opendev/infra-manual/latest/drivers.html#retiring-a-project>`_
 in the OpenDev Manual.
 
 
