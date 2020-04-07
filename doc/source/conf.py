@@ -34,7 +34,6 @@ extensions = ['sphinx.ext.todo',
 repository_name = 'openstack/project-team-guide'
 bug_project = 'openstack-manuals'
 bug_tag = 'PTG'
-html_last_updated_fmt = '%Y-%m-%d %H:%M'
 html_theme = 'openstackdocs'
 
 todo_include_todos = True
