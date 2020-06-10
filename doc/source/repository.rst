@@ -56,6 +56,10 @@ Follow the steps about `Retiring a Project
 <https://docs.opendev.org/opendev/infra-manual/latest/drivers.html#retiring-a-project>`_
 in the OpenDev Manual.
 
+In step 2, keep the template ``official-openstack-repo-jobs`` besides
+``noop-jobs``, this is needed to sync changes to GitHub. It will be
+removed in step 3.
+
 
 Step 5: Remove Repository from the Governance Repository
 --------------------------------------------------------
