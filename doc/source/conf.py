@@ -31,10 +31,14 @@ extensions = ['sphinx.ext.todo',
               'openstackdocstheme']
 
 # openstackdocstheme options
-repository_name = 'openstack/project-team-guide'
-bug_project = 'openstack-manuals'
-bug_tag = 'PTG'
+openstackdocs_repo_name = 'openstack/project-team-guide'
+openstackdocs_auto_name = False
+openstackdocs_bug_project = 'openstack-manuals'
+openstackdocs_bug_tag = 'PTG'
 html_theme = 'openstackdocs'
+openstackdocs_auto_version = False
+version = ''
+release = ''
 
 todo_include_todos = True
 
@@ -84,7 +88,7 @@ add_module_names = False
 show_authors = False
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
+pygments_style = 'native'
 
 # A list of ignored prefixes for module index sorting.
 modindex_common_prefix = ['project-team-guide.']
