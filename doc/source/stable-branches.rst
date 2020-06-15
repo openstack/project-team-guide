@@ -117,12 +117,14 @@ as ``$series-eol`` and the branch deleted.
 To initiate this transition, either the PTL of the given project or other
 stable maintainer should:
 
-* Send an announcement to the openstack-discuss mailing list (in order to give
-  some time for others to step up as maintainers if there are volunteers).
-* Remove any related zuul jobs that are defined in ``other repositories`` and
-  not needed anymore.
-* Finally, propose a patch against the given project/repository. (For
-  example, see: https://review.opendev.org/#/c/677478/)
+#. Send an announcement to the openstack-discuss mailing list (in order to give
+   some time for others to step up as maintainers if there are volunteers).
+#. Remove any related zuul jobs that are defined in ``other repositories`` and
+   not needed anymore.
+#. Propose a patch against the given project/repository. (For example, see:
+   https://review.opendev.org/#/c/677478/)
+#. After the branch is tagged with ``$series-eol``, request the infra team to
+   delete the branch.
 
 Appropriate Fixes
 =================
