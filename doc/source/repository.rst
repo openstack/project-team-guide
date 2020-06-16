@@ -60,8 +60,20 @@ In step 1, keep the template ``official-openstack-repo-jobs`` besides
 ``noop-jobs``, this is needed to sync changes to GitHub. It will be
 removed in step 3.
 
+Step 5: Remove docs.openstack.org content
+-----------------------------------------
 
-Step 5: Remove Repository from the Governance Repository
+Inform users that reach the ``docs.openstack.org`` page of your
+repository that it is retired.
+
+For this, add the name of your repository to the ``_RETIRED_REPOS``
+list in the file ``tools/www-generator.py`` in the
+``openstack/openstack-manuals`` repository. Once the change merged,
+the URL ``https://docs.openstack.org/openstack/<projectname>/latest``
+will redirect to the repositories' ``README.rst`` file.
+
+
+Step 6: Remove Repository from the Governance Repository
 --------------------------------------------------------
 
 Remove the repository from the ``reference/projects.yaml`` file and
@@ -85,6 +97,9 @@ project from ``projects.txt``.
 Step 2: Retire master branch
 ----------------------------
 
+Step 2a: Use only noop jobs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Add ``noop`` jobs for master only in ``project-config`` repository and
 remove all templates temporarily with exception of
 ``official-openstack-repo-jobs``, it should look something like this::
@@ -102,9 +117,15 @@ remove all templates temporarily with exception of
         - noop:
             branches: master
 
+Step 2b: Remove project content
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Follow step 2 about `Removing project content
 <https://docs.opendev.org/opendev/infra-manual/latest/drivers.html#step-2-remove-project-content>`__
 in the OpenDev Manual.
+
+Step 2c: Remove noop jobs
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Once the project content is retired, revert the change you merged
 earlier for ``project-config`` and re-add templates and jobs you need
@@ -117,3 +138,15 @@ Mark the repository in the ``reference/projects.yaml`` file as
 deprecated with adding a line::
 
   release-management: deprecated
+
+Step 4: Remove docs.openstack.org content
+-----------------------------------------
+
+Inform users that reach the ``docs.openstack.org`` page of your
+repository that it is deprecated.
+
+For this, add the name of your repository to the ``_RETIRED_REPOS``
+list in the file ``tools/www-generator.py`` in the
+``openstack/openstack-manuals`` repository. Once the change merged,
+the URL ``https://docs.openstack.org/openstack/<projectname>/latest``
+will redirect to the repositories' ``README.rst`` file.
