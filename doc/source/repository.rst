@@ -85,13 +85,14 @@ project from ``projects.txt``.
 Step 2: Retire master branch
 ----------------------------
 
-Add ``noop`` jobs for master only in ``project-config`` repository, it
-should look something like this::
+Add ``noop`` jobs for master only in ``project-config`` repository and
+remove all templates temporarily with exception of
+``official-openstack-repo-jobs``, it should look something like this::
 
   - project:
     name: openstack/<projectname>
     templates:
-       .. # You can keep the templates for stable branches
+       official-openstack-repo-jobs
     check:
       jobs:
         - noop:
@@ -105,6 +106,9 @@ Follow step 2 about `Removing project content
 <https://docs.opendev.org/opendev/infra-manual/latest/drivers.html#step-2-remove-project-content>`__
 in the OpenDev Manual.
 
+Once the project content is retired, revert the change you merged
+earlier for ``project-config`` and re-add templates and jobs you need
+so that you can merge content on stable branches.
 
 Step 3: Mark the  Repository as Deprecated in the Governance Repository
 -----------------------------------------------------------------------
