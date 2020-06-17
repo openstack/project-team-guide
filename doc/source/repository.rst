@@ -49,8 +49,8 @@ Submit a review to the ``openstack/requirements`` project removing the
 project from ``projects.txt``.  This needs to happen for stable
 branches as well.
 
-Steps 2-4: Remove Project from OpenDev and Retire it
-----------------------------------------------------
+Steps 2-4: Follow all three steps from OpenDev Manual
+-----------------------------------------------------
 
 Follow the steps about `Retiring a Project
 <https://docs.opendev.org/opendev/infra-manual/latest/drivers.html#retiring-a-project>`_
@@ -82,11 +82,22 @@ add it to the file ``reference/legacy.yaml`` in the
 recently active, this may have implications for automatic detection of
 ATCs.
 
+Use Depends-On on ``project-config`` `final step patch
+<https://docs.opendev.org/opendev/infra-manual/latest/drivers.html#step-3-remove-project-from-infrastructure-systems>`_.
+
 Deprecating a Repository
 ========================
 
 If you only want to stop development of the master branch but keep
 stable branches, you need to do a slightly different approach.
+
+Deprecating the project or repository is different than removal.
+If the project want to stop the development on master branch but
+support the stable branches with bug fixes, then project with
+the `stable policy tag <https://governance.openstack.org/tc/reference/tags/stable_follows-policy.html>`
+must be marked as deprecated. If project has no stable branch or does not
+follow the stable policy tag then you have option to go with removal process
+directly.
 
 Step 1: Stop requirements syncing (if set up)
 ---------------------------------------------
@@ -131,15 +142,7 @@ Once the project content is retired, revert the change you merged
 earlier for ``project-config`` and re-add templates and jobs you need
 so that you can merge content on stable branches.
 
-Step 3: Mark the  Repository as Deprecated in the Governance Repository
------------------------------------------------------------------------
-
-Mark the repository in the ``reference/projects.yaml`` file as
-deprecated with adding a line::
-
-  release-management: deprecated
-
-Step 4: Remove docs.openstack.org content
+Step 3: Remove docs.openstack.org content
 -----------------------------------------
 
 Inform users that reach the ``docs.openstack.org`` page of your
@@ -150,3 +153,14 @@ list in the file ``tools/www-generator.py`` in the
 ``openstack/openstack-manuals`` repository. Once the change merged,
 the URL ``https://docs.openstack.org/openstack/<projectname>/latest``
 will redirect to the repositories' ``README.rst`` file.
+
+Step 4: Mark the  Repository as Deprecated in the Governance Repository
+-----------------------------------------------------------------------
+
+Mark the repository in the ``reference/projects.yaml`` file as
+deprecated with adding a line::
+
+  deprecated: <deprecated-cycle-name>
+  release-management: deprecated
+
+Use Depends-On on ``project-config`` final step patch done in Step 2c.
