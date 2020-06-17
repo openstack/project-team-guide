@@ -5,88 +5,95 @@
 OpenStack project teams produce a large variety of code repositories. Some
 are services providing infrastructure APIs. Some are libraries being consumed
 by those services. Some are supporting cast and tools. Most of those
-are formally "released" at given points. We call those "deliverables", and
-use git tags to define the release points. Deliverables may contain multiple
-git repositories, which are all tagged with the same version at the same
+are formally *released* at given points. We call those *deliverables* and
+use git tags to define the release points. Each deliverable may contain one or
+more git repositories, which are all tagged with the same version at the same
 moment.
 
-OpenStack deliverables can be released under four different models. Most
-follow a common 6-month development cycle, with some releasing intermediary
-releases within that. The release management team manages the release process
-for all deliverables following the development cycle, and provide tools for
-cycle-independent deliverables and other teams and repositories to do
-self-service releases.
+Official OpenStack deliverables produced by each project team are described
+in the ``reference/projects.yaml`` file in the ``openstack/governance``
+repository. The release management team manages the release process for
+such deliverables, which ultimately form the "OpenStack" software. This
+release process is automated and driven from the ``openstack/releases``
+git repository.
 
 
-Release models
-==============
+Release cycle
+=============
 
-Common cycle with development milestones
-----------------------------------------
+OpenStack development follows a common, time-based release cycle. It results
+in a coordinated release of all the components that make up an "OpenStack"
+release at the end of the development cycle.
 
-By default, most OpenStack services opt to follow a common, time-based
-release model. It results in a single release at the end of the development
-cycle, with a few milestones to mark the progress in between. It is
-recommended at the middle stages of development, when regular releases
-are desirable, but release management is not internalized in the team,
-and testing coverage is not perfect yet.
+You can find the schedule for the most current development cycle by following
+the 'schedule' link for the most recent series on the `releases website`_.
 
-Projects following that model use a pre-version numbering scheme. If the
-final release will be called 5.0.0, intermediary milestones will be called
-5.0.0.0b1, 5.0.0.0rc2 etc.
+How often and when those various components will be released during the cycle
+depends on the deliverable type (service, library...) and the release model
+chosen. Deliverable types are described in the `deliverable types section`_
+of the release management team documentation. Release models are described in
+the `release models section`_ of the release management team's documentation.
 
-This time-based release model includes 3 development milestones, called
-``$SERIES-1``, ``$SERIES-2`` and ``$SERIES-3``. Those make useful reference
-points in time to organize the development cycle. Project teams may, for
-example, set specific deadlines that match those dates. b1, b2 and b3 tags are
-pushed to the repositories to clearly mark those reference points in the git
-history.
+Some deliverables, like general-purpose libraries that are not specific
+to OpenStack, can be released completely outside of the release cycle,
+under an `independent`_ release model.
 
-The dates for the milestones and final release in a given development cycle
-are defined by the Release Management team, and communicated before the new
-development cycle starts on `http://releases.openstack.org`.
+.. _deliverable types section: https://releases.openstack.org/reference/deliverable_types.html
 
-The $series-3 milestone coincides with Feature Freeze ("FF"). Managed projects
-are requested to stop merging code adding new features, new dependencies, new
-configuration options, database schema changes, changes in strings... all
-things that make the work of packagers, documenters or testers more difficult.
-Feature Freeze Exceptions ("FFE") may be exceptionally granted by project PTLs
-(or release liaison), but every FFE accepted results in more work, less time
-spent testing and fixing issues in release candidates, therefore lowering the
-quality of the end release. The closer we get to the final release date, the
-greater the impact on release quality. In doubt, the Release Team is available
-for advice.
+.. _release models section: https://releases.openstack.org/reference/release_models.html
 
-At the same time as Feature Freeze, is Soft String Freeze. Translators start
-to translate the strings after ``$SERIES-3``. To aid their work, it is
-important to avoid changing existing strings, as this will invalidate some of
-their translation work. New strings are allowed for things like new log
-messages, as in many cases leaving those strings untranslated is better than
-not having any message at all.
 
-After the $series-3 milestone, each team works on a list of release-critical
-bugs, and when they consider that all the critical issues are fixed (or
-considered not-release-critical after all), the release liaison requests the
-publication of a first release candidate (rc1). This RC1 will be used as-is
-as the final release, unless new release-critical issues are found that
-warrant a RC respin.
+Choosing a release model
+========================
 
-After RC1 is tagged, a stable/$series branch is cut from that same commit.
-That is where further release candidates (and the final release) will be
-tagged. The master branch starts on the new development cycle and is no
-longer feature-frozen.
+For each OpenStack deliverable, you should choose one of the available
+release models. Here is a bit of guidance on how to choose, depending
+on the type of deliverables considered.
 
-After RC1 is tagged, that project hits a Hard String Freeze. At this point the
-translation team tries to complete the translation before the final release.
-Any string changes after RC1 should be discussed with the translation
-team. It is expected that at least 10 working days after RC1 there will be
-another milestone tagged that includes the latest translations.
+Libraries
+---------
 
-Potential new release critical issues have first to get fixed on the master
-branch. Once merged in master, they can be backported to the release branch.
-The PROJECTNAME-stable-maint team is tasked with approving such backports.
-Once all the desired backports (and translations updates) are merged, a new
-release candidate can be produced.
+Libraries come in three different styles: OpenStack client libraries,
+other OpenStack-specific libraries, and generally-useful libraries.
+
+OpenStack client libraries must pick the `cycle-with-intermediary`_ model.
+In this model, they will release early and often, to make new features
+quickly available to consuming services. To that effect, the release
+management team will propose releases for libraries that have not been
+released at least once for each development cycle milestone, assuming
+there are significant changes.
+
+Other OpenStack-specific libraries and generally-useful libraries can
+pick the `cycle-with-intermediary`_ model, but may also pick the
+`independent`_ release model. This latter option may make sense if the
+library has no real ties to OpenStack at all, or if it's mostly stable
+and feature-complete.
+
+Services, Horizon plugins and other deliverables
+------------------------------------------------
+
+Other OpenStack components (including services, Horizon plugins and other
+deliverables) have to adhere to the release cycle. They can choose between
+the `cycle-with-rc`_ model and the `cycle-with-intermediary`_ model.
+
+The `cycle-with-rc`_ model is the historic OpenStack release model. In this
+model, a single release is produced at the end of the development cycle for
+inclusion in the coordinated OpenStack release. The major release number
+(the X in X.Y.Z numbers) is incremented for each release series.
+
+Near the end of the cycle, such deliverables enter a Feature Freeze period.
+They are requested to stop merging code adding new features, new dependencies,
+new configuration options, database schema changes, changes in strings... all
+things that make the work of packagers, translators, documenters or testers
+more difficult. Feature Freeze Exceptions ("FFE") may be exceptionally granted
+by project PTLs (or release liaison), but every FFE accepted results in more
+work, less time spent testing and fixing issues in release candidates,
+therefore lowering the quality of the end release.
+
+Once the deliverable is deemed ready, a first release candidate ("RC1") is
+created, together with a stable branch on which release-critical issues can
+be fixed and further release candidates created. The master branch starts
+on the new development cycle and is no longer feature-frozen.
 
 On final release day, the Release Team will take each project's last release
 candidate and re-tag it with the final release version. There is no difference
@@ -94,89 +101,43 @@ between the last release candidate and the final version, apart from the
 version number. The stable branch then passes under stable maintenance team
 management, and is open for backports following the stable branch rules.
 
-Common cycle with intermediary releases
----------------------------------------
+The alternative model is the `cycle-with-intermediary`_ model. It allows you
+to release when you want, as often as you want. The only expectation is that
+by the RC1 target week, a stable branch should be created from the
+latest-available release. Point releases may be created from this stable
+branch as release-critical issues are found. On the coordinated release date,
+the most recent release available on the stable branch will be included in the
+OpenStack release.
 
-Projects which want to do a formal release more often, but still want to
-coordinate a release at the end of the cycle from which to maintain a stable
-branch may opt for this model. All our libraries follow this model, in order
-to allow for immediate consumption of new features in consuming projects.
-But this is also potentially suitable for regular projects, either at the
-very early stages (where releasing often can be useful) or once the project
-is more stable, changes are limited, automated testing can be relied on, and
-the team decided to more directly handle release management.
+In this model, to make room for stable point releases and avoid version
+collisions, we increment at least the minor number (the Y in X.Y.Z) for the
+first release in the next development cycle. Numbering otherwise follows
+`semantic versioning`_ rules.
 
-Projects following this model do not use intermediary development milestones.
-They may request publication of versions at any point in time during the
-development cycle. They do not use Feature Freeze, they do not go through a
-release candidate cycle. Every tag is a release that should be be consumable by
-users. They use a post-version semver-based numbering scheme, where every tag
-is a X.Y.Z version.
-
-Those projects must request a final version for a development cycle (generally
-in the last month of the cycle). A stable branch is cut from that proposed
-version, and the master branch will from then on produce releases of the
-next development cycle. If a critical issue is found in the "final release",
-backports can be pushed to the stable branch and a new release be requested
-there. That is why it is important to increment at least the Y component
-of the X.Y.Z version when we switch to the next development cycle, so that the
-Z component can be used in future tags on the release (or stable) branch.
-
-While the release management team will not enforce a formal feature-frozen
-period for projects in an intermediary release model, it is recommended to
-focus on bug fixes and hold on major disruptive features as you get closer
-to the end of a development cycle, to ensure that the final release of any
-given development cycle is as usable and bug-free as it can be.
-
-Common cycle with one automatic release at the end
---------------------------------------------------
-
-Some technical deliverables, like tempest plugins, need to be released
-once at the end of the cycle. PTLs and release liaisons for such deliverables
-may choose to release them using a cycle-automatic release model.
-
-Cycle-automatic deliverables are automatically proposed for release by the
-release team around RC1. No stable branch is created.
+The `cycle-with-intermediary`_ model works well if you want to be able to
+release early and often, don't need to refine your final release as much,
+or don't want as much guidance and process to produce releases. It is still
+recommended to focus on bug fixes and hold on major disruptive features as
+you get closer to the end of a development cycle, to ensure that the final
+release of any given development cycle is as usable and bug-free as it can be.
 
 Trailing the common cycle
 -------------------------
 
 Deployment and lifecycle-management tools generally want to follow the
 release cycle, but because they rely on the other projects being completed,
-they may not always publish their final release at the same time as those
-projects. To that effect, they may choose the cycle-trailing release model.
+they are given more time to publish their final releases.
 
-Cycle-trailing projects are given an extra 3 months after the final release
-date to request publication of their release. They may otherwise use
-intermediary releases or development milestones.
+If they plan to do a single release and want to use RCs, they should choose
+the `cycle-with-rc`_ model. If they want more flexibility and are not using
+RCs, they should opt for the `cycle-with-intermediary`_ model.
 
-Independent release model
--------------------------
+.. _cycle-with-rc: https://releases.openstack.org/reference/release_models.html#cycle-with-rc
 
-Deliverables that are not part of the main "OpenStack" product release, do
-not benefit from a coordinated release or from stable branches may opt to
-follow a completely independent release model.
+.. _cycle-with-intermediary: https://releases.openstack.org/reference/release_models.html#cycle-with-intermediary
 
-Releases are made from the master branch without any specific constraint,
-although the usage of a post-version numbering scheme based on
-`semantic versioning`_ is strongly recommended.
+.. _independent: https://releases.openstack.org/reference/release_models.html#independent
 
-.. note::
-
-   Client libraries and libraries distributed by official project
-   teams should not use this model.
-
-   In order to support security and critical bug fixes in official
-   projects, they all need to provide series-based stable branches. If
-   a library has no stable branch for a series, then in order to fix
-   issues in the library for that series we must allow new versions
-   from the master branch to be used in the stable branch. Sometimes
-   that works fine, but in cases where the new release from master
-   requires new minimum versions of second-tier dependencies, we
-   cannot safely introduce the new version into the stable branch. It
-   is better to use the cycle-with-intermediary model, even if a
-   project does not aggressively backport changes to the stable
-   branches created.
 
 How to release ?
 ================
@@ -217,6 +178,7 @@ triage potential release automation issues.
 
 .. _semantic versioning: https://docs.openstack.org/pbr/latest/user/semver.html#semantic-versioning-specification-semver
 
+
 Release Liaisons
 ================
 
@@ -224,9 +186,8 @@ As with other cross-project teams, the release management team relies
 on a liaison from each participating project to help with coordination
 and release-related tasks. The liaison is usually the PTL, but the PTL
 can also delegate the responsibilities to someone else on the team by
-updating the liaison list on the CrossProjectLiaisons_ wiki page.
-
-.. _CrossProjectLiaisons: https://wiki.openstack.org/wiki/CrossProjectLiaisons
+updating the liaison list in the ``data/release_liaisons.txt`` file in the
+``openstack/releases`` repository.
 
 Liaison Responsibilities
 ------------------------
@@ -245,7 +206,7 @@ must ensure they are done by someone on the project team.
    blocking future releases. For example, keeping the requirements
    lists up to date, adding tools, and updating packaging files.
 
-#. Submit milestone and release tag requests. If the request is not
+#. Submit or validate release requests. If the request is not
    submitted by the liaison or PTL, one of them must indicate their
    approval.
 
@@ -288,32 +249,18 @@ must ensure they are done by someone on the project team.
 Typical Development Cycle Schedule
 ==================================
 
-The development cycles for cycle-with-milestones deliverables follow a
-repeating pattern, which is described in general terms here. The length
-of time between milestones may change from cycle to cycle because of
-holidays, event scheduling, and other factors, so consult the actual
-'Under development' schedule on the `releases website`_ for the actual
-schedule.
-
-Weeks with negative numbers are counting down leading to the event
-("Release -2" is 2 weeks before the release). Weeks with positive
-numbers are counting up following an event ("Feature Freeze +1" is the
-week following the feature freeze).
-
-.. note::
-
-  Dates for elections are specified in the Technical Committee charter
-  relative to events dates, while most other dates are based on
-  community consensus and expressed in terms of the release date.
-  Because the events may move around in the cycle, the two scheduling
-  systems may overlap differently in different cycles.
+The OpenStack development cycles follow a repeating pattern, which is
+described in general terms here. The length of time between milestones
+may change from cycle to cycle because of holidays, event scheduling,
+and other factors, so consult the actual 'Under development' schedule
+on the `releases website`_ for the actual schedule.
 
 Weeks Leading to Milestone 1
 ----------------------------
 
 *Usually 4-6 weeks*
 
-- Finishing work left over from previous cycle
+- Discussing objectives for the cycle
 - Completing blueprint and spec discussions
 - Foundational work for the rest of the cycle
 
@@ -322,13 +269,14 @@ Weeks Leading to Milestone 2
 
 *Usually 5-6 weeks*
 
-Normal development work
+- Normal development work
 
 Weeks Leading to Milestone 3
 ----------------------------
 
 *Usually 4-6 weeks*
 
+- Pushing back some objectives and refocus on key priorities
 - Feature development completion
 - Bug fixes
 - Stabilization work
@@ -363,7 +311,7 @@ time to stabilize and for the owners to prepare bug fixes if needed.
 Milestone 3 / Feature Freeze
 ----------------------------
 
-- Feature development stops ("feature freeze")
+- Feature development stops for cycle-with-rc deliverables ("feature freeze")
 - Message strings stop changing ("string freeze") to give the
   translation team time to finish their work
 - Dependency specifications stop changing ("requirements freeze") to
@@ -385,9 +333,8 @@ Release Candidate Period, Release -3
 The release candidate period spans several weeks, and usually starts
 the week after the feature freeze.
 
-- All projects issue their first release candidates
-- Create branches for all services to use for release candidates, and
-  eventually stable maintenance work
+- Cycle-with-rc projects issue their first release candidates
+- Create release branches for deliverables
 - Submit cycle-highlights in the project deliverables yaml file. See
   below for information about cycle-highlights.
 
@@ -418,7 +365,8 @@ Release -2
 Release -1
 ----------
 
-Final release candidates, with translations
+- Final release candidates and releases of components for inclusion in the
+  final release.
 
 Release 0
 ---------
