@@ -113,3 +113,32 @@ system.
 For more information on how to deal with integration test failures,
 see the `Developer's Guide
 <https://docs.opendev.org/opendev/infra-manual/latest/developers.html#automated-testing>`_.
+
+Zuul v3 native jobs
+===================
+
+At the beginning of the Victoria cycle an important amount of jobs of
+"legacy" jobs is still present. The legacy jobs are scripts automatically
+converted from the old Jenkins jobs and contain a lot duplicated code shell
+code. One of the community goals for the cycle `deals with porting
+them to Zuul v3 <https://governance.openstack.org/tc/goals/selected/victoria/native-zuulv3-jobs.html>`_.
+
+A detailed porting guide, originally part of the OpenDev documentation,
+has been imported here:
+
+.. toctree::
+   :maxdepth: 1
+
+   zuulv3
+
+In addition to it, other documentation sources are:
+
+- `Consistent Naming for Zuul jobs
+  <https://docs.opendev.org/opendev/infra-manual/latest/drivers.html#consistent-naming-for-zuul-jobs>`_.
+- `Migrating Zuul V2 CI jobs to V3
+  <https://docs.openstack.org/devstack/latest/zuul_ci_jobs_migration.html>`_.
+
+It is worth noting that, while the goal focuses on the fixing the jobs
+used in Victoria (and future releases), backporting the converted jobs
+to the older branches where they are still in use is recommended
+for maintenance reasons in the long run.
