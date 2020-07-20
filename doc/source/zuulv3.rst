@@ -120,8 +120,8 @@ Zuul v3 is responsible for choosing when to run which jobs, and
 running them; jobs only need to be added to one system.
 
 All aspects of Zuul relating to jobs are configured with YAML files
-similar to the Zuul v2 layout.  See the `Zuul User Guide
-<https://zuul-ci.org/docs/zuul/user/config.html#job>`_
+similar to the Zuul v2 layout.  See the `Job Content documentation
+<https://zuul-ci.org/docs/zuul/reference/jobs.html>`_
 for more information on how jobs are configured.
 
 Where Jobs Are Defined in Zuul v3
@@ -150,9 +150,9 @@ change its configuration in response to proposed changes.
 
 This is very powerful, but there are some limitations.  See the
 sections of the Zuul User Guide about `Security Contexts
-<https://zuul-ci.org/docs/zuul/user/config.html#security-contexts>`_
+<https://zuul-ci.org/docs/zuul/reference/config.html#security-contexts>`_
 and `Configuration Loading
-<https://zuul-ci.org/docs/zuul/user/config.html#configuration-loading>`_
+<https://zuul-ci.org/docs/zuul/reference/config.html#configuration-loading>`_
 for more details.
 
 Note that all OpenStack projects share a single namespace for job
@@ -266,7 +266,7 @@ variant can't be used to "undo" an earlier matching variant.
 
 One final note about variants: in some cases Zuul attaches an implied
 branch matcher to job definitions.  The rules are `tricky
-<https://zuul-ci.org/docs/zuul/user/config.html#attr-job.branches>`_,
+<https://zuul-ci.org/docs/zuul/reference/job_def.html#attr-job.branches>`_,
 but in general, jobs defined in a multi-branch project get an implied
 branch matcher of their current branch.  This makes it so that we can
 branch a project from master along with all of its job definitions,
@@ -448,7 +448,7 @@ change being tested were available as environment variables, generally
 prefixed with ``ZUUL_``.  In Zuul v3, these have been replaced with
 Ansible variables which provide much more information as well as much
 richer structured data.  See the `Job Content
-<https://zuul-ci.org/docs/zuul/user/jobs.html>`_
+<https://zuul-ci.org/docs/zuul/reference/jobs.html>`_
 section of the Zuul User Guide for a full list.
 
 Secret Variables
@@ -457,8 +457,8 @@ Secret Variables
 .. sidebar:: Further reading
 
    See the `Encryption section
-   <https://zuul-ci.org/docs/zuul/user/encryption.html>`_
-   of the Zuul User Guide for more information on encryption and secrets
+   <https://zuul-ci.org/docs/zuul/discussion/encryption.html>`_
+   of the Zuul Discussion Guide for more information on encryption and secrets
 
 A new feature in Zuul v3 is the ability to provide secrets which can be
 used to perform tasks with jobs run in post and release pipelines, like
@@ -619,10 +619,13 @@ HOWTO: Add an in-repo job
 This is a simple guide that shows how to add a Zuul v3 job to your
 OpenStack project.
 
-#. Create a ``.zuul.yaml`` file in your project. This is where you will
+#. Create a ``.zuul.yaml`` file or a directory named ``zuul.d`` and one or more
+   YAML files in your project (as described by the `Configuration Loading
+   <https://zuul-ci.org/docs/zuul/reference/config.html#configuration-loading>`_
+   documentation). This is where you will
    configure your project and define its jobs.
 
-#. In your ``.zuul.yaml``, define your project. You will need to define
+#. In the newly-created YAML file define your project. You will need to define
    which pipelines will run jobs, and the names of the jobs
    to run in each pipeline. Below is an example project which adds two jobs to
    the ``check`` pipeline:
@@ -635,10 +638,10 @@ OpenStack project.
             - <projectname>-functional
             - tox-py35
 
-#. In ``.zuul.yaml``, you will also define custom jobs, if any. If you define
-   your own jobs, note that job names should be prefixed with the project name
-   to avoid accidentally conflicting with a similarly named job, as discussed
-   in `v3_naming`_.
+#. In the YAML configuration file, you will also define custom jobs, if any.
+   If you define your own jobs, note that job names should be prefixed with
+   the project name to avoid accidentally conflicting with a similarly named
+   job, as discussed in `v3_naming`_.
 
    For our example project, our custom job is defined as:
 
@@ -679,7 +682,7 @@ OpenStack project.
    This playbook will execute on our host named ``ubuntu-xenial``,
    which we get for free from the Zuul base job. If you need more
    nodes, or a node of a different type, you will need to define these
-   in your ``.zuul.yaml`` file.
+   in your Zuul YAML configuration file.
 
    Note that some playbook actions are restricted in the Zuul
    environment. Also multiple roles are available for your use in the
@@ -768,9 +771,9 @@ Moving Legacy Jobs to Projects
 
 At your earliest convenience, for every job specific to your project:
 
-#. Copy the job definition into your ``.zuul.yaml`` file in your repo. You must
-   rename the job as part of the step. Replacing the ``legacy-`` prefix with
-   your project name is a good way to ensure jobs don't conflict.
+#. Copy the job definition into the Zuul configuration file in your repo. You
+   must rename the job as part of the step. Replacing the ``legacy-`` prefix
+   with your project name is a good way to ensure jobs don't conflict.
 
 #. Add the new jobs to your project pipeline definition in your ``.zuul.yaml``
    file. This will cause both the new and old ``legacy-`` copies to run.
@@ -838,12 +841,21 @@ Converting Custom dsvm jobs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If your job is a custom dsvm job - try to migrate it to use the new
-``devstack`` or ``devstack-tempest`` base jobs.
+``devstack`` or ``devstack-tempest`` base jobs and their children
+which cover more specialized use cases (see for example
+``devstack-tox-functional`` and ``devstack-tox-functional-consumer``).
 
 .. note:: There may be a couple of edge cases they can't handle yet.
 
 You can see https://review.opendev.org/#/c/500365/ for an example of just
 about everything you might want to do using the new devstack base job.
+
+It may be useful to take a look at the `Devstack documentation about those jobs
+<https://docs.openstack.org/devstack/latest/zuul_ci_jobs_migration.html>`_
+and at `their definitions
+<https://opendev.org/openstack/devstack/src/branch/master/.zuul.yaml>`_.
+The devstack repository also defines additional topologies which are useful
+for multi-node jobs.
 
 Converting Other Legacy Changes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -851,7 +863,7 @@ Converting Other Legacy Changes
 If those don't apply, this will mean the following changes:
 
 * Add the repos you need to the job's ``required-projects`` list. This will
-  make sure that zuul clones what you need into ``src/``.
+  make sure that zuul clones the appropriate branch of the repo into ``src/``.
 
 * Stop using zuul-cloner. The repos are on disk in ``src/``. Just reference
   them.
@@ -904,8 +916,12 @@ easily define a job or a template in one project and use it in others.
 Thus, do not blindly convert jobs but consider how to group and use
 them. Some recommendations and examples:
 
-* Some projects like devstack, tempest, and rally, should define a
-  common set of jobs that others can reuse directly or via
+* Some projects like `devstack
+  <https://opendev.org/openstack/devstack/src/branch/master/.zuul.yaml>`_,
+  `tempest
+  <https://opendev.org/openstack/tempest/src/branch/master/.zuul.yaml>`_,
+  and `rally <https://opendev.org/openstack/rally/src/branch/master/.zuul.d>`_,
+  should define a common set of jobs that others can reuse directly or via
   inheritance.
 
 * If your project consists of a server and a client project where you
@@ -913,30 +929,35 @@ them. Some recommendations and examples:
   recommend to use the server project for this.
 
 * The puppet team is defining a common set of jobs and templates in
-  ``openstack/puppet-openstack-integration``.
+  `openstack/puppet-openstack-integration
+  <https://opendev.org/openstack/puppet-openstack-integration/src/branch/master/zuul.d>`_.
 
-* The requirements team has the ``check-requirements`` job in the
-  ``openstack/requirements`` project so that other projects can use
-  it.
+* The requirements team has the `check-requirements
+  <https://opendev.org/openstack/requirements/src/branch/master/.zuul.d/project-template.yaml>`_
+  job template in the ``openstack/requirements`` project
+  so that other projects can use it.
 
 * The documentation team defines common jobs and templates in
-  ``openstack/openstack-manuals`` projects and other projects like
-  ``openstack/security-guide`` reuse these easily.
+  the `openstack/openstack-manuals
+  <https://opendev.org/openstack/openstack-manuals/src/branch/master/.zuul.yaml>`_
+  project and other projects reuse these easily.
 
 Options for Restricting When Jobs are Triggered
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Zuul v3 allows to specify when jobs are triggered to run based on
 changed files. You can define for a job either a list of
-``irrelevant-files`` or a list of ``files``. Do not use both together.
+`irrelevant-files`_ or a list of ``files``. Do not use both together,
+because it can lead to an undefined behavior.
 
-See the `Zuul User Guide
-<https://zuul-ci.org/docs/zuul/user/config.html#job>`_
+See the `Job section of the Zuul manual
+<https://zuul-ci.org/docs/zuul/reference/job_def.html>`_
 for more information on how jobs are configured.
 
 .. _Project Testing Interface: https://governance.openstack.org/tc/reference/project-testing-interface.html
 .. _Zuul v3 documentation: https://zuul-ci.org/docs/zuul/
 .. _central-config-exceptions: https://docs.opendev.org/opendev/infra-manual/latest/creators.html#central-config-exceptions
+.. _irrelevant-files: https://zuul-ci.org/docs/zuul/reference/job_def.html#attr-job.irrelevant-files
 .. _openstack-zuul-jobs documentation: https://docs.openstack.org/infra/openstack-zuul-jobs/
 .. _openstack-zuul-jobs jobs.yaml: https://opendev.org/openstack/openstack-zuul-jobs/src/zuul.d/jobs.yaml
 .. _openstack-zuul-jobs roles: https://opendev.org/openstack/openstack-zuul-jobs/src/roles
