@@ -128,6 +128,12 @@ remove all templates temporarily with exception of
         - noop:
             branches: master
 
+Adjust the project description. Find the entry for your project in
+``gerrit/projects.yaml`` and look for the line which defines the description,
+prefix it with ``DEPRECATED,`` like this::
+
+  description: DEPRECATED, existing project description
+
 Step 2b: Remove project content
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -138,9 +144,11 @@ in the OpenDev Manual.
 Step 2c: Remove noop jobs
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Once the project content is retired, revert the change you merged
-earlier for ``project-config`` and re-add templates and jobs you need
-so that you can merge content on stable branches.
+Once the project content is retired, partially revert the change you merged
+earlier for ``project-config`` in step 2a and re-add templates and jobs you
+need so that you can merge content on stable branches.
+Please ensure you keep the ``DEPRECATED,`` prefix you added to project
+description in step 2a.
 
 Step 3: Remove docs.openstack.org content
 -----------------------------------------
