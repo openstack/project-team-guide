@@ -92,6 +92,11 @@ of Life`_ below.
    constraints.  Some OpenStack CI testing *may* be available via `Zuul
    drivers`_
 
+.. note::
+   For further details about the Extended Maintenance please take a look
+   at `the OpenStack governance's related resolution
+   <https://governance.openstack.org/tc/resolutions/20180301-stable-branch-eol.html>`_.
+
 
 .. _`Unmaintained`:
 
