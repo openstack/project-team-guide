@@ -79,6 +79,22 @@ tag will be automatically generated after the final release from the latest
 development cycle happened. This is because this is a less busy period in
 development perspective compared to feature freeze and release periods.
 
+Tempest and its plugins are branchless and does not guarantee about
+supporting the Extended Maintenance branches with their master version.
+For more detail on the Tempest policy for stable branch testing refer to
+`this doc
+<https://docs.openstack.org/tempest/latest/stable_branch_support_policy.html>`_.
+If Tempest master start breaking on Extended Maintenance branches testing then
+we need to use the `last compatible version of Tempest and its plugins
+<https://docs.openstack.org/tempest/latest/tempest_and_plugins_compatible_version_policy.html>`_.
+To know the last compatible version of Tempest and its plugins, we need to
+release the new tag with master hash (at the time of branch reaches Extended
+Maintenance) with name ``$series-last`` as well as the new version number.
+This will help to easily detect the last compatible versions of Tempest and
+its plugins (instead of manually try and find the working version)
+for testing it at upstream as well at production cloud.
+Example: https://review.opendev.org/q/topic:%22tempest-plugin-stein-last%22+(status:open%20OR%20status:merged)
+
 Members of the community interested in a given project/branch are encouraged to
 engage with the appropriate stable team *early* in its life-cycle to ensure
 this process runs well.  In the absence of identified maintainers the project
