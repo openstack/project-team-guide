@@ -10,12 +10,43 @@ use git tags to define the release points. Each deliverable may contain one or
 more git repositories, which are all tagged with the same version at the same
 moment.
 
+
+Deliverables handled by the Release management team
+===================================================
+
+The Release Management project team is generally responsible for handling
+release management for all official OpenStack deliverables, as determined by
+the Technical Committee. This guarantees a convergence and basic release
+management standards across all of "OpenStack" software.
+
 Official OpenStack deliverables produced by each project team are described
 in the ``reference/projects.yaml`` file in the ``openstack/governance``
-repository. The release management team manages the release process for
-such deliverables, which ultimately form the "OpenStack" software. This
-release process is automated and driven from the ``openstack/releases``
-git repository.
+repository. By default, release management for all those deliverables is
+handled by the release management team, through an automated process driven
+from changes proposed to the ``openstack/releases`` git repository.
+
+Exceptions to this general rule are documented in the deliverable definition
+(in the ``reference/projects.yaml`` file) using the ``release-management``
+key:
+
+* **release-management: none** means that the deliverable is not released,
+  and does not need any release management. Examples include specs
+  repositories, cookiecutter repositories, etc.
+
+* **release-management: external** means that the deliverable is published
+  on a separate publication platform, and its release is managed by its
+  project team directly. This should stay exceptional, and is generally
+  limited to corner cases like deployment tools. Examples include Chef
+  recipes being published in the Chef supermarket, of OpenStack Charms being
+  published on the Charm store.
+
+* **release-management: deprecated** means that, while it is present in
+  ``reference/projects.yaml`` for now, the deliverable will soon be removed,
+  and should not be released anymore.
+
+The release management team periodically checks that the deliverables
+defined in governance are consistent with the deliverable files present
+in the ``openstack/releases`` git repository.
 
 
 Release cycle
