@@ -79,11 +79,11 @@ Format
 contents. Distributions may only be referenced by name, not URL. Options
 (such as -e or -f) may not be used. Environment markers
 and comments are permitted. Version specifiers are only allowed for excluding
-(blacklisting) versions, not setting minimum required versions. Minimum
-required versions should be specified in ``lower-constraints.txt`` per-project.
-A single distribution may be listed more than once if different specifiers are
-required with different markers - for instance, if a dependency has dropped
-Python 2.7 support.
+(blacklisting) versions, not setting minimum required versions (minimum
+required versions may optionally be specified in ``lower-constraints.txt``
+per-project). A single distribution may be listed more than once if different
+specifiers are required with different markers - for instance, if a dependency
+has dropped Python 2.7 support.
 
 ``upper-constraints.txt`` is machine generated and nothing more or less than
 an exact list of versions.
@@ -130,9 +130,9 @@ Adding a new dependency
    --version-map 3.6:3.5 > upper-constraints.txt``.  Be sure to only update
    or add constraints related to your addition.
 2. Add the dependency to the appropriate requirements file(s) within
-   the project tree, providing a minimum version specifier. Update the
-   ``lower-constraints.txt`` file in the project tree at the same
-   time.
+   the project tree, providing a minimum version specifier. If the
+   ``lower-constraints.txt`` file exists in the project tree, then update it
+   at the same time.
 
 Removing a dependency
 ---------------------
@@ -150,8 +150,8 @@ Updating the minimum version of a dependency
    ``openstack/requirements``. If the version there is lower than the
    desired version, prepare a patch to update the setting.
 2. Update the minimum version in the relevant requirements file(s) in
-   the project tree. Update the ``lower-constraints.txt`` setting in
-   the same patch.
+   the project tree. If the ``lower-constraints.txt`` file exists, then
+   update it in the same patch.
 
 Excluding a version of a dependency
 -----------------------------------

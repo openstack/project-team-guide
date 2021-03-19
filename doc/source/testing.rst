@@ -7,7 +7,11 @@ believe something not tested is broken.  OpenStack is an extremely
 complex suite of software largely designed to interact with other
 software that can be operated in a variety of configurations.
 Manual localized testing is unlikely to be sufficient in this
-situation.
+situation. By default, all the testing is done with current versions
+of dependencies managed centrally in the ``upper-constraints.txt``
+file within the ``openstack/requirements`` repository. Testing
+lower bounds of dependencies using a ``lower-constraints.txt`` file
+is optional for projects.
 
 Types of Tests
 ==============
