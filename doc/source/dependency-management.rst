@@ -79,7 +79,7 @@ Format
 contents. Distributions may only be referenced by name, not URL. Options
 (such as -e or -f) may not be used. Environment markers
 and comments are permitted. Version specifiers are only allowed for excluding
-(blacklisting) versions, not setting minimum required versions (minimum
+versions, not setting minimum required versions (minimum
 required versions may optionally be specified in ``lower-constraints.txt``
 per-project). A single distribution may be listed more than once if different
 specifiers are required with different markers - for instance, if a dependency
@@ -216,10 +216,10 @@ General Review Criteria
   those cannot be globally constrained unless we coordinate updating all of
   OpenStack to the new release at the same time - but given the volunteer
   and loosely coupled nature of the big tent that is infeasible. Dependencies
-  that are only used in unconstrained places should not be blacklisted - they
+  that are only used in unconstrained places should not be excluded - they
   may be constrained in future, and there's no harm caused by constraining
   them today. Entries in the blacklist should have a comment explaining the
-  reason for blacklisting.
+  reason for excluding.
 
 - Reviews that only update ``projects.txt`` should be workflow approved
   alongside or before other reviews in order to have the OpenStack Proposal Bot
