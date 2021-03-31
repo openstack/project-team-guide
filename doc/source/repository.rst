@@ -162,6 +162,10 @@ list in the file ``tools/www-generator.py`` in the
 the URL ``https://docs.openstack.org/openstack/<projectname>/latest``
 will redirect to the repositories' ``README.rst`` file.
 
+Also, remove the project from the list in the ``www/project-data/latest.yaml``
+in the ``openstack/openstack-manuals`` repository if present. That will remove
+the project from the list of new releases.
+
 Step 4: Mark the  Repository as Deprecated in the Governance Repository
 -----------------------------------------------------------------------
 
