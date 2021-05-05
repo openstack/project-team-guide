@@ -144,8 +144,8 @@ stable maintainer should:
    not needed anymore.
 #. Propose a patch against the given project/repository. (For example, see:
    https://review.opendev.org/#/c/677478/)
-#. After the branch is tagged with ``$series-eol``, request the infra team to
-   delete the branch.
+#. After the branch is tagged with ``$series-eol``, request the Release
+   Management team to delete the branch.
 
 Appropriate Fixes
 =================
