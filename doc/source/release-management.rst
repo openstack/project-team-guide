@@ -255,7 +255,7 @@ must ensure they are done by someone on the project team.
    the project team to focus their energy on completing the work in a
    timely fashion.
 
-#. Be available in the ``#openstack-release`` IRC channel on freenode
+#. Be available in the ``#openstack-release`` IRC channel on OFTC
    to answer questions and address issues.
 
    There are too many projects for the release team to join all of

@@ -259,7 +259,7 @@ Generate Documentation
 
 No canonical way of generating documentation for JavaScript projects has been
 discussed yet. If you would like to contribute, please join the conversation
-on freenode in #openstack-docs or #openstack-javascript.
+on OFTC in #openstack-docs or #openstack-javascript.
 
 Validate Dependency Licences
 ============================
@@ -267,7 +267,7 @@ Validate Dependency Licences
     :code:`npm run document`
 
 No common way of validating dependency licenses has been discussed yet. If you
-would like to contribute, please join the conversation on freenode in
+would like to contribute, please join the conversation on OFTC in
 #openstack-javascript.
 
 Import Translation Strings
@@ -277,7 +277,7 @@ Import Translation Strings
 
 No canonical way of importing translations for JavaScript projects has been
 discussed yet. If you would like to contribute, please join the conversation
-on freenode in #openstack-i18n and #openstack-javascript.
+on OFTC in #openstack-i18n and #openstack-javascript.
 
 Best Practices
 --------------

@@ -15,7 +15,7 @@ Public Meetings on IRC
 ======================
 
 OpenStack projects are required to have their team meetings (if any) on the
-Freenode :term:`IRC` network in one of the publicly logged
+OFTC :term:`IRC` network in one of the publicly logged
 channels managed by the OpenStack infrastructure team. As part of
 working in an open community, the logging of meetings allows those who
 cannot participate at the meeting's designated time to read the logs
@@ -37,11 +37,11 @@ in the `IRC meetings`_ repository.
 Project IRC Channels
 ====================
 
-OpenStack projects may have a team IRC channel on Freenode_. These channels
+OpenStack projects may have a team IRC channel on OFTC_. These channels
 `should be logged`_, in keeping with the open community aspects of OpenStack.
 Project teams typically congregate in their IRC channels to discuss the project
 and build a sense of community amongst members. If a new project doesn't yet
-have critical mass, the channel #openstack-dev on Freenode is available to use
+have critical mass, the channel #openstack-dev on OFTC is available to use
 until such time as the project team decides to create their own channel.
 
 Given the fact open source in general, and OpenStack in particular, are global
@@ -229,7 +229,7 @@ release cycle (for PTL elections) and summit dates (for the TC elections).
 .. _tie breaking: https://wiki.openstack.org/wiki/Governance/TieBreaking
 .. _eavesdrop: http://eavesdrop.openstack.org/
 .. _IRC meetings: http://git.openstack.org/cgit/openstack-infra/irc-meetings/tree/
-.. _Freenode: https://freenode.net/
+.. _OFTC: https://www.oftc.net/
 .. _mailing lists: http://lists.openstack.org/cgi-bin/mailman/listinfo
 .. _Planet OpenStack: http://planet.openstack.org/
 .. _posted: http://releases.openstack.org

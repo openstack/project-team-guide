@@ -271,7 +271,7 @@ branches which generally includes:
       periodic-kilo and periodic-liberty jobs `on Designate`_.
 
 #. Stable branch cross-project liaisons should be available in the
-   #openstack-stable channel on freenode IRC to answer questions or be made
+   #openstack-stable channel on OFTC IRC to answer questions or be made
    aware of issues.
 
 
