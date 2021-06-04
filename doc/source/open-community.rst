@@ -128,16 +128,7 @@ requests. Recommended courses of action include:
 Planet OpenStack
 ================
 
-`Planet OpenStack`_ is a collection of thoughts from developers and other key
-players in the OpenStack project ecosystem. If your project contains active
-bloggers, it's a good idea to make sure their blogs are listed here. This is a
-nice way to provide an avenue of communication for developers in your project
-to share their thoughts and ideas around the work they are doing throughout
-the cycle.
-
-To list your blog in the Planet OpenStack aggregator, follow the steps outlined
-on the wiki for `adding your blog`_.
-
+The `Planet OpenStack`_ service was retired in April 2021.
 
 .. _ptl-duties:
 
@@ -231,7 +222,7 @@ release cycle (for PTL elections) and summit dates (for the TC elections).
 .. _IRC meetings: http://git.openstack.org/cgit/openstack-infra/irc-meetings/tree/
 .. _OFTC: https://www.oftc.net/
 .. _mailing lists: http://lists.openstack.org/cgi-bin/mailman/listinfo
-.. _Planet OpenStack: http://planet.openstack.org/
+.. _Planet OpenStack: https://opendev.org/openstack/openstack-planet
 .. _posted: http://releases.openstack.org
 .. _decision: https://governance.openstack.org/tc/resolutions/20141128-elections-process-for-leaderless-programs.html
 .. _adding your blog: https://wiki.openstack.org/wiki/AddingYourBlog
