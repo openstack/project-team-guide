@@ -113,7 +113,6 @@ support from users of your software. These can come in the following ways:
 * Bugs on Launchpad_ or StoryBoard_
 * Mailing list requests
 * IRC message requests
-* ask.openstack.org_
 
 A project must be prepared to provide best effort support for these types of
 requests. Recommended courses of action include:
@@ -121,8 +120,6 @@ requests. Recommended courses of action include:
 * Triaging bugs (on Launchpad_ or StoryBoard_) at least weekly.
 * Responding to project queries on the various mailing lists.
 * Working in-channel on IRC to answer questions.
-* Looking weekly at ask.openstack.org_ for open queries related to your
-  project.
 
 
 Planet OpenStack
@@ -222,7 +219,6 @@ release cycle (for PTL elections) and summit dates (for the TC elections).
 .. _etiquette rules: https://wiki.openstack.org/wiki/MailingListEtiquette
 .. _Launchpad: https://launchpad.net/openstack
 .. _StoryBoard: https://storyboard.openstack.org
-.. _ask.openstack.org: https://ask.openstack.org/
 .. _Technical Committee website: https://governance.openstack.org/tc/
 .. _TC office hours: https://governance.openstack.org/tc/#office-hours
 .. _Condorcet: https://en.wikipedia.org/wiki/Condorcet_method
