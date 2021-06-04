@@ -304,15 +304,6 @@ status of what the team is doing. If you're not sure what's being asked in the
 survey or want to update the project-specific survey questions, reach out to
 someone from the Foundation.
 
-User committee
---------------
-
-The User Committee is an elected body within the community that helps
-facilitate communication between users and developers. If there are specific
-things your project wants feedback on, but you're not sure how or where to
-start, the User Committee can help. They hold `weekly meetings`_ on IRC, and
-they can help you come up with a plan for collecting feedback.
-
 PTG sessions
 ------------
 
