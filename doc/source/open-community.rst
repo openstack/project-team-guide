@@ -21,11 +21,13 @@ working in an open community, the logging of meetings allows those who
 cannot participate at the meeting's designated time to read the logs
 and participate asynchronously.
 
-The OpenStack infrastructure team maintains a limited number of channels
-dedicated to meetings. While teams can hold meetings on their own team IRC
-channels, they are encouraged to use those common meeting channels to give
-their meeting some external exposure. The limited number of meeting channels
-encourages teams to spread their meetings around and reduce conflicts.
+OpenStack has a number of channels dedicated to meetings. Some project
+meetings are distributed among those channels that can be missed or delayed
+in joining by many members. Many other project teams schedule their meeting
+or office hour on the project channel, and it works well for them. Projects
+are encouraged to hold meetings on their own team IRC channels if that works
+best for them, which may make the meeting easier to find and increase
+attendance.
 
 To schedule a team meeting, please go to the eavesdrop_ site and follow the
 instructions there. All meeting reservations are managed through gerrit
@@ -214,7 +216,7 @@ release cycle (for PTL elections) and summit dates (for the TC elections).
 .. _Condorcet: https://en.wikipedia.org/wiki/Condorcet_method
 .. _tie breaking: https://wiki.openstack.org/wiki/Governance/TieBreaking
 .. _eavesdrop: http://eavesdrop.openstack.org/
-.. _IRC meetings: http://git.openstack.org/cgit/openstack-infra/irc-meetings/tree/
+.. _IRC meetings: https://opendev.org/opendev/irc-meetings
 .. _OFTC: https://www.oftc.net/
 .. _mailing lists: http://lists.openstack.org/cgi-bin/mailman/listinfo
 .. _Planet OpenStack: https://opendev.org/openstack/openstack-planet
