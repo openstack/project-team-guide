@@ -143,7 +143,7 @@ TC can be found on the `Technical Committee website`_. You can reach out to
 TC members using the openstack-discuss_ mailing-list (including the ``[tc]``
 "tag" in your subject line will make it more likely for them to see the
 message), or on the #openstack-tc IRC channel (especially around
-`TC office hours`_).
+`TC Meetings`_).
 
 Each project team in OpenStack needs a PTL. The PTL is an elected leader who
 has final say over all things in that specific project team, and all the code
@@ -211,7 +211,7 @@ release cycle (for PTL elections) and summit dates (for the TC elections).
 .. _Launchpad: https://launchpad.net/openstack
 .. _StoryBoard: https://storyboard.openstack.org
 .. _Technical Committee website: https://governance.openstack.org/tc/
-.. _TC office hours: https://governance.openstack.org/tc/#office-hours
+.. _TC Meetings: https://governance.openstack.org/tc/#meeting-office-hour
 .. _Condorcet: https://en.wikipedia.org/wiki/Condorcet_method
 .. _tie breaking: https://wiki.openstack.org/wiki/Governance/TieBreaking
 .. _eavesdrop: http://eavesdrop.openstack.org/
