@@ -94,7 +94,6 @@ are relevant):
 * ``[release]`` Affects the upcoming release, all PTLs or release liaisons
   should read
 * ``[tc]`` Discussion around Technical Committee activities
-* ``[uc]`` Discussion around User Committee activities
 
 There are many mailing lists in the OpenStack ecosystem. Projects should ensure
 they have subscribers on all of the lists relevant to their project.

@@ -89,6 +89,9 @@ The responsibilities of the Project Policy Board were split between two bodies:
 
 The Foundation bylaws also established a third body, the `User Committee`_,
 to more accurately reflect the views and needs of the users of OpenStack.
+Since June, 2020 `User Committee`_ has been `merged
+<https://review.opendev.org/c/openstack/governance/+/734074>`_
+into the `Technical Committee`_ and is not a separate body anymore.
 
 The Technical Committee was originally formed by all the PTLs + five members
 directly elected by all the contributors. In June 2013, to accommodate the

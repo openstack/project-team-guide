@@ -47,9 +47,9 @@ audience.
 Pre-summit organization
 -----------------------
 
-The list of topics being discussed is selected by a selection committee
-including User Committee members, Technical Committee members and Foundation
-staff, based on input from the community.
+The list of topics being discussed is finalized by a selection committee
+including Technical Committee members and Foundation staff, based on
+input from the community.
 
 Topics are first brainstormed by each group on separate etherpads, then
 formally submitted for committee review.
