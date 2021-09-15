@@ -402,7 +402,7 @@ https://review.opendev.org/686292/
    are not valid anymore in the target branch, then remove those lines.
 
 Change-Ids
-----------
+~~~~~~~~~~
 When cherry-picking a commit, keep the original :code:`Change-Id` and gerrit
 will show a separate review for the stable branch while still allowing you to
 use the Change-Id to see all the reviews associated with it. `See this change
@@ -413,6 +413,22 @@ as an example. <https://review.openstack.org/#/q/Ic5082b74a362ded8b35cbc75cf178f
    backport add a new paragraph, creating a new :code:`Change-Id` but you can
    avoid that by moving conflicts above the paragraph with :code:`Change-Id`
    line or removing empty lines to make a single paragraph.
+
+Releases
+--------
+
+For stable releases, branches should be released in the same order as of
+backporting fixes. For example, to release a branch :code:`N-1`, we should
+first release the branch N and continue in the same sequence of releasing
+:code:`N`, :code:`N-1`, :code:`N-2` and so on.
+
+It is not required to release all stable branches together but to avoid
+conflict, we should only release branch :code:`N-1` with changes already
+released with branch :code:`N` release and should avoid having the case
+where an older branch release contain fixes that does not exist in a recent
+branch release.
+There can be exceptions to this case but it is the preferred way of releasing
+stable branches.
 
 Email Notifications
 -------------------
