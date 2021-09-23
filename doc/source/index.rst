@@ -33,6 +33,7 @@ Contents:
    documentation
    i18n
    ptl
+   spread-the-word
    glossary
 
 
