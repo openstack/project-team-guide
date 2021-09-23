@@ -72,8 +72,31 @@ list in the file ``tools/www-generator.py`` in the
 the URL ``https://docs.openstack.org/openstack/<projectname>/latest``
 will redirect to the repositories' ``README.rst`` file.
 
+Step 6: Mark the deliverables as retired
+----------------------------------------
 
-Step 6: Remove Repository from the Governance Repository
+For maintained openstack series, on ``openstack/releases``, amend the related
+deliverable files to tag the project with the ``retired`` flag.
+
+Example with ``deliverables/train/puppet-panko.yaml``::
+
+    ---
+    launchpad: puppet-panko
+    release-model: cycle-trailing
+    team: Puppet OpenStack
+    type: other
+    repository-settings:
+      openstack/puppet-panko:
+        flags:
+          - retired
+    ...
+
+Even if a project is retired, stable branches will continue to follow the
+existing series life cycle and this flag will allow us to ignore this
+deliverable in some specific cases.
+
+
+Step 7: Remove Repository from the Governance Repository
 --------------------------------------------------------
 
 Remove the repository from the ``reference/projects.yaml`` file and
