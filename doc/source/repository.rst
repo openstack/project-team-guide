@@ -136,12 +136,16 @@ Step 2a: Use only noop jobs
 
 Add ``noop`` jobs for master only in ``project-config`` repository and
 remove all templates temporarily with exception of
-``official-openstack-repo-jobs``, it should look something like this::
+``official-openstack-repo-jobs`` and pypi release template if any.
+If your project has ``publish-to-pypi`` template present, then change
+it to ``publish-to-pypi-stable-only``. It should look something like
+this::
 
   - project:
     name: openstack/<projectname>
     templates:
-       official-openstack-repo-jobs
+      - official-openstack-repo-jobs
+      - publish-to-pypi-stable-only
     check:
       jobs:
         - noop:
