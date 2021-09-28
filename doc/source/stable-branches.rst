@@ -29,10 +29,6 @@ Project stable branches will be in one of the following states:
      * While there are community members maintaining it.
      * All bugfixes (that meet the criteria described below) are
        appropriate.  No Releases produced, reduced CI commitment.
-   - * Unmaintained
-     * 0 - 6 months
-     * The branch is under Extended Maintenance rules, but there are no
-       maintainers.
    - * End of Life (EOL)
      * N/A
      * Branch no longer accepting changes.
@@ -114,26 +110,14 @@ of Life`_ below.
    <https://governance.openstack.org/tc/resolutions/20180301-stable-branch-eol.html>`_.
 
 
-.. _`Unmaintained`:
-
-Unmaintained
-------------
-
-At this stage of the project/branch the Extended Maintenance policy applies but
-CI may not be working and/or there aren't any active maintainers.  Projects
-that remain in this state for 6 months will be transitioned to `End of Life`_.
-Should  maintainers be found a project can be placed back into Extended
-Maintenance.
-
 .. _End Of Life:
 
 End of Life
 -----------
 
-After a project/branch exceeds the time allocation as `Unmaintained`_, or a
-team decides to explicitly end support for a branch, it
-will become End of Life.  The HEAD of the appropriate branch will be tagged
-as ``$series-eol`` and the branch deleted.
+After a project/branch becomes unmaintained or a team decides to explicitly end
+support for a branch, it will become End of Life. The HEAD of the appropriate
+branch will be tagged as ``$series-eol`` and the branch deleted.
 
 To initiate this transition, either the PTL of the given project or other
 stable maintainer should:
