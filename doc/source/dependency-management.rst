@@ -125,10 +125,8 @@ Adding a new dependency
    ``openstack/requirements``, including any instructions for
    excluding versions or choosing different versions for python 2
    or 3.  As part of the same review, run the following command
-   ``generate-constraints -b blacklist.txt -p /usr/bin/python2.7 \
-   -p /usr/bin/python3.6 -r global-requirements.txt --version-map 3.6:3.4 \
-   --version-map 3.6:3.5 > upper-constraints.txt``.  Be sure to only update
-   or add constraints related to your addition.
+   ``tox -e generate``.  Be sure to only update or add constraints related
+   to your addition.
 2. Add the dependency to the appropriate requirements file(s) within
    the project tree, providing a minimum version specifier. If the
    ``lower-constraints.txt`` file exists in the project tree, then update it
