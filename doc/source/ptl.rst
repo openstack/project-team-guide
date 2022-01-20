@@ -114,7 +114,7 @@ Once a person is ready, perform the following:
 Criteria when removing new cores
 ---------------------------------
 
-#.  Is the core reviewer reviewing enough? Use data (i.e. `stackalytics <https://www.stackalytics.com/>`_
+#.  Is the core reviewer reviewing enough? Use data (i.e. `stackalytics <https://www.stackalytics.io/>`_
     or `reviewstats <https://github.com/openstack/reviewstats>`_) to
     determine if the core reviewer is among the other core members in terms of
     overall review count.
