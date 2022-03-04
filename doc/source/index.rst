@@ -35,6 +35,7 @@ Contents:
    ptl
    spread-the-word
    glossary
+   deprecation
 
 
 Indices and tables
