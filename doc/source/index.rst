@@ -36,6 +36,7 @@ Contents:
    spread-the-word
    glossary
    deprecation
+   technical-guides/index
 
 
 Indices and tables
