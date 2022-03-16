@@ -2,9 +2,6 @@
 Technical Guides
 ================
 
-Contents:
-=========
-
 .. toctree::
    :maxdepth: 2
 

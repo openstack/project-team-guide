@@ -19,6 +19,13 @@ projects. Each resource limit is "registered" with keystone and given
 a default value which can be overridden per-project with different
 values.
 
+Existing in-project quota APIs generally do not have a clean-up
+process when projects are deleted from Keystone. Further, some also do
+not verify project identifiers when recording new limits which leads
+to further cruft. Implementing any sort of complex hierarchy or
+inheritance would require a lot of information about project
+relationships which are Keystone's responsibility.
+
 Why store this in Keystone?
 ---------------------------
 
@@ -161,17 +168,21 @@ Keystone are used, then all of them are. Disabling individual quotas,
 or allowing some quotas to be enforced by limits in keystone and other
 from internal/legacy sources is confusing. Resource limits in keystone
 can be set to "unlimited" and it is recommended to use such a limit
-instead of a boolean enable/disable flag.
+instead of a boolean enable/disable flag for individual items.
 
 Usage APIs
 ----------
 
 Projects with existing quota systems likely already expose APIs for
 their users to examine their limits and usage for resources. These
-APIs should be maintained, but pull the limit information from
-Keystone if unified limits are used. Projects that do not have legacy
-APIs for this purpose should implement them as they are necessary for
-proper user behavior.
+APIs should be maintained for exposing usage and limit information but
+pull the limit information from Keystone if unified limits are
+used. They should *not* attempt to maintain full compatibility with
+quota (limit) management by proxying back to Keystone. These APIs
+should, in most cases, become read-only (at least with respect to
+limits) when unified limits are in use. Projects that do not have
+legacy APIs for this purpose should implement them as they are
+necessary for proper user behavior.
 
 Keystone does not know about resource consumption and thus cannot
 provide users information about it. Further, resource limit
@@ -182,7 +193,38 @@ not very friendly. Thus, it is recommended that projects implement
 quota/usage APIs that provide limits and consumption information in
 one place.
 
-For an example of a very simple usage API, check the `Glance implementation`_
+For an example of a very simple usage API, check the `Glance
+implementation`_. In the absence of existing APIs or a compelling
+reason to do something different, this API should serve as a template
+for new usage APIs for consistency.
+
+Migration to unified limits
+---------------------------
+
+Projects with existing internal quota systems that are migrating
+should provide a configuration flag to switch between "internal" and
+"unified" limits. Projects that are growing new quota functionality
+with only unified limits from the start may also want a configuration
+flag to enable or disable quota checking entirely to provide a
+graceful on-ramp.
+
+The following general set of steps may be helpful in planning the
+work:
+
+#. Add a configuration control to allow switching between existing
+   quota systems and unified limits (or enabling unified limits if
+   none exists).
+#. Refactor existing or implement new quota checking code to pull
+   limits from Keystone via oslo.limit if enabled during resource
+   allocation requests.
+#. Refactor existing or implement new quota usage APIs to expose
+   information about current resource consumption and limits.
+#. Extend devstack to support defining resource limits and sane
+   defaults for test jobs for your project.
+#. Add or extend existing tempest tests to validate quota enforcement
+#. Document the functionality for your users, including information
+   about if/when existing quota functionality will be removed, as well
+   as instructions about migrating existing limits into Keystone.
 
 
 .. _keystone unified limits: https://docs.openstack.org/keystone/latest/admin/unified-limits.html
