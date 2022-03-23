@@ -1,1 +1,2 @@
 redirectmatch 301 ^/project-team-guide/project-setup.html$ /project-team-guide/technical-guidance.html
+redirectmatch 301 ^/project-team-guide/technical-guidance.html$ /project-team-guide/technical-guides/index.html

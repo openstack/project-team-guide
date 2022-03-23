@@ -27,7 +27,6 @@ Contents:
    bugs
    vulnerability-management
    dependency-management
-   technical-guidance
    testing
    oslo
    documentation
