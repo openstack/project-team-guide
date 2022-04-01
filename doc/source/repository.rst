@@ -42,25 +42,38 @@ down a project gracefully.
    explained below and in the OpenDev Manual. We recommend to link
    these changes with "Depends-On:" and "Needed-By:" headers.
 
-Step 1: Stop requirements syncing (if set up)
+Step 1: Retire Repository from the Governance Repository
+--------------------------------------------------------
+
+First step is to get the agreement in the Technical Committee by
+retiring the repository from the ``reference/projects.yaml`` file and
+add it to the file ``reference/legacy.yaml`` in the ``openstack/governance``
+repository. Note that if the project was recently active, this may have
+implications for automatic detection of ATCs.
+
+Step 2: Stop requirements syncing (if set up)
 ---------------------------------------------
 
 Submit a review to the ``openstack/requirements`` project removing the
 project from ``projects.txt``.  This needs to happen for stable
 branches as well.
 
-Steps 2-4: Follow all three steps from OpenDev Manual
+Use Depends-On on ``governance`` patch submitted in Step 1.
+
+Steps 3-5: Follow all three steps from OpenDev Manual
 -----------------------------------------------------
 
 Follow the steps about `Retiring a Project
 <https://docs.opendev.org/opendev/infra-manual/latest/drivers.html#retiring-a-project>`_
 in the OpenDev Manual.
 
-In step 1, keep the template ``official-openstack-repo-jobs`` besides
-``noop-jobs``, this is needed to sync changes to GitHub. It will be
-removed in step 3.
+In step 1 of OpenDev Manual, keep the template ``official-openstack-repo-jobs``
+besides ``noop-jobs``, this is needed to sync changes to GitHub. It will be
+removed in step 3 of OpenDev Manual.
 
-Step 5: Remove docs.openstack.org content
+In all the patches, use Depends-On on ``governance`` patch submitted in Step 1.
+
+Step 6: Remove docs.openstack.org content
 -----------------------------------------
 
 Inform users that reach the ``docs.openstack.org`` page of your
@@ -72,7 +85,9 @@ list in the file ``tools/www-generator.py`` in the
 the URL ``https://docs.openstack.org/openstack/<projectname>/latest``
 will redirect to the repositories' ``README.rst`` file.
 
-Step 6: Mark the deliverables as retired
+Use Depends-On on ``governance`` patch submitted in Step 1.
+
+Step 7: Mark the deliverables as retired
 ----------------------------------------
 
 For maintained openstack series, on ``openstack/releases``, amend the related
@@ -95,18 +110,7 @@ Even if a project is retired, stable branches will continue to follow the
 existing series life cycle and this flag will allow us to ignore this
 deliverable in some specific cases.
 
-
-Step 7: Remove Repository from the Governance Repository
---------------------------------------------------------
-
-Remove the repository from the ``reference/projects.yaml`` file and
-add it to the file ``reference/legacy.yaml`` in the
-``openstack/governance`` repository. Note that if the project was
-recently active, this may have implications for automatic detection of
-ATCs.
-
-Use Depends-On on ``project-config`` `final step patch
-<https://docs.opendev.org/opendev/infra-manual/latest/drivers.html#step-3-remove-project-from-infrastructure-systems>`_.
+Use Depends-On on ``governance`` patch submitted in Step 1.
 
 Deprecating a Repository
 ========================
@@ -122,16 +126,27 @@ must be marked as deprecated. If project has no stable branch or does not
 follow the stable policy tag then you have option to go with removal process
 directly.
 
-Step 1: Stop requirements syncing (if set up)
+Step 1: Mark the  Repository as Deprecated in the Governance Repository
+-----------------------------------------------------------------------
+
+Mark the repository in the ``reference/projects.yaml`` file as
+deprecated with adding a line::
+
+  deprecated: <deprecated-cycle-name>
+  release-management: deprecated
+
+Step 2: Stop requirements syncing (if set up)
 ---------------------------------------------
 
 Submit a review to the ``openstack/requirements`` project removing the
 project from ``projects.txt``.
 
-Step 2: Retire master branch
+Use Depends-On on ``governance`` patch submitted in Step 1.
+
+Step 3: Retire master branch
 ----------------------------
 
-Step 2a: Use only noop jobs
+Step 3a: Use only noop jobs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Add ``noop`` jobs for master only in ``project-config`` repository and
@@ -161,14 +176,14 @@ prefix it with ``DEPRECATED,`` like this::
 
   description: DEPRECATED, existing project description
 
-Step 2b: Remove project content
+Step 3b: Remove project content
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Follow step 2 about `Removing project content
 <https://docs.opendev.org/opendev/infra-manual/latest/drivers.html#step-2-remove-project-content>`__
 in the OpenDev Manual.
 
-Step 2c: Remove noop jobs
+Step 3c: Remove noop jobs
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Once the project content is retired, partially revert the change you merged
@@ -177,7 +192,9 @@ need so that you can merge content on stable branches.
 Please ensure you keep the ``DEPRECATED,`` prefix you added to project
 description in step 2a.
 
-Step 3: Remove docs.openstack.org content
+In all the patches, use Depends-On on ``governance`` patch submitted in Step 1.
+
+Step 4: Remove docs.openstack.org content
 -----------------------------------------
 
 Inform users that reach the ``docs.openstack.org`` page of your
@@ -193,13 +210,4 @@ Also, remove the project from the list in the ``www/project-data/latest.yaml``
 in the ``openstack/openstack-manuals`` repository if present. That will remove
 the project from the list of new releases.
 
-Step 4: Mark the  Repository as Deprecated in the Governance Repository
------------------------------------------------------------------------
-
-Mark the repository in the ``reference/projects.yaml`` file as
-deprecated with adding a line::
-
-  deprecated: <deprecated-cycle-name>
-  release-management: deprecated
-
-Use Depends-On on ``project-config`` final step patch done in Step 2c.
+Use Depends-On on ``governance`` patch submitted in Step 1.
