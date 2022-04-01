@@ -54,8 +54,9 @@ Infrastructure, `OpenStack Vulnerability Management`_ and QE tools are expected
 to work and be active.  Project teams will produce consumable releases and
 upgrades are tested.
 
-Per Project Stable teams and the Stable Maintainers are responsible for all
-`tagged`_ projects during the this phase.
+During this phase, per Project Stable teams and the Stable Maintainers are
+responsible for all projects which asserted they follow the stable branch
+policy.
 
 
 .. _`Extended Maintenance`:
@@ -250,8 +251,8 @@ branches which generally includes:
    a reasonably prompt response.
 
    .. note::
-      Projects with the ``stable:follows-policy`` tag should be running the
-      ``periodic-<release>`` jobs as defined in the
+      Projects which asserted they follow the stable branch policy should be
+      running the ``periodic-<release>`` jobs as defined in the
       `openstack-infra/project-config repo`_. Here is an example of running
       periodic-kilo and periodic-liberty jobs `on Designate`_.
 
@@ -456,6 +457,42 @@ crop up, the bot will email the `openstack-stable-maint mailing list`_. It is
 best to react quickly to these and get them resolved ASAP to prevent them from
 piling up. Please subscribe if you're interested in helping out.
 
+Project teams which asserted they follow the stable branch policy
+=================================================================
+
+This list can be updated if there is any change in their stable branch
+policy (project stop or start following the stable branch policy).
+
+#. `Barbican`_ (Key Manager service): barbican
+#. `Cinder`_ (Block Storage service): cinder, cinderlib, os-brick,
+   python-brick-cinderclient-ext, python-cinderclient
+#. `Designate`_ (DNS service): designate, designate-dashboard,
+   python-designateclient
+#. `Glance`_ (Image service): glance, glance-store, python-glanceclient
+#. `Heat`_ (Orchestration service): heat, python-heatclient
+#. `Horizon`_ (Dashboard): horizon
+#. `Ironic`_ (Bare Metal service): ironic, ironic-inspector, ironic-lib,
+   ironic-python-agent, python-ironic-inspector-client, python-ironicclient
+#. `Keystone`_ (Identity service): keystone, keystoneauth, keystonemiddleware,
+   pycadf, python-keystoneclient
+#. `Manila`_ (Shared File Systems service): manila
+#. `Murano`_ (Application Catalog service): murano, murano-agent,
+   murano-dashboard, python-muranoclient
+#. `Neutron`_ (Networking service): neutron-fwaas, neutron,
+   neutron-dynamic-routing, neutron-lib, neutron-vpnaas
+#. `Nova`_ (Compute service): nova, python-novaclient
+#. `Octavia`_ (Load-balancer service): octavia, octavia-dashboard,
+   python-octaviaclient, octavia-lib
+#. `Oslo`_ (Common libraries): automaton, castellan, oslo.cache, oslo.config,
+   oslo.context, oslo.db, oslo.messaging, oslo.middleware, oslo.policy,
+   oslo.privsep, oslo.serialization, oslo.service, oslo.upgradecheck,
+   oslo.utils, oslo.versionedobjects, oslo.vmware, stevedore
+#. `Sahara`_ (Data Processing service): python-saharaclient, sahara,
+   sahara-dashboard, sahara-extra, sahara-image-elements, sahara-plugin-ambari,
+   sahara-plugin-cdh, sahara-plugin-mapr, sahara-plugin-spark,
+   sahara-plugin-storm, sahara-plugin-vanilla
+#. `Swift`_ (Object Storage service): python-swiftclient, swift
+#. `Zaqar`_ (Message service): zaqar
 
 .. _Nova Kilo nominations: https://bugs.launchpad.net/nova/kilo/+nominations
 .. _Nova Liberty potential: https://bugs.launchpad.net/nova/+bugs?field.tag=liberty-backport-potential
@@ -472,4 +509,21 @@ piling up. Please subscribe if you're interested in helping out.
 .. _on Designate: https://review.openstack.org/#/c/292617/
 .. _OpenStack Vulnerability Management: https://security.openstack.org/vmt-process.html
 .. _Zuul Drivers: https://docs.openstack.org/infra/zuul/admin/connections.html#drivers
-.. _tagged: https://governance.openstack.org/tc/reference/tags/stable_follows-policy.html
+.. _Barbican: https://governance.openstack.org/tc/reference/projects/barbican.html
+.. _Cinder: https://governance.openstack.org/tc/reference/projects/cinder.html
+.. _Designate: https://governance.openstack.org/tc/reference/projects/designate.html
+.. _Glance: https://governance.openstack.org/tc/reference/projects/glance.html
+.. _Heat: https://governance.openstack.org/tc/reference/projects/heat.html
+.. _Horizon: https://governance.openstack.org/tc/reference/projects/horizon.html
+.. _Ironic: https://governance.openstack.org/tc/reference/projects/ironic.html
+.. _Keystone: https://governance.openstack.org/tc/reference/projects/keystone.html
+.. _Manila: https://governance.openstack.org/tc/reference/projects/manila.html
+.. _Murano: https://governance.openstack.org/tc/reference/projects/murano.html
+.. _Neutron: https://governance.openstack.org/tc/reference/projects/neutron.html
+.. _Nova: https://governance.openstack.org/tc/reference/projects/nova.html
+.. _Octavia: https://governance.openstack.org/tc/reference/projects/octavia.html
+.. _Oslo: https://governance.openstack.org/tc/reference/projects/oslo.html
+.. _Sahara: https://governance.openstack.org/tc/reference/projects/sahara.html
+.. _Swift: https://governance.openstack.org/tc/reference/projects/swift.html
+.. _Zaqar: https://governance.openstack.org/tc/reference/projects/zaqar.html
+
