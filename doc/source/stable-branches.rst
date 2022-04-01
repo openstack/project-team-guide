@@ -252,9 +252,13 @@ branches which generally includes:
 
    .. note::
       Projects which asserted they follow the stable branch policy should be
-      running the ``periodic-<release>`` jobs as defined in the
-      `openstack-infra/project-config repo`_. Here is an example of running
-      periodic-kilo and periodic-liberty jobs `on Designate`_.
+      running the ``periodic-stable-jobs`` template in their project's
+      Zuul configuration file, usually ``.zuul.yaml`` (`example .zuul.yaml`_)
+      or ``zuul.d/project.yaml`` (`example zuul.d/project.yaml`_).
+
+      The template is defined in `zuul.d/project-templates.yaml`_ in the
+      `openstack/openstack-zuul-jobs repo`_ and is maintained by the
+      OpenStack QA team.
 
 #. Stable branch cross-project liaisons should be available in the
    #openstack-stable channel on OFTC IRC to answer questions or be made
@@ -505,8 +509,10 @@ policy (project stop or start following the stable branch policy).
 .. _stable tracker etherpad: https://etherpad.openstack.org/p/stable-tracker
 .. _openstack-stable-maint mailing list: http://lists.openstack.org/cgi-bin/mailman/listinfo/openstack-stable-maint
 .. _stable maintenance core team: https://review.openstack.org/#/admin/groups/530,members
-.. _openstack-infra/project-config repo: http://git.openstack.org/cgit/openstack-infra/project-config/
-.. _on Designate: https://review.openstack.org/#/c/292617/
+.. _example .zuul.yaml: https://opendev.org/openstack/cinder/src/commit/7086157de07b77e8b67bbb767bc2ce25e86c2f51/.zuul.yaml#L6
+.. _example zuul.d/project.yaml: https://opendev.org/openstack/manila/src/commit/cbf142912d5333c08f139d2d9be67adea81ed2fd/zuul.d/project.yaml#L9
+.. _zuul.d/project-templates.yaml: https://opendev.org/openstack/openstack-zuul-jobs/src/commit/370e620ebe5ac03bf9bc13a88002e7b56291140c/zuul.d/project-templates.yaml#L2201
+.. _openstack/openstack-zuul-jobs repo: https://opendev.org/openstack/openstack-zuul-jobs
 .. _OpenStack Vulnerability Management: https://security.openstack.org/vmt-process.html
 .. _Zuul Drivers: https://docs.openstack.org/infra/zuul/admin/connections.html#drivers
 .. _Barbican: https://governance.openstack.org/tc/reference/projects/barbican.html
