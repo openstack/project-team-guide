@@ -99,8 +99,91 @@ For more information on the automated testing infrastructure itself,
 including how to configure and use it, see the `OpenDev
 Manual <https://docs.opendev.org/opendev/infra-manual/latest/>`_.
 
-Test Failures
-=============
+How to Handle Test Failures
+===========================
+
+If Zuul reports a test failure on a patch, the first step should be
+identifying what went wrong. You will be tempted to just recheck the
+patch to see if it fails again, but please **DO NOT DO THAT.** CI test
+resources are a very scarce resource (and becoming more so all the
+time), so please be extremely sparing when asking the system to re-run
+tests.
+
+.. note:: Please do not **EVER** simply ``recheck`` without a
+          reason. Even if that reason is "I don't know", please
+          indicate that you at least *attempted* to determine the
+          reason for the failure.
+
+It is important that before you request a recheck, you adhere to the
+following guidelines:
+
+#. First, you should examine the logs of the jobs that failed. Look
+   for the reason why the job failed, be it failed tests, or a setup
+   failure, such as a failed devstack run, or job timeout. You should
+   always begin this process suspecting that the failure is a result
+   of the proposed patch itself, but with an eye to the problem being
+   unrelated. Try to determine the most obvious cause for the failure,
+   and do not ignore failures in multiple voting jobs.
+#. If the failure is likely caused by the proposed patch, you should
+   try whenever possible to reproduce the failure locally. This will
+   allow you to revise the change and re-submit with a higher
+   likelihood of subsequently getting a passing run.
+#. If the failure appears to be totally unrelated to the patch at
+   hand, look for some indication of what went wrong. Only after you
+   have done this should you ask Zuul to re-run the tests. To do this,
+   comment on the patch the recheck command and a reason. Examples of
+   this are:
+
+   ``recheck nova timed out waiting for glance``
+
+   ``recheck glance lost connection to mysql``
+
+   ``recheck cinder failed to detach volume``
+
+#. The gold standard for recheck commands is ``recheck bug #XXXXXXX``,
+   which directly references a known problem that is being
+   worked. Doing this helps add heat to that bug and enables stats
+   tracking so the community knows what bugs are blocking the most
+   people in the CI system.
+#. In some cases, it may be entirely unclear why something failed. In
+   this case, you may need to recheck with a reason of "Not sure what
+   failed, rechecking to get another data point."
+#. If a recheck results in a similar failure on the subsequent run, it
+   would be best to reach out (via the mailing list or IRC) to the
+   project team responsible for the service you think is failing and
+   look for some guidance on whether or not the issue is known and
+   being worked, as it may be that a patch for the problem is proposed
+   but not merged, which you can ``Depends-On`` to move forward.
+#. Especially if the same failure occurs more than once and is not yet
+   reported, it is highly recommended that you open a bug against the
+   project (or projects) affected and use that for your recheck.
+
+Suggestions For Determining Causes of Failure
+---------------------------------------------
+
+This is more art than science, but here are some ideas:
+
+- First examine the ``job-output.txt`` file to see if the job failed
+  while running tests, or earlier when setup was running.
+- If it looks like a test failure, the ``testr_results.html`` file is
+  usually very helpful for looking at individual failures.
+- If a test failed, try to identify which services are being used in
+  that test. Quickly skim the logs for those services looking for
+  **ERROR** lines and especially tracebacks that seem to line up with
+  the test failure. For example, if the test is a compute failure to
+  attach a volume, it would be good to look at ``n-api``,
+  ``n-cpu``, ``c-api``, and ``c-vol`` logs as Nova and Cinder are
+  both involved in that process.
+- Test failures in tempest-based jobs generally print out resource
+  IDs, such as instance or volume UUIDs. Use these to search the
+  relevant logs for errors and warnings related to a resource that was
+  involved in the test failure.
+- Looking at the timestamps of test failures can also help locate
+  relevant lines in the service logs.
+
+
+Automatic Test Failure Identification
+=====================================
 
 OpenStack project integration tests have logs from running services
 automatically uploaded to a logstash-based processing system.  An
