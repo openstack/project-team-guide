@@ -59,13 +59,13 @@ or operator-visible features deprecation:
    release branch, and for at least 12 months of releases. Consider
    the following examples:
 
-   #. A feature deprecated in the 2023 tick release should still
-      appear (deprecated, but supported) in the 2023 tock release, and
-      may be removed in the 2024 tick release. Operators deploying
-      only tick releases receive one notice and have 12 months before
-      the next tick where the feature is removed. Operators deploying
-      tick-tock releases receive two notices and still have 12 months
-      before the release where the feature is removed.
+   #. A feature deprecated in the 2023 tick release may be removed in
+      the 2023 tock release. Operators deploying only tick releases
+      receive one notice and have 12 months before the next tick where
+      the feature is removed. Operators deploying tick-tock releases
+      receive one notice and have 6 months before the release where
+      the feature is removed, as was the case before the tick-tock
+      model.
 
    #. A feature deprecated in the 2023 tock release must also be
       present and supported the 2024 tick release, and **must** also
