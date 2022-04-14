@@ -51,6 +51,10 @@ add it to the file ``reference/legacy.yaml`` in the ``openstack/governance``
 repository. Note that if the project was recently active, this may have
 implications for automatic detection of ATCs.
 
+This patch will not pass the zuul until repo content is removed in Steps 3-5.
+Once repo content removal patch is merged, 'recheck' the governance patch to
+trigger the test again.
+
 Step 2: Stop requirements syncing (if set up)
 ---------------------------------------------
 
@@ -71,7 +75,12 @@ In step 1 of OpenDev Manual, keep the template ``official-openstack-repo-jobs``
 besides ``noop-jobs``, this is needed to sync changes to GitHub. It will be
 removed in step 3 of OpenDev Manual.
 
-In all the patches, use Depends-On on ``governance`` patch submitted in Step 1.
+In step 1-2 of OpenDev Manual (1. Stop gating and 2. repo content removal)
+patch needs to merge without any depends-on but you need to use Needed-By
+``governance`` patch submitted in Step 1.
+
+In step 3 of OpenDev Manual patches, use Depends-On on ``governance`` patch
+submitted in Step 1.
 
 Step 6: Remove docs.openstack.org content
 -----------------------------------------
