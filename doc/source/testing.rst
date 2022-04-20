@@ -181,6 +181,23 @@ This is more art than science, but here are some ideas:
 - Looking at the timestamps of test failures can also help locate
   relevant lines in the service logs.
 
+Checking status of other job results
+------------------------------------
+
+Each Zuul CI job results is sent to the Opensearch service.
+This service can be very useful specially when the Zuul job status
+is Failure. Checking whether a given error has not occured in another
+project or it has not appeared regularly recently will allow
+for faster problem recognition or notification of the OpenStack community
+about the problem.
+
+To check the Opensearch service, you need to login with credentials that are
+described below:
+
+* url: https://opensearch.logs.openstack.org/_dashboards/app/discover?security_tenant=global
+* username: `openstack`
+* password: `openstack`
+* tenant: `global`
 
 Automatic Test Failure Identification
 =====================================
