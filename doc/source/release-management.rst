@@ -697,6 +697,190 @@ same order that consumers will read it.  Here's one way to do that:
 * When you're done proof reading, delete the tag:
   ``git tag -d 15.0.0``
 
+Release Notes for SLURP Releases
+--------------------------------
+
+Beginning with the 2023.1 OpenStack release, each "dot-one" release
+will be designated a SLURP (Skip Level Upgrade Release Process) release.
+Such a release will support upgrades from either the immediate previous
+release (that is, following the traditional OpenStack upgrade process) or
+from the previous SLURP release.  (See the `Release Cadence Adjustment
+<https://governance.openstack.org/tc/resolutions/20220210-release-cadence-adjustment.html>`_
+resolution for details.)
+
+An implication of supporting both the SLURP and the traditional release
+process is that operators upgrading from one SLURP to the next SLURP may
+not see the release notes from the release in between the SLURPs.  At the
+same time, operators who follow the traditional release upgrade process
+should not have to read the non-SLURP release notes twice.  (This
+is because if people are forced to re-read a bunch of stuff, it is more
+likely that their eyes will glaze over and they'll miss something new
+and important.)
+
+Thus, we need to make the non-SLURP release notes easily discoverable
+from the SLURP release notes, both so that they don't clutter up the SLURP
+notes and so that they are easily available for operators who haven't
+already read them.  Discovery will be enhanced if all projects follow the
+same basic structure for doing this, which is outlined below.
+
+The first SLURP release is **2023.1**, the immediately following release
+(non-SLURP) is **2023.2**, and the release immediately following that one is
+**2024.1** (a SLURP release).  Deployers following the SLURP strategy will
+upgrade directly from 2023.1 to 2024.1, skipping 2023.2.  Suppose that
+2024.1 has not been released yet, and you are finalizing the 2024.1
+(second SLURP) release notes now.
+
+#. Generate a static page of the 2023.2 (SLURP minus 1) release notes.
+
+   * when: shortly following the 2023.2 release (where "shortly" means
+     after any release note corrections have been merged to stable/2023.2,
+     but before any backports containing a **new** release note is merged
+     to stable/2023.2)
+
+     *  Because of the way reno works, corrections to release notes in
+        stable branches must be made *directly to the stable branch*.
+        Thus if the static file is generated too early, you will miss
+        out on any corrections and will have to apply them manually
+        to the static file (which isn't that big a deal, really).
+
+   * how: from the root directory of the project repo:
+
+     ::
+
+       $ tox -e releasenotes --notest
+
+       $ .tox/releasenotes/bin/reno report \
+            --title "2023.2 Release Notes" \
+            --branch "stable/2023.2" | \
+           sed 's/^ *$//g' > "releasenotes/source/2023.2-static.rst"
+
+   * a few points to note:
+
+     * The title heading in the "regular" release notes is always
+       "X Series Release Notes".  Note that we're using something
+       different, namely, "X Release Notes".  This is because reno
+       uses the title when generating anchors in the ``.rst`` file,
+       and we need the anchors in the static document to be
+       unique.
+
+     * Make sure that you include "-static" in the filename
+       being written to.  There will already be a ``xena.rst``
+       file in the directory and we don't want to overwrite it.
+       (That file is used for the "regular" release notes for
+       the series, which will continue to be generated in
+       the normal way as patches are backported following the
+       normal backport process.)
+
+     * Why use this extra static ``.rst`` file?  For three reasons:
+
+       * Any release notes associated with changes since the non-SLURP
+         2023.2 coordinated release will automatically be included in
+         following SLURP release's notes, because the OpenStack
+         backport process dictates that changes must be merged to
+         release *n*\+1 before they can be merged to release *n*.
+         We don't want these to be duplicated.
+
+       * Having a static ``.rst`` file available will allow you
+         to include anchors in the static file so that your SLURP
+         release notes can link to specific items in the static page.
+
+       * The static file can also be edited manually, if necessary, to
+         emphasize items relevant to SLURP (or delete irrelevant items
+         if the notes are very long).
+
+#. Edit (and commit) the static release notes page.
+
+   * when: as soon as you generate it
+
+   * The top of the static ``.rst`` file should look something like this:
+
+     .. code-block:: RST
+
+       ====================
+       2023.2 Release Notes
+       ====================
+
+       .. _2023.2 Release Notes_23.0.0_stable_2023.2:
+
+       23.0.0
+       ======
+
+       .. _2023.2 Release Notes_23.0.0_stable_2023.2_Prelude:
+
+       Prelude
+       -------
+
+       .. releasenotes/notes/2023.2-prelude-25dc371d85fb6610.yaml @ b'7ee5824c64b1c3c85d1ce1636bdecd86acb64970'
+
+       Welcome to the 2023.2 (Bobcat) release of the OpenStack Block Storage
+       service (cinder). With this release, we added several drivers ...
+
+   * Here is the change that you must make to the static ``.rst`` file.
+     We do not want it to be included in the release notes toctree; its
+     sole purpose is to be linked to it from the SLURP release notes.
+     Thus we need to add an ``:orphan:`` directive at the top of the page
+     so that sphinx doesn't generate a warning (which the openstack
+     releasenotes job treats as an error, thereby failing your releasenotes
+     build).  It should be the first non-comment non-whitespace characters
+     in the file:
+
+     .. code-block:: RST
+
+       :orphan:
+
+       ====================
+       2023.2 Release Notes
+       ====================
+
+       etc.
+
+   * Don't forget to do a 'git add' to the static file, because you
+     will need to commit it to the repository.
+
+#. Add a link to the static page from the SLURP release notes.
+
+   * when: when you prepare the final notes for the SLURP release
+     (2024.1 in this example)
+
+   * what: add an item to the "Prelude" section of the SLURP release
+     that contains a link to the static page.  You do this
+     in a regular reno ``.yaml`` file.  For example,
+
+     .. code-block:: RST
+
+        ---
+        prelude: |
+            Welcome to the 2024.1 release of the OpenStack Block Storage
+            service (cinder) ...
+
+            * Something important about this release.
+
+            * Another important thing to mention.
+
+            * **This is a SLURP release.**  If you are upgrading directly
+              from the previous SLURP release (2023.1), we recommend that
+              you read through the :doc:`release notes from the
+              intermediate release <2023.2-static>` (2023.2).
+
+There may be items of such importance from an intermediate non-SLURP
+release that a project team may wish to reemphasize them in the SLURP
+release notes.  That's perfectly OK.  We just ask that you do this
+judiciously so that deployers don't think that they can completely ignore
+the other notes from the intermediate release (which must be important, or
+why did you write them in the first place?).  Since the intermediate
+non-SLURP release notes are being kept in a static ``.rst`` document, you
+don't have to repeat entire notes.  Instead, you can add an anchor to the
+particular item you want to highlight, and then link to it from the SLURP
+release notes.
+
+Finally, as of this writing, we are in the development cycle of the first
+SLURP-era non-SLURP release (i.e., 2023.2) and haven't actually had a SLURP
+release yet that can be upgraded to from a previous SLURP release.
+So we fully expect the release note process to evolve as both project
+teams and deployers adapt to it.  But hopefully this simple approach is a
+good start.
+
+
 Cycle Highlights
 ================
 
