@@ -36,6 +36,7 @@ Contents:
    glossary
    deprecation
    technical-guides/index
+   legal-issues-faq
 
 
 Indices and tables
