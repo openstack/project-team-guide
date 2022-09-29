@@ -22,6 +22,17 @@ If you rename an existing official OpenStack project, add the
 ``openstack/project-config`` change so that it can merge after the
 rename is done.
 
+Do not forget to update the Zuul job definitions. This is important to
+keep the Zuul jobs definition correct and utilize the CI/CD infra resources
+in better way. You need to find if retiring repository is used in Zuul
+job definition on master and stable branches as ``required-projects``
+or any other place. Searching in master jobs is easy via
+`codesearch <https://codesearch.openstack.org/>`_ but searching in
+stable branches is tricky. Make sure you cleanup all the stable branches
+including branches in ``Extended Maintenance`` state. Otherwise it will
+leads to the Zuul config errors which can be found in the `Zuul config
+errors list <https://zuul.opendev.org/t/openstack/config-errors>`_
+
 The detailed steps for renaming a project are documented in the
 section `Project Renames
 <https://docs.opendev.org/opendev/infra-manual/latest/creators.html#project-renames>`_
@@ -82,7 +93,34 @@ patch needs to merge without any depends-on but you need to use Needed-By
 In step 3 of OpenDev Manual patches, use Depends-On on ``governance`` patch
 submitted in Step 1.
 
-Step 6: Remove docs.openstack.org content
+Use Depends-On on ``governance`` patch submitted in Step 1.
+
+Step 6: Remove repository references
+------------------------------------
+
+Make sure all the reference to the retiring repository has been removed
+properly. A few of the places to audit and update are:
+
+#. Check all the projects source code and documentation if there is any
+   reference of retiring repository. Use `codesearch
+   <https://codesearch.openstack.org/>`_ to check it.
+
+#. Zuul job definitions:
+
+   This is important to keep the Zuul jobs definition correct and utilize
+   the CI/CD infra resources in better way. You need to find if retiring
+   repository is used in Zuul job definition on master and stable branches
+   as ``required-projects`` or any other place. Searching in master jobs
+   is easy via `codesearch <https://codesearch.openstack.org/>`_ but searching
+   in stable branches is tricky. Make sure you cleanup all the stable branches
+   including branches in ``Extended Maintenance`` state. Otherwise it will
+   leads to the Zuul config errors which can found in the `Zuul config
+   errors list <https://zuul.opendev.org/t/openstack/config-errors>`_
+
+
+Use Depends-On on ``governance`` patch submitted in Step 1.
+
+Step 7: Remove docs.openstack.org content
 -----------------------------------------
 
 Inform users that reach the ``docs.openstack.org`` page of your
@@ -96,7 +134,7 @@ will redirect to the repositories' ``README.rst`` file.
 
 Use Depends-On on ``governance`` patch submitted in Step 1.
 
-Step 7: Mark the deliverables as retired
+Step 8: Mark the deliverables as retired
 ----------------------------------------
 
 For maintained openstack series, on ``openstack/releases``, amend the related
@@ -118,6 +156,17 @@ Example with ``deliverables/train/puppet-panko.yaml``::
 Even if a project is retired, stable branches will continue to follow the
 existing series life cycle and this flag will allow us to ignore this
 deliverable in some specific cases.
+
+Use Depends-On on ``governance`` patch submitted in Step 1.
+
+Step 9: Update openstack-map to remove the retired project
+----------------------------------------------------------
+
+If the retired repository/project is listed in `openstack-map
+<https://opendev.org/openinfra/openstack-map>`_ , you need to remove
+it from there.
+
+For Example: https://review.opendev.org/c/openinfra/openstack-map/+/764544
 
 Use Depends-On on ``governance`` patch submitted in Step 1.
 
