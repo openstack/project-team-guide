@@ -53,45 +53,52 @@ down a project gracefully.
    explained below and in the OpenDev Manual. We recommend to link
    these changes with "Depends-On:" and "Needed-By:" headers.
 
-Step 1: Retire Repository from the Governance Repository
+Step 1: End Project Gating
+--------------------------
+
+Follow the Step 1 about `End Project Gating
+<https://docs.opendev.org/opendev/infra-manual/latest/drivers.html#step-1-end-project-gating>`_
+in the OpenDev Manual.
+
+Step 2: Remove Project Content
+------------------------------
+
+Follow the Step 2 about `Remove Project Content
+<https://docs.opendev.org/opendev/infra-manual/latest/drivers.html#step-2-remove-project-content>`_
+in the OpenDev Manual.
+
+Step 3: Retire Repository from the Governance Repository
 --------------------------------------------------------
 
-First step is to get the agreement in the Technical Committee by
+This step is to get the agreement in the Technical Committee by
 retiring the repository from the ``reference/projects.yaml`` file and
 add it to the file ``reference/legacy.yaml`` in the ``openstack/governance``
 repository. Note that if the project was recently active, this may have
 implications for automatic detection of ATCs.
 
-This patch will not pass the zuul until repo content is removed in Steps 3-5.
-Once repo content removal patch is merged, 'recheck' the governance patch to
-trigger the test again.
+We need to wait for this patch to merge first before proceeding next. Main
+goal here is to get the Technical Committee agreement and governance scripts
+to check the proper retirement which will help us to avoid any re-retirement
+work.
 
-Step 2: Stop requirements syncing (if set up)
+NOTE: use Depends-On on ``Remove Project Content`` patch submitted in Step 2.
+
+Step 4: Stop requirements syncing (if set up)
 ---------------------------------------------
 
 Submit a review to the ``openstack/requirements`` project removing the
 project from ``projects.txt``.  This needs to happen for stable
 branches as well.
 
-Use Depends-On on ``governance`` patch submitted in Step 1.
+NOTE: use Depends-On on ``governance`` patch submitted in Step 3.
 
-Steps 3-5: Follow all three steps from OpenDev Manual
------------------------------------------------------
+Steps 5: Remove Project from Infrastructure Systems
+---------------------------------------------------
 
-Follow the steps about `Retiring a Project
-<https://docs.opendev.org/opendev/infra-manual/latest/drivers.html#retiring-a-project>`_
-in the OpenDev Manual.
+Follow the steps about `Remove Project from Infrastructure System
+<https://docs.opendev.org/opendev/infra-manual/latest/drivers.html#step-3-remove-project-from-infrastructure-systems>`_ in the OpenDev Manual.
 
-In step 1 of OpenDev Manual, keep the template ``official-openstack-repo-jobs``
-besides ``noop-jobs``, this is needed to sync changes to GitHub. It will be
-removed in step 3 of OpenDev Manual.
-
-In step 1-2 of OpenDev Manual (1. Stop gating and 2. repo content removal)
-patch needs to merge without any depends-on but you need to use Needed-By
-``governance`` patch submitted in Step 1.
-
-In step 3 of OpenDev Manual patches, use Depends-On on ``governance`` patch
-submitted in Step 1.
+NOTE: use Depends-On on ``governance`` patch submitted in Step 3.
 
 Use Depends-On on ``governance`` patch submitted in Step 1.
 
@@ -132,7 +139,7 @@ list in the file ``tools/www-generator.py`` in the
 the URL ``https://docs.openstack.org/openstack/<projectname>/latest``
 will redirect to the repositories' ``README.rst`` file.
 
-Use Depends-On on ``governance`` patch submitted in Step 1.
+NOTE: use Depends-On on ``governance`` patch submitted in Step 3.
 
 Step 8: Mark the deliverables as retired
 ----------------------------------------
@@ -157,7 +164,7 @@ Even if a project is retired, stable branches will continue to follow the
 existing series life cycle and this flag will allow us to ignore this
 deliverable in some specific cases.
 
-Use Depends-On on ``governance`` patch submitted in Step 1.
+NOTE: use Depends-On on ``governance`` patch submitted in Step 3.
 
 Step 9: Update openstack-map to remove the retired project
 ----------------------------------------------------------
@@ -199,7 +206,7 @@ Step 2: Stop requirements syncing (if set up)
 Submit a review to the ``openstack/requirements`` project removing the
 project from ``projects.txt``.
 
-Use Depends-On on ``governance`` patch submitted in Step 1.
+NOTE: use Depends-On on ``governance`` patch submitted in Step 1.
 
 Step 3: Retire master branch
 ----------------------------
@@ -250,7 +257,8 @@ need so that you can merge content on stable branches.
 Please ensure you keep the ``DEPRECATED,`` prefix you added to project
 description in step 2a.
 
-In all the patches, use Depends-On on ``governance`` patch submitted in Step 1.
+NOTE: In all the patches, use Depends-On on ``governance`` patch submitted in
+Step 1.
 
 Step 4: Remove docs.openstack.org content
 -----------------------------------------
@@ -268,4 +276,4 @@ Also, remove the project from the list in the ``www/project-data/latest.yaml``
 in the ``openstack/openstack-manuals`` repository if present. That will remove
 the project from the list of new releases.
 
-Use Depends-On on ``governance`` patch submitted in Step 1.
+NOTE: use Depends-On on ``governance`` patch submitted in Step 1.
