@@ -67,7 +67,16 @@ Extended Maintenance
 Once a branch reaches Extended Maintenance project teams will cease producing
 releases and `OpenStack Vulnerability Management`_ will be reasonable efforts
 only.  There is no statement about the level of testing and upgrades from
-Extended Maintenance are not supported within the Community.
+Extended Maintenance are not supported within the Community. There should not
+be an expectation on the upstream community team to keep maintaining the
+Extended Maintenance stable branches upstream testing. We will keep them open
+as long as possible so that any operator or user will be able to backport
+required fixes. Without regular comprehensive maintenance, it is quite possible
+that someone proposing a backport to an EM branch will find that tests have
+broken since the last successful merge. This means that tests (or test
+configuration) might need to be fixed, reduced, or reconfigured before the
+backport itself can be evaluated and merged. The onus for that falls on the
+backporter or the group of people looking after a specific release.
 
 The ``last release`` of the appropriate branch will be tagged as
 ``$series-em``, for example: https://review.opendev.org/608296/.
