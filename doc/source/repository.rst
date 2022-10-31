@@ -185,17 +185,15 @@ stable branches, you need to do a slightly different approach.
 
 Deprecating the project or repository is different than removal.
 If the project want to stop the development on master branch but
-support the stable branches with bug fixes, then project with
-the `stable policy tag <https://governance.openstack.org/tc/reference/tags/stable_follows-policy.html>`
-must be marked as deprecated. If project has no stable branch or does not
-follow the stable policy tag then you have option to go with removal process
-directly.
+support the stable branches with bug fixes, then project must be marked as
+deprecated. If project has no stable branch then you have option to go with
+removal process directly.
 
 Step 1: Mark the  Repository as Deprecated in the Governance Repository
 -----------------------------------------------------------------------
 
-Mark the repository in the ``reference/projects.yaml`` file as
-deprecated with adding a line::
+Mark the repository in the ``reference/projects.yaml`` file of
+the ``openstack/governance`` repository as deprecated with adding a line::
 
   deprecated: <deprecated-cycle-name>
   release-management: deprecated
@@ -214,10 +212,10 @@ Step 3: Retire master branch
 Step 3a: Use only noop jobs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Add ``noop`` jobs for master only in ``project-config`` repository and
-remove all templates temporarily with exception of
-``official-openstack-repo-jobs`` and pypi release template if any.
-If your project has ``publish-to-pypi`` template present, then change
+Add ``noop-jobs`` template to ``zuul.d/projects.yaml`` for master only
+in ``project-config`` repository and remove all other templates temporarily
+with exception of ``official-openstack-repo-jobs`` and pypi release template
+if any. If your project has ``publish-to-pypi`` template present, then change
 it to ``publish-to-pypi-stable-only``. It should look something like
 this::
 
@@ -226,14 +224,7 @@ this::
     templates:
       - official-openstack-repo-jobs
       - publish-to-pypi-stable-only
-    check:
-      jobs:
-        - noop:
-            branches: master
-    gate:
-      jobs:
-        - noop:
-            branches: master
+      - noop-jobs
 
 Adjust the project description. Find the entry for your project in
 ``gerrit/projects.yaml`` and look for the line which defines the description,
@@ -252,10 +243,10 @@ Step 3c: Remove noop jobs
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Once the project content is retired, partially revert the change you merged
-earlier for ``project-config`` in step 2a and re-add templates and jobs you
+earlier for ``project-config`` in step 3a and re-add templates and jobs you
 need so that you can merge content on stable branches.
 Please ensure you keep the ``DEPRECATED,`` prefix you added to project
-description in step 2a.
+description in step 3a.
 
 NOTE: In all the patches, use Depends-On on ``governance`` patch submitted in
 Step 1.
