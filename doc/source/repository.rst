@@ -209,6 +209,11 @@ NOTE: use Depends-On on ``governance`` patch submitted in Step 1.
 Step 3: Retire master branch
 ----------------------------
 
+If the repository is branchless (for example, Tempest and its plugins) and
+its master branch content needs to support the other deliverables stable branch
+until they are retired or reach EOL, then you can skip this Step 3 and update
+only README.rst file to reflect the deprecation notes.
+
 Step 3a: Use only noop jobs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
