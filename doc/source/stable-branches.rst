@@ -368,10 +368,6 @@ of creating a new review, modifying the commit message to include
    some way that would be contrary to this intent, the reviewer should be
    referred to :ref:`the warning above <stable-modifications>`.
 
-.. note::
-   For code that touches code from oslo-incubator, special backporting rules
-   apply. More details in `Oslo policies`_
-
 You can use `git-review`_ to propose a change to the hypothetical stable
 branch with:
 
@@ -509,7 +505,6 @@ policy (project stop or start following the stable branch policy).
 
 .. _Nova Kilo nominations: https://bugs.launchpad.net/nova/kilo/+nominations
 .. _Nova Liberty potential: https://bugs.launchpad.net/nova/+bugs?field.tag=liberty-backport-potential
-.. _Oslo policies: http://specs.openstack.org/openstack/oslo-specs/specs/policy/incubator.html#stable-branches
 .. _git-review: https://github.com/openstack-infra/git-review
 .. _Gerrit bug: https://code.google.com/p/gerrit/issues/detail?id=1107
 .. _watched projects: https://review.openstack.org/#/settings/projects
@@ -523,7 +518,7 @@ policy (project stop or start following the stable branch policy).
 .. _zuul.d/project-templates.yaml: https://opendev.org/openstack/openstack-zuul-jobs/src/commit/370e620ebe5ac03bf9bc13a88002e7b56291140c/zuul.d/project-templates.yaml#L2201
 .. _openstack/openstack-zuul-jobs repo: https://opendev.org/openstack/openstack-zuul-jobs
 .. _OpenStack Vulnerability Management: https://security.openstack.org/vmt-process.html
-.. _Zuul Drivers: https://docs.openstack.org/infra/zuul/admin/connections.html#drivers
+.. _Zuul Drivers: https://zuul-ci.org/docs/zuul/latest/drivers/index.html
 .. _Barbican: https://governance.openstack.org/tc/reference/projects/barbican.html
 .. _Cinder: https://governance.openstack.org/tc/reference/projects/cinder.html
 .. _Designate: https://governance.openstack.org/tc/reference/projects/designate.html
