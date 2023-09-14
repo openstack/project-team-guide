@@ -154,6 +154,9 @@ At the beginning of a new cycle
 #.  If the TC has approved community goals, check the relevance of the goal to
     the project and assess work items for the team.
 
+#.  Propose to add the extra Active Contributors from your project. To
+    understand who can be an extra Active Contributor and how to add them,
+    refer to the `TC document <https://governance.openstack.org/tc/reference/charter.html#voters-for-tc-seats-ac>`_
 
 During the cycle
 ================
