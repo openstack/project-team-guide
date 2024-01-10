@@ -206,7 +206,18 @@ project from ``projects.txt``.
 
 NOTE: use Depends-On on ``governance`` patch submitted in Step 1.
 
-Step 3: Retire master branch
+Step 3: Stop deliverables from the current development branch
+-------------------------------------------------------------
+
+We're going to be retiring the master branch of the project and won't be
+doing any releases from it.  Suppose that the current development
+cycle is 2999.2 and the release nickname is "Xylophone".  Submit a review
+to the ``openstack/releases`` repository that removes the deliverable's
+yaml file from the ``deliverables/xylophone/`` directory.
+
+NOTE: use Depends-On on ``governance`` patch submitted in Step 1.
+
+Step 4: Retire master branch
 ----------------------------
 
 If the repository is branchless (for example, Tempest and its plugins) and
@@ -214,7 +225,7 @@ its master branch content needs to support the other deliverables stable branch
 until they are retired or reach EOL, then you can skip this Step 3 and update
 only README.rst file to reflect the deprecation notes.
 
-Step 3a: Use only noop jobs
+Step 4a: Use only noop jobs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Add ``noop-jobs`` template to ``zuul.d/projects.yaml`` for master only
@@ -237,14 +248,14 @@ prefix it with ``DEPRECATED,`` like this::
 
   description: DEPRECATED, existing project description
 
-Step 3b: Remove project content
+Step 4b: Remove project content
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Follow step 2 about `Removing project content
 <https://docs.opendev.org/opendev/infra-manual/latest/drivers.html#step-2-remove-project-content>`__
 in the OpenDev Manual.
 
-Step 3c: Remove noop jobs
+Step 4c: Remove noop jobs
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Once the project content is retired, partially revert the change you merged
@@ -256,7 +267,7 @@ description in step 3a.
 NOTE: In all the patches, use Depends-On on ``governance`` patch submitted in
 Step 1.
 
-Step 4: Remove docs.openstack.org content
+Step 5: Remove docs.openstack.org content
 -----------------------------------------
 
 Inform users that reach the ``docs.openstack.org`` page of your
