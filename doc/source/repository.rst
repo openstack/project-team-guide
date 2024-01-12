@@ -144,8 +144,19 @@ NOTE: use Depends-On on ``governance`` patch submitted in Step 3.
 Step 8: Mark the deliverables as retired
 ----------------------------------------
 
-For maintained openstack series, on ``openstack/releases``, amend the related
-deliverable files to tag the project with the ``retired`` flag.
+Given that this project is being retired, there will be no more releases.
+Thus you must do two tasks in the ``openstack/releases`` repository.
+
+First, completely remove the deliverable's yaml file from the directory
+corresponding to the current development cycle.  For example, if your
+deliverable is ``puppet-panko`` and the current development cycle is
+Ussuri, you must delete ``deliverables/ussuri/puppet-panko.yaml``.
+
+Next, if your deliverable has stable branches, for example, ``stable/train``,
+you must amend the related deliverable files to tag the project with the
+``retired`` flag.  (We don't delete these yaml files because they contain
+important historical information about the releases that have previously
+occurred on these branches.)
 
 Example with ``deliverables/train/puppet-panko.yaml``::
 
@@ -163,6 +174,10 @@ Example with ``deliverables/train/puppet-panko.yaml``::
 Even if a project is retired, stable branches will continue to follow the
 existing series life cycle and this flag will allow us to ignore this
 deliverable in some specific cases.
+
+For a complete example, here's the gerrit review that retired the
+winstacker project's deliverables during the Bobcat development cycle:
+https://review.opendev.org/c/openstack/releases/+/887238
 
 NOTE: use Depends-On on ``governance`` patch submitted in Step 3.
 
@@ -214,6 +229,10 @@ doing any releases from it.  Suppose that the current development
 cycle is 2999.2 and the release nickname is "Xylophone".  Submit a review
 to the ``openstack/releases`` repository that removes the deliverable's
 yaml file from the ``deliverables/xylophone/`` directory.
+
+For a recent example, here's the gerrit review that deprecated
+cinderlib's deliverables during the Caracal development cycle:
+https://review.opendev.org/c/openstack/releases/+/904862
 
 NOTE: use Depends-On on ``governance`` patch submitted in Step 1.
 
