@@ -60,6 +60,11 @@ Follow the Step 1 about `End Project Gating
 <https://docs.opendev.org/opendev/infra-manual/latest/drivers.html#step-1-end-project-gating>`_
 in the OpenDev Manual.
 
+.. note::
+
+   Please keep the *official-openstack-repo-jobs* template to sync retirement
+   to the GitHub mirrors.
+
 Step 2: Remove Project Content
 ------------------------------
 
