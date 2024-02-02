@@ -25,10 +25,11 @@ Project stable branches will be in one of the following states:
      * Approximately 18 months
      * All bugfixes (that meet the criteria described below) are
        appropriate. Releases produced.
-   - * Extended Maintenance
-     * While there are community members maintaining it.
-     * All bugfixes (that meet the criteria described below) are
-       appropriate.  No Releases produced, reduced CI commitment.
+   - * Unmaintained
+     * While there is community interest.
+     * Only SLURP releases. All bugfixes (that meet the criteria
+       described below) are appropriate.  No Releases produced,
+       reduced CI commitment.
    - * End of Life (EOL)
      * N/A
      * Branch no longer accepting changes.
@@ -37,12 +38,53 @@ It is not required that all projects for a given branch transition between
 phases at the same time.  For example it's quite reasonable for the
 ``stable/$series`` branch of ``openstack/long-life-project`` to still be
 in the Maintained phase while all other projects have transitioned to either
-`Extended Maintenance`_ or even `End of Life`_.
+`Unmaintained`_ or even `End of Life`_.
 
 .. note::
-   At this time the exact mechanism for describing and updating this state is
-   undefined but it's probable it will involved updating a meta-data in a
-   projects deliverable file in the :code:`openstack/releases` repo.
+   How can I tell what state a branch is in?
+
+   Current development branch
+     This is the ``master`` branch in a repository.
+
+     The project's core team (for example, ``cinder-core``) is responsible
+     for merging changes into this branch.
+
+   Maintained branches
+     These are the ``stable/$series`` branches in a repository, for
+     example, ``stable/2023.1``.
+
+     The project's stable core team (for example, ``cinder-stable-maint``),
+     which may be a subset of the core team, is responsible for merging
+     changes into Maintained branches.
+
+     A project's PTL or release team liaison must acknowledge proposed
+     releases from a Maintained branch, which are then subject to approval
+     by the OpenStack Release Management Team.
+
+     See :ref:`Stable maintenance teams<stable-maint-teams>` for details.
+
+   Unmaintained branches
+     These are the ``unmaintained/$series`` branches in a repository,
+     for example, ``unmaintained/xena``.
+
+     There is a global ``openstack-unmaintained-core`` team that is
+     responsible for merging changes into Unmaintained branches.
+     Optionally, an individual project may have a
+     ``$project-unmaintained-core`` team (for example,
+     ``ironic-unmaintained-core``) that has this responsibility,
+     and which may override the global team's approval power on
+     Unmaintained branches.
+
+     Releases are not allowed from Unmaintained branches.
+
+     Changes to Unmaintained branches are expected to be
+     :ref:`Appropriate Fixes<appropriate-fixes>` as described elsewhere
+     in this document.
+
+   End of Life
+     These do not exist as branches in the code repository, but can
+     be recreated by checking out a ``$series-eol`` tag, for example,
+     ``train-eol``.
 
 .. _Maintained:
 
@@ -59,75 +101,101 @@ responsible for all projects which asserted they follow the stable branch
 policy.
 
 
-.. _`Extended Maintenance`:
+.. _`Unmaintained`:
 
-Extended Maintenance
---------------------
-
-Once a branch reaches Extended Maintenance project teams will cease producing
-releases and `OpenStack Vulnerability Management`_ will be reasonable efforts
-only.  There is no statement about the level of testing and upgrades from
-Extended Maintenance are not supported within the Community. There should not
-be an expectation on the upstream community team to keep maintaining the
-Extended Maintenance stable branches upstream testing. We will keep them open
-as long as possible so that any operator or user will be able to backport
-required fixes. Without regular comprehensive maintenance, it is quite possible
-that someone proposing a backport to an EM branch will find that tests have
-broken since the last successful merge. This means that tests (or test
-configuration) might need to be fixed, reduced, or reconfigured before the
-backport itself can be evaluated and merged. The onus for that falls on the
-backporter or the group of people looking after a specific release.
-
-The ``last release`` of the appropriate branch will be tagged as
-``$series-em``, for example: https://review.opendev.org/608296/.
-For all projects that follow the stable policy a patch with a ``$series-em``
-tag will be automatically generated after the final release from the latest
-development cycle happened. This is because this is a less busy period in
-development perspective compared to feature freeze and release periods.
-
-Tempest and its plugins are branchless and does not guarantee about
-supporting the Extended Maintenance branches with their master version.
-For more detail on the Tempest policy for stable branch testing refer to
-`this doc
-<https://docs.openstack.org/tempest/latest/stable_branch_support_policy.html>`_.
-If Tempest master start breaking on Extended Maintenance branches testing then
-we need to use the `last compatible version of Tempest and its plugins
-<https://docs.openstack.org/tempest/latest/tempest_and_plugins_compatible_version_policy.html>`_.
-To know the last compatible version of Tempest and its plugins, we need to
-release the new tag with master hash (at the time of branch reaches Extended
-Maintenance) with name ``$series-last`` as well as the new version number.
-This will help to easily detect the last compatible versions of Tempest and
-its plugins (instead of manually try and find the working version)
-for testing it at upstream as well at production cloud.
-Example: https://review.opendev.org/q/topic:%22tempest-plugin-stein-last%22+(status:open%20OR%20status:merged)
-
-Members of the community interested in a given project/branch are encouraged to
-engage with the appropriate stable team *early* in its life-cycle to ensure
-this process runs well.  In the absence of identified maintainers the project
-will immediately enter the 6 month notification period as described under `End
-of Life`_ below.
+Unmaintained
+------------
 
 .. note::
-   Some project teams may choose to NOT enter extended maintenance and go
-   directly to End of Life.  At this point should a group wish to maintain
-   that branch of a project they can do so within license and trademark
-   constraints.  Some OpenStack CI testing *may* be available via `Zuul
-   drivers`_
+   Only SLURP branches are eligible for Unmaintained status.
+
+After a branch is no longer in Maintained status, the branch is tagged
+``$series-eom``, the ``stable/$series`` branch is deleted, and an
+``unmaintained/$series`` branch is created based on the ``$series-eom``
+tag.
+
+Releases are not allowed from Unmaintained branches.
+
+By default, only the latest eligible Unmaintained branch is kept open.
+To prevent an Unmaintained branch from automatically transitioning to
+`End of Life`_ once a newer eligible branch enters the status, the
+Unmaintained branch liaison must manually opt-in as described below for each
+branch.
 
 .. note::
-   For further details about the Extended Maintenance please take a look
-   at `the OpenStack governance's related resolution
-   <https://governance.openstack.org/tc/resolutions/20180301-stable-branch-eol.html>`_.
+   An Unmaintained liaison may be appointed by the PTL, but there should not
+   be an expectation on the upstream community team to keep the branch open.
+   Members of the community interested in a given branch are encouraged to
+   engage with the appropriate project team *early* in its life-cycle to ensure
+   this process runs well. In the absence of identified maintainers the branch
+   will automatically transition to `End of Life`_.
 
+To opt-in to keep the Unmaintained branch open, the PTL or Unmaintained
+liaison must -1 the appropriate patch in the ``openstack/releases`` repo to
+EOL the branch. Please contact the PTL or Unmaintained liaison to show
+interest in helping keep the branch open with backports and reviews.
+The patch to EOL the Unmaintained branch will be merged no earlier than one
+month after its proposal. Even if a PTL or liaison has voted +1 to EOL the
+branch, the patch must remain open for the full grace period to permit other
+community members the opportunity to volunteer to take it over.
+
+To be eligible to opt-in, a branch must have functional CI including unit
+tests for the published supported python versions for that OpenStack release.
+Functional CI means all configured tests pass and do not generate errors in
+Zuul.
+
+Additionally, no SLURP branches may be skipped between the oldest unmaintained
+branch and the current maintained releases. This makes sure operators have an
+upgrade path from one SLURP to the next all the way to maintained releases.
+
+.. note::
+   For further details about Unmaintained status, please take a look
+   at the OpenStack Technical Committee's resolution `Unmaintained status
+   replaces Extended Maintenance
+   <https://governance.openstack.org/tc/resolutions/20230724-unmaintained-branches.html>`_
+   as amended to define the `openstack-unmaintained-core Gerrit Group
+   <https://governance.openstack.org/tc/resolutions/20231114-amend-unmaintained-status.html>`_.
+
+.. warning::
+   Tempest and its plugins are branchless and there is no guarantee that
+   Unmaintained branches will continue to be supported by the master version
+   of tempest or its plugins.
+
+   .. note::
+      For more information, see the `Tempest Stable Branch Support Policy
+      <https://docs.openstack.org/tempest/latest/stable_branch_support_policy.html>`_.
+
+   If Tempest master starts breaking when testing Unmaintained branches, then
+   we need to use the `last compatible version of Tempest and its plugins
+   <https://docs.openstack.org/tempest/latest/tempest_and_plugins_compatible_version_policy.html>`_.
+
+   To make the last compatible version of Tempest and its plugins available
+   for a particular branch, at the time the branch enters Unmaintained status
+   the Tempest maintainers will release a new tag at a master hash with the
+   name ``$series-last`` (as well as a new version number).  The maintainers
+   of tempest plugins will also release ``$series-last`` tags for each of the
+   plugins.
+
+   This makes it easy for Tempest consumers who want to continue CI
+   testing of an Unmaintained branch (either upstream or in a production
+   cloud) to identify the last compatible versions of Tempest and its plugins
+   for that branch.  It is also more reliable than requiring anyone who wishes
+   to use Tempest on an Unmaintained branch to manually try and find the
+   working version.
+
+   For an example of creating ``$series-last`` tags for Tempest and its
+   plugins, take a look at these Gerrit reviews:
+   https://review.opendev.org/q/topic:%22tempest-plugin-stein-last%22+(status:open%20OR%20status:merged)
 
 .. _End Of Life:
 
 End of Life
 -----------
 
-After a project/branch becomes unmaintained or a team decides to explicitly end
-support for a branch, it will become End of Life. The HEAD of the appropriate
-branch will be tagged as ``$series-eol`` and the branch deleted.
+After a branch is ineligible to remain active as Unmaintained or a team
+decides to explicitly end support for a branch, it will become End of Life.
+The HEAD of the appropriate branch will be tagged as ``$series-eol`` and the
+branch deleted.
 
 To initiate this transition, either the PTL of the given project or other
 stable maintainer should:
@@ -140,6 +208,8 @@ stable maintainer should:
    https://review.opendev.org/#/c/677478/)
 #. After the branch is tagged with ``$series-eol``, request the Release
    Management team to delete the branch.
+
+.. _appropriate-fixes:
 
 Appropriate Fixes
 =================
@@ -186,6 +256,8 @@ branch. A number of factors must be weighed when considering a change:
 Anyone can propose stable branch backports. See `Proposing Fixes`_ for more
 information on how to do that.
 
+
+.. _stable-maint-teams:
 
 Stable maintenance teams
 ========================
@@ -272,6 +344,26 @@ branches which generally includes:
 #. Stable branch cross-project liaisons should be available in the
    #openstack-stable channel on OFTC IRC to answer questions or be made
    aware of issues.
+
+Unmaintained branch maintenance
+-------------------------------
+
+Unmaintained branches are not the responsibility of individual project
+teams (though, of course, there is no prohibition against individual
+project team members working on Unmaintained branches).
+
+Instead, there is a global ``openstack-unmaintained-core`` team that has
+access rights to maintain the CI running on Unmaintained branches, and
+to merge appropriate changes into Unmaintained branches.
+
+Additionally, each project may have (but is not required to have) a Gerrit
+team called PROJECTNAME-unmaintained-core to handle all work on that
+project's Unmaintained branches.  This group is managed by the PTL or the
+Unmaintained branch liaison if there is one.  The group is created by
+proposing an appropriate set of permissions to the project's Gerrit ACLs
+in the ``openstack/project-config`` repository.  See
+https://review.opendev.org/c/openstack/project-config/+/902796
+for an example.
 
 
 Review guidelines
