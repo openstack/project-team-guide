@@ -365,6 +365,13 @@ in the ``openstack/project-config`` repository.  See
 https://review.opendev.org/c/openstack/project-config/+/902796
 for an example.
 
+.. note::
+   To become a member of the ``openstack-unmaintained-core`` team, first
+   the stable policy has to be understood, as it still applies to
+   unmaintained branches as well. Then contact the group itself and
+   signal the interest of becoming a member of the group and the intention
+   to maintain a project (or multiple projects) and its CI, then the
+   team will decide and grant membership.
 
 Review guidelines
 =================
