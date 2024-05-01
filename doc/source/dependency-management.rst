@@ -208,7 +208,7 @@ General Review Criteria
   blueprint requires the new specification. Ideally, changes should
   already be proposed, so that its use can be seen.
 
-- The blacklist is for handling dependencies that cannot be constrained.
+- The denylist is for handling dependencies that cannot be constrained.
   For instance, linters which each project has at a different release level,
   and which make projects fail on every release (because they add rules) -
   those cannot be globally constrained unless we coordinate updating all of
@@ -216,7 +216,7 @@ General Review Criteria
   and loosely coupled nature of the big tent that is infeasible. Dependencies
   that are only used in unconstrained places should not be excluded - they
   may be constrained in future, and there's no harm caused by constraining
-  them today. Entries in the blacklist should have a comment explaining the
+  them today. Entries in the denylist should have a comment explaining the
   reason for excluding.
 
 - Reviews that only update ``projects.txt`` should be workflow approved
@@ -411,7 +411,7 @@ Compile a constraints file showing the versions resulting from installing all
 of ``global-requirements.txt``::
 
   generate-constraints -p /usr/bin/python2.7 -p /usr/bin/python3.6 \
-  -r global-requirements.txt -b blacklist.txt --version-map 3.6:3.4 \
+  -r global-requirements.txt -d denylist.txt --version-map 3.6:3.4 \
   --version-map 3.6:3.5 > new-constraints.txt
 
 edit-constraints
