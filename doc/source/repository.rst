@@ -143,8 +143,8 @@ will redirect to the repositories' ``README.rst`` file.
 
 NOTE: use Depends-On on ``governance`` patch submitted in Step 3.
 
-Step 8: Mark the deliverables as retired
-----------------------------------------
+Step 8: Retire deliverables in releases repository
+--------------------------------------------------
 
 Given that this project is being retired, there will be no more releases.
 Thus you must do two tasks in the ``openstack/releases`` repository.
@@ -154,32 +154,18 @@ corresponding to the current development cycle.  For example, if your
 deliverable is ``puppet-panko`` and the current development cycle is
 Ussuri, you must delete ``deliverables/ussuri/puppet-panko.yaml``.
 
-Next, if your deliverable has stable branches, for example, ``stable/train``,
-you must amend the related deliverable files to tag the project with the
-``retired`` flag.  (We don't delete these yaml files because they contain
-important historical information about the releases that have previously
-occurred on these branches.)
+Next, if your deliverable has supported or unmaintained stable branches,
+for example, ``stable/train``, you must EOL it with the latest hash that
+exists on that stable branch.
 
-Example with ``deliverables/train/puppet-panko.yaml``::
+Example, `EOL Magnum up to Xena <https://review.opendev.org/c/openstack/releases/+/897744>`_ ::
 
     ---
-    launchpad: puppet-panko
-    release-model: cycle-trailing
-    team: Puppet OpenStack
-    type: other
-    repository-settings:
-      openstack/puppet-panko:
-        flags:
-          - retired
+  - version: xena-eol
+    projects:
+      - repo: openstack/magnum
+        hash: c5f8c78ef3ad93c830b5dc49ab6053252333b077
     ...
-
-Even if a project is retired, stable branches will continue to follow the
-existing series life cycle and this flag will allow us to ignore this
-deliverable in some specific cases.
-
-For a complete example, here's the gerrit review that retired the
-winstacker project's deliverables during the Bobcat development cycle:
-https://review.opendev.org/c/openstack/releases/+/887238
 
 NOTE: use Depends-On on ``governance`` patch submitted in Step 3.
 
