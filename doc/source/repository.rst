@@ -97,17 +97,7 @@ branches as well.
 
 NOTE: use Depends-On on ``governance`` patch submitted in Step 3.
 
-Steps 5: Remove Project from Infrastructure Systems
----------------------------------------------------
-
-Follow the steps about `Remove Project from Infrastructure System
-<https://docs.opendev.org/opendev/infra-manual/latest/drivers.html#step-3-remove-project-from-infrastructure-systems>`_ in the OpenDev Manual.
-
-NOTE: use Depends-On on ``governance`` patch submitted in Step 3.
-
-Use Depends-On on ``governance`` patch submitted in Step 1.
-
-Step 6: Remove repository references
+Step 5: Remove repository references
 ------------------------------------
 
 Make sure all the reference to the retiring repository has been removed
@@ -129,8 +119,15 @@ properly. A few of the places to audit and update are:
    leads to the Zuul config errors which can found in the `Zuul config
    errors list <https://zuul.opendev.org/t/openstack/config-errors>`_
 
+NOTE: use Depends-On on ``governance`` patch submitted in Step 3.
 
-Use Depends-On on ``governance`` patch submitted in Step 1.
+Steps 6: Remove Project from Infrastructure Systems
+---------------------------------------------------
+
+Follow the steps about `Remove Project from Infrastructure System
+<https://docs.opendev.org/opendev/infra-manual/latest/drivers.html#step-3-remove-project-from-infrastructure-systems>`_ in the OpenDev Manual.
+
+NOTE: use Depends-On on ``governance`` patch submitted in Step 3.
 
 Step 7: Remove docs.openstack.org content
 -----------------------------------------
