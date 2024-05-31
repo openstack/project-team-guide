@@ -110,9 +110,13 @@ time), so please be extremely sparing when asking the system to re-run
 tests.
 
 .. note:: Please do not **EVER** simply ``recheck`` without a
-          reason. Even if that reason is "I don't know", please
-          indicate that you at least *attempted* to determine the
-          reason for the failure.
+          reason. Please always *attempt* to determine what caused the
+          failure and give some meaningful description it. It can be something
+          like name of the test(s) which have failed or some other info about
+          what and in which job/test case went wrong.
+          Please try to avoid comments like ``recheck - unrelated failure`` as
+          such comments are almost the same as simply ``recheck``.
+          Please check below examples of the good recheck comments.
 
 It is important that before you request a recheck, you adhere to the
 following guidelines:
@@ -148,6 +152,10 @@ following guidelines:
 #. In some cases, it may be entirely unclear why something failed. In
    this case, you may need to recheck with a reason of "Not sure what
    failed, rechecking to get another data point."
+#. In case of the root cause not being clear for the issue but
+   it is also pretty clear that it was not related to the patch, you can also
+   add name of the failed test to the recheck command, like for example
+   ``recheck - failed test tempest.api.network.test_ports.test_example``
 #. If a recheck results in a similar failure on the subsequent run, it
    would be best to reach out (via the mailing list or IRC) to the
    project team responsible for the service you think is failing and
