@@ -386,6 +386,9 @@ and submit an addition.
   Keystone team provides updates weekly:
   http://lists.openstack.org/pipermail/openstack-discuss/2019-June/006799.html
 
+- Make sure the IRC weekly meeting information and agenda is up to date:
+  http://meetings.opendev.org
+
 - Set aside time during the weekly meeting to look at the oldest outstanding
   review in the project. The resulting action should be one of the following:
   the patch is merged, -1'd, or someone is assigned to follow up if the review
