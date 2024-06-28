@@ -22,6 +22,7 @@ Contents:
    review-the-openstack-way
    repository
    release-management
+   release-cadence-adjustment
    stable-branches
    other-branches
    bugs
