@@ -125,7 +125,10 @@ Steps 6: Remove Project from Infrastructure Systems
 ---------------------------------------------------
 
 Follow the steps about `Remove Project from Infrastructure System
-<https://docs.opendev.org/opendev/infra-manual/latest/drivers.html#step-3-remove-project-from-infrastructure-systems>`_ in the OpenDev Manual.
+<https://docs.opendev.org/opendev/infra-manual/latest/drivers.html#step-3-remove-project-from-infrastructure-systems>`_
+in the OpenDev Manual, but instead of the ACL file mentioned there use
+``/home/gerrit2/acls/openstack/retired.config`` so that the TC will
+still be able to make content adjustments in the future.
 
 NOTE: use Depends-On on ``governance`` patch submitted in Step 3.
 
