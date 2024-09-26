@@ -584,8 +584,6 @@ policy (project stop or start following the stable branch policy).
 #. `Keystone`_ (Identity service): keystone, keystoneauth, keystonemiddleware,
    pycadf, python-keystoneclient
 #. `Manila`_ (Shared File Systems service): manila
-#. `Murano`_ (Application Catalog service): murano, murano-agent,
-   murano-dashboard, python-muranoclient
 #. `Neutron`_ (Networking service): neutron-fwaas, neutron,
    neutron-dynamic-routing, neutron-lib, neutron-vpnaas
 #. `Nova`_ (Compute service): nova, python-novaclient
@@ -595,10 +593,6 @@ policy (project stop or start following the stable branch policy).
    oslo.context, oslo.db, oslo.messaging, oslo.middleware, oslo.policy,
    oslo.privsep, oslo.serialization, oslo.service, oslo.upgradecheck,
    oslo.utils, oslo.versionedobjects, oslo.vmware, stevedore
-#. `Sahara`_ (Data Processing service): python-saharaclient, sahara,
-   sahara-dashboard, sahara-extra, sahara-image-elements, sahara-plugin-ambari,
-   sahara-plugin-cdh, sahara-plugin-mapr, sahara-plugin-spark,
-   sahara-plugin-storm, sahara-plugin-vanilla
 #. `Swift`_ (Object Storage service): python-swiftclient, swift
 #. `Zaqar`_ (Message service): zaqar
 
@@ -627,12 +621,10 @@ policy (project stop or start following the stable branch policy).
 .. _Ironic: https://governance.openstack.org/tc/reference/projects/ironic.html
 .. _Keystone: https://governance.openstack.org/tc/reference/projects/keystone.html
 .. _Manila: https://governance.openstack.org/tc/reference/projects/manila.html
-.. _Murano: https://governance.openstack.org/tc/reference/projects/murano.html
 .. _Neutron: https://governance.openstack.org/tc/reference/projects/neutron.html
 .. _Nova: https://governance.openstack.org/tc/reference/projects/nova.html
 .. _Octavia: https://governance.openstack.org/tc/reference/projects/octavia.html
 .. _Oslo: https://governance.openstack.org/tc/reference/projects/oslo.html
-.. _Sahara: https://governance.openstack.org/tc/reference/projects/sahara.html
 .. _Swift: https://governance.openstack.org/tc/reference/projects/swift.html
 .. _Zaqar: https://governance.openstack.org/tc/reference/projects/zaqar.html
 
