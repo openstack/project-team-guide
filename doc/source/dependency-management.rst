@@ -86,7 +86,9 @@ specifiers are required with different markers - for instance, if a dependency
 has dropped Python 2.7 support.
 
 ``upper-constraints.txt`` is machine generated and nothing more or less than
-an exact list of versions.
+an exact list of versions, possibly multiple ones per project with different
+specifiers - for instance, if a dependency has dropped support for older
+python versions.
 
 
 Enforcement for Test Runs
@@ -257,12 +259,6 @@ For new Requirements
   to depend on. That includes ensuring the upstream code has some
   reasonable testing baked in.
 
-- Is the library python 3 compatible?
-
-  OpenStack will eventually need to support python 3. At this point
-  adding non python 3 compatible libraries should only be done under
-  *extreme* need. It should be considered a very big exception.
-
 - Is the library license compatible?
 
   The library should be licensed as described in `Licensing requirements`_,
@@ -272,7 +268,7 @@ For new Requirements
   Robert Collins (lifeless), Monty Taylor (mordred) or Jim Blair (jeblair).
 
 - Is the library already packaged in the distros we target (Ubuntu
-  latest / Fedora latest)?
+  latest LTS / Debian latest)?
 
   By adding something to OpenStack ``global-requirements.txt`` we are
   basically demanding that Linux Distros package this for the next
@@ -319,18 +315,19 @@ Finding Distro Status
 
 From the OpenStack distro support policy:
 
-OpenStack will target its development efforts to latest Ubuntu/Fedora,
+OpenStack will target its development efforts to latest Ubuntu/Debian LTS,
 but will not introduce any changes that would make it impossible to
-run on the latest Ubuntu LTS or latest RHEL.
+run on the latest RHEL/Centos Stream.
 
 As such we really need to know what the current state of packaging is
-on these platforms (and ideally Debian, Gentoo, and SUSE as well).
+on these platforms (and ideally Gentoo and SUSE as well).
 
 For people unfamiliar with Linux Distro packaging you can use the
 following tools to search for packages:
 
-- Ubuntu - http://packages.ubuntu.com/
-- Fedora - https://apps.fedoraproject.org/packages/
+- Ubuntu - https://packages.ubuntu.com/
+- Debian - https://packages.debian.org/index
+- Fedora - https://packages.fedoraproject.org/
 - Gentoo - https://packages.gentoo.org/
 - SUSE - https://build.opensuse.org/project/show/devel:languages:python
 
