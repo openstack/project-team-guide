@@ -61,8 +61,8 @@ sufficient test resources to run all tests, and moreover, project
 reviewers can not assume that a developer has performed all of the
 relevant testing.  Therefore, OpenStack projects can define a set of
 test jobs that automatically run on every change to the project.
-These are run by a tool called *Zuul* and results appear in the
-Gerrit code review system under the name *Jenkins*.
+These are run by a tool called *Zuul* and results are posted directly
+in the Gerrit code review system comments.
 
 In order to facilitate projects interacting with the automated test
 system in a standardized way, the Technical Committee has adopted the
