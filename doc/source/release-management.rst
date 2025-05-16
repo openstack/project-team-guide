@@ -432,6 +432,8 @@ The release note files read by reno should be kept in
 ``releasenotes/notes``. *Only* release notes YAML files should be
 placed in this directory.
 
+.. _adding_the_release_notes_jobs_to_your_ci:
+
 Setting up the Release Note Tool Within Your Project
 ----------------------------------------------------
 
@@ -507,6 +509,22 @@ stable branches where you wish to use reno.
       [testenv:releasenotes]
       commands = sphinx-build -a -W -E -d releasenotes/build/doctrees -b html releasenotes/source releasenotes/build/html
 
+#. Edit the Zuul config (this will typically be a ``.zuul.yaml`` file
+   or a set of files in a ``.zuul.d`` subdirectory at the top level of
+   the repo). Find the ``project:`` section and in its ``templates:``
+   list add an entry for ``release-notes-jobs-python3`` like this::
+
+        - project:
+          templates:
+            - check-requirements
+            - integrated-gate-compute
+            ...
+            - publish-openstack-docs-pti
+            - release-notes-jobs-python3
+          check:
+            jobs:
+              ...
+
 #. Submit all of the above changes together as one patch. For example,
    see https://review.openstack.org/241323 and
    https://review.openstack.org/243302 (Glance was set up using 2
@@ -520,28 +538,6 @@ stable branches where you wish to use reno.
    publish the notes, we *do* run it in test jobs to ensure that
    release note changes in stable branches do not break the release
    note build in master.
-
-Adding the Release Notes Jobs to Your CI
-----------------------------------------
-
-After your project has the necessary change to enable reno to build
-the release notes, the next step is to modify the CI system to add the
-necessary jobs. All of these changes are made to the
-``openstack-infra/project-config`` repository.
-
-#. Modify the section of ``jenkins/jobs/projects.yaml`` related to
-   your repository to add the ``openstack-releasenotes-jobs`` job
-   group to the list of jobs for your project.
-
-#. Modify the section of ``zuul/layout.yaml`` related to your
-   repository to add ``release-notes-jobs`` to the list of job
-   templates for your project.
-
-#. Submit all of the changes as one patch. You may want to set the
-   ``Depends-On`` tag in the commit message to point to the Change-Id
-   of the commit from the previous section, to avoid adding jobs that
-   will fail until that patch lands. For example, see
-   https://review.openstack.org/241344.
 
 How to Add New Release Notes
 ----------------------------
