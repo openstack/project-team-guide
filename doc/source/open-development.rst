@@ -35,6 +35,45 @@ project they are part of. It's possible to be a core reviewer of several
 projects and it's completely fine - and recommended - to step down at any time
 if your focus and priorities have changed.
 
+
+When a Project Has No Active Maintainers
+========================================
+
+OpenStack is built and maintained by a global community of volunteers.
+Project Team Leads (PTLs) and Core Reviewers are not assigned roles, they are
+community members who stepped up to help guide and sustain a project.
+Over time, these individuals may shift their focus, and sometimes a project
+team or deliverable may find itself without active maintainers.
+
+Ideally, active contributors within a project nominate and grow new core
+reviewers to keep the work going. However, this doesn't always happen in time.
+If you discover that a project or deliverable you're interested in lacks
+active maintainers — for example, if patches are not being reviewed, or the
+PTL position is vacant — you don’t have to wait or give up. You can reach out
+to the `OpenStack Technical Committee (TC) <https://governance.openstack.org/tc/>`_.
+The TC is interested in helping reform or revitalize project teams where
+there is community interest. If you're willing to help maintain the work,
+or have ideas about how the deliverable could be adopted by another team,
+the TC can help coordinate that transition.
+
+The TC can:
+
+* Reassign a deliverable to a different project team.
+* `Retire a repository <https://docs.openstack.org/project-team-guide/repository.html#retiring-a-repository>`_
+  that is no longer in use.
+* Help recruit and support new maintainers.
+* Guide you through the process of forming or reviving a team.
+
+Start by raising your interest on the
+`openstack-discuss mailing list <http://lists.openstack.org/cgi-bin/mailman/listinfo/openstack-discuss>`_
+or by reaching out directly to the TC (for example, through the
+``#openstack-tc`` IRC channel on OFTC). Be sure to describe what you're
+hoping to achieve and what you're seeing (or not seeing) from the project.
+
+Your initiative matters — many vibrant OpenStack projects have been
+revitalized this way. Thanks again for caring about the long-term health
+of the software and the community.
+
 Reviews Guidelines
 ==================
 
