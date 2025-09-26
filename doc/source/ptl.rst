@@ -108,7 +108,7 @@ Once a person is ready, perform the following:
 
 #.  Add them to the project drivers group in launchpad.
 
-#.  Update the core team in Gerrit.
+#.  `Update the core team <https://docs.opendev.org/opendev/infra-manual/latest/creators.html#update-the-gerrit-group-members>`_ in Gerrit.
 
 
 Criteria when removing new cores
