@@ -47,27 +47,27 @@ Solution
 
 The mechanics of the solution are relatively simple. We maintain a
 central list of all the requirements (``global-requirements.txt``)
-that are allowed in OpenStack projects. This is enforced for
-``requirements.txt``, ``test-requirements.txt``,
-``doc/requirements.txt``, and extras defined in
+that are allowed in OpenStack projects. This is enforced for the
+``pyproject.toml`` file, requirements files (``requirements.txt``,
+``test-requirements.txt``, ``doc/requirements.txt``), and extras defined in
 ``setup.cfg``. This is maintained by hand, with changes going through CI.
 
 We also maintain a compiled list of the exact versions, including transitive
-dependencies, of packages that are known to work in the OpenStack CI system.
-This is maintained via an automated process that calculates the list and
-proposes a change back to this repository. A consequence of this is that
-new releases of OpenStack libraries are not immediately used: they have to
-pass through this automated process before we can benefit from (or be harmed
-by) them.
+dependencies, of packages that are known to work in the OpenStack CI system
+(``upper-constraints.txt``). This is maintained via an automated process that
+calculates the list and proposes a change back to this repository. A
+consequence of this is that new releases of OpenStack libraries are not
+immediately used: they have to pass through this automated process before we
+can benefit from (or be harmed by) them.
 
 Each project team may also optionally maintain a list of "lower
 bounds" constraints for the dependencies used to test the project in a
-``lower-constraints.txt`` file. If the file exists, the requirements
-check job will ensure that the values it contains match the minimum
-values specified in the local requirements files, so when the minimums
-are changed ``lower-constraints.txt`` will need to be updated at the
-same time. Per-project test jobs can be configured to use the file for
-unit or functional tests.
+``lower-constraints.txt`` file. Historically this was done for all projects but
+this is `no longer the case`__. It is up to individual projects to ensure
+this is internally consistent with their requirements. Per-project test
+jobs can be configured to use the file for unit or functional tests.
+
+.. __: https://governance.openstack.org/tc/resolutions/20220414-drop-lower-constraints
 
 .. image:: constraints.png
    :alt: Overview of the contraints system
@@ -80,10 +80,10 @@ contents. Distributions may only be referenced by name, not URL. Options
 (such as -e or -f) may not be used. Environment markers
 and comments are permitted. Version specifiers are only allowed for excluding
 versions, not setting minimum required versions (minimum
-required versions may optionally be specified in ``lower-constraints.txt``
-per-project). A single distribution may be listed more than once if different
-specifiers are required with different markers - for instance, if a dependency
-has dropped Python 2.7 support.
+required versions may optionally be specified in ``requirements.txt`` or
+``pyproject.toml`` files per-project). A single distribution may be listed more
+than once if different specifiers are required with different markers - for
+instance, if a dependency has dropped support for a given Python version.
 
 ``upper-constraints.txt`` is machine generated and nothing more or less than
 an exact list of versions, possibly multiple ones per project with different
@@ -129,10 +129,8 @@ Adding a new dependency
    or 3.  As part of the same review, run the following command
    ``tox -e generate``.  Be sure to only update or add constraints related
    to your addition.
-2. Add the dependency to the appropriate requirements file(s) within
-   the project tree, providing a minimum version specifier. If the
-   ``lower-constraints.txt`` file exists in the project tree, then update it
-   at the same time.
+2. Add the dependency to ``pyproject.toml`` or the appropriate requirements
+   file(s) within the project tree, providing a minimum version specifier.
 
 Removing a dependency
 ---------------------
@@ -149,9 +147,8 @@ Updating the minimum version of a dependency
 1. Check the ``upper-constraints.txt`` file in
    ``openstack/requirements``. If the version there is lower than the
    desired version, prepare a patch to update the setting.
-2. Update the minimum version in the relevant requirements file(s) in
-   the project tree. If the ``lower-constraints.txt`` file exists, then
-   update it in the same patch.
+2. Update the minimum version in the relevant requirements file(s) or
+   ``pyproject.toml`` file in the project tree.
 
 Excluding a version of a dependency
 -----------------------------------
@@ -228,13 +225,12 @@ General Review Criteria
   the change) should be enough.
 
 - Reviews proposed by the OpenStack Proposal Bot to ``upper-constraints.txt``
-  or ``requirements.txt`` are allowed to approved and workflowed by a single
-  core reviewer.
+  are allowed to approved and workflowed by a single core reviewer.
 
 Freeze
 ++++++
 
-Per project requirements allows the review process to stay the same during the
+Per-project requirements allows the review process to stay the same during the
 freeze.  This is due to the proposal bot not proposing changes to projects
 ``requirements.txt``.  Projects are responsible for their own
 ``requirements.txt`` maintenance.
@@ -388,10 +384,10 @@ New requirements
 ++++++++++++++++
 
 In nearly all cases this is not allowed.  An example where this is allowed
-would be:  A dependency of a dependency has an issue that impacts OpenStack.
-It wasn't listed in global-requirements.txt but it is required.  In order to
+would be:  A dependency of a dependency has an issue that impacts OpenStack. It
+wasn't listed in ``global-requirements.txt`` but it is required.  In order to
 block the affected releases and still be able to keep requirements in sync, we
-list the library in global-requirements.txt and update all projects that
+list the library in ``global-requirements.txt`` and update all projects that
 require it.
 
 Tools
@@ -408,8 +404,8 @@ Compile a constraints file showing the versions resulting from installing all
 of ``global-requirements.txt``::
 
   generate-constraints -p /usr/bin/python2.7 -p /usr/bin/python3.6 \
-  -r global-requirements.txt -d denylist.txt --version-map 3.6:3.4 \
-  --version-map 3.6:3.5 > new-constraints.txt
+    -r global-requirements.txt -d denylist.txt --version-map 3.6:3.4 \
+    --version-map 3.6:3.5 > new-constraints.txt
 
 edit-constraints
 ----------------
